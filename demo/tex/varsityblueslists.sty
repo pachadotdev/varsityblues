@@ -1,0 +1,38 @@
+%		***** Enumeration and description *****
+\newenvironment{enumerate'}
+{\def\labelenumi{{$\text{\theenumi}'$.}} 
+	\def\labelenumii{{\theenumii$'$.}}
+	\def\labelenumiii{{\theenumiii$'$.}} 
+	\def\labelenumiv{{\theenumiv$'$.}}\enumerate}
+{\endlist}
+
+\newcommand{\bfenumerate}{\def\labelenumi{{\bf\theenumi.}} 
+	\def\labelenumii{{\bf\theenumii.}}
+	\def\labelenumiii{{\bf\theenumiii.}} 
+	\def\labelenumiv{{\bf\theenumiv.}}\enumerate}
+\let\endbfenumerate\endlist
+%
+\newcommand{\Alphenumerate}{\def\labelenumi{{\rm\Alph{enumi}.}}
+	\def\labelenumii{{\rm\arabic{enumii}.}}
+	\def\labelenumiii{{\rm\alph{enumiii}.}} 
+	\def\labelenumiv{{\rm\roman{enumiv}.}}\enumerate}
+\let\endAlphenumerate\endlist
+%
+\newcommand{\alphenumerate}{\def\labelenumi{{\rm\alph{enumi}.}}
+	\def\labelenumii{{\rm\arabic{enumii}.}}
+	\def\labelenumiii{{\rm\roman{enumiii}.}} 
+	\def\labelenumiv{{\rm\alph{enumiv}.}}\enumerate}
+\let\endalphenumerate\endlist
+%
+\newcommand{\Romanenumerate}{\def\labelenumi{{\rm\Roman{enumi}.}} 
+	\def\labelenumii{{\rm\Alph{enumii}.}}
+	\def\labelenumiii{{\rm\roman{enumiii}.}} 
+	\def\labelenumiv{{\rm\alph{enumiv}.}}\enumerate}
+\let\endRomanenumerate\endlist
+%
+\newcommand{\romanenumerate}{\def\labelenumi{{\rm\roman{enumi}.}} 
+	\def\labelenumii{{\rm\alph{enumii}.}}
+	\def\labelenumiii{{\rm\arabic{enumiii}.}} 
+	\def\labelenumiv{{\rm\roman{enumiv}.}}\enumerate}
+\let\endromanenumerate\endlist
+%

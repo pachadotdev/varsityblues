@@ -1,0 +1,540 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{varsitybluesmacros}[Varsity Blues macros]
+
+%----------------------------------------------%
+%       Other packages                         %
+%----------------------------------------------%
+
+%	Standard AMS packages
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsxtra}
+\RequirePackage{amsfonts}
+\RequirePackage{euscript}
+
+%	Define the \xspace command:
+\RequirePackage{xspace}
+
+%	Arbitrary line slopes and circle sizes:
+\RequirePackage{pict2e}
+
+%	Custom packages
+\RequirePackage{../tex/cursive}
+\RequirePackage{../tex/varsitybluesmatrix}
+
+%----------------------------------------------%
+%                  unit length                 %
+%----------------------------------------------%
+
+%	Default picture units: 1 TeX "big point"
+%	= 1 "PostScript point" = 1/72 inch.
+%	(A TeX point is a "printer's point" = 1/72.3 inch.)
+\setlength{\unitlength}{1bp}
+
+%----------------------------------------------%
+%       Handy new commands                     %
+%----------------------------------------------%
+
+%	For use with chicagonr.bst
+\let\nindex\index
+\let\nindexat\index
+
+%	Dangerous bend sign
+\font\manual=manfnt % font used for the METAFONT logo, etc.
+\def\dbend{{\manual\char127}} % dangerous bend sign
+\newcommand{\danger}{\marginpar{\smash{\small\dbend}}}
+\newcommand{\ddanger}{\marginpar{\smash{\small\dbend\kern1pt\dbend}}}
+
+% Date in numeral format.
+\def\twodigityear{%
+	\@tempcnta\year
+	\divide \@tempcnta by 100    % throws away remainder
+	\multiply \@tempcnta by 100
+	\@tempcntb\year
+	\advance\@tempcntb by -\@tempcnta % remainder
+\two@digits{\the\@tempcntb}
+}
+
+\newcommand{\numdates}{
+\renewcommand{\today}{\the\month--{\the\day}--\twodigityear}
+}
+
+%----------------------------------------------%
+%       New environments                       %
+%----------------------------------------------%
+
+%   Mark difficult sections
+\newcommand{\dsection}[1]{\let\saved\@seccntformat
+\def\@seccntformat##1{\csname the##1\endcsname\,\protect\raisebox{.2ex}{$\star$}\hskip1em\relax}
+\section{#1}
+\let\@seccntformat\saved}
+
+
+%	Marginal notes
+\newcommand{\marginnote}[1]{\marginpar{\tiny\raggedright #1}}
+
+%	Auto-labeling equations
+%	N.B. This command prepends "eq:" to your labels!
+%	The \refeq also prepends "eq:" and puts parens.
+
+\newcommand{\beq}[1]{\begin{equation}\label{eq:#1}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\refeq}[1]{($\ref{eq:#1}$)}
+
+%	Primed equation numbers of other labeled eqns.
+%		If \beq{a} is equation 1, then
+%		\bpeq{a} is equation 1' and is referenced
+%		with \refeq{a'}.  Likewise
+%		\bpeq{a'} is equation 1'' and is referenced
+%		with \refeq{a''}.  Likewise
+%		\bpeq{a} may be used before \beq{a}.  You will
+%		need multiple runs
+%
+%  11/03/2007 -- Added {}{} in \@eqnnum for
+%	partial compatibility with hyperref package.
+%	It no longer generates errors, but I haven't
+%	figured out why the hyperlinks don't work properly.
+%   I'm working on improvements.
+
+%   OOPS! It also doesn't work with a split environment.
+%   I don't know why.
+\newcommand{\bpeq}[1]{\bgroup
+\def\@setref##1##2##3{\expandafter##2##1}
+\@ifundefined{r@eq:#1}{\def\@currentlabel{}}
+{\def\@currentlabel{\ref{eq:#1}'}}
+\def\@eqnnum{{\normalfont \normalcolor (\hbox{$\ref{eq:#1}{}{}'$})}}
+\@ifundefined{r@eq:#1}{\relax}{\label{eq:#1'}}
+$$
+}
+\newcommand{\epeq}{\relax\eqno\@eqnnum$$\egroup\@ignoretrue}
+
+% Commands for labeling equations with text
+% E.g., \eqlab{IC} or \eqlab{IC}[']
+%    \refeqlab{IC} or \refeqlab{IC}[']
+% N.B.  This is similar to the AMSTeX command \tag.
+%       \tag also has * form, \tag*{label}, which
+%       displays the label without parens.  \tag does
+%       apply \eqlabfmt to its argument.
+%  Another difference from \tag, is that \tag replaces
+%  any automatically generated equation numbers.
+%  AND if there is a \label{lab} command,
+%  \ref{lab} produces the argument to \tag,
+%  and \eqref{lab} parenthesizes it.
+\newcommand{\eqlabfmt}[1]{\text{\bfseries\upshape #1}}
+\newcommand{\eqlab}[2][]{\eqno(\boldsymbol{\eqlabfmt{#2}#1})}
+\newcommand{\refeqlab}[2][]{$(\boldsymbol{\eqlabfmt{#2}#1})$}
+
+%----------------------------------------------%
+%       Fonts                                  %
+%----------------------------------------------%
+
+%	Font for defined terms in text
+\newcommand{\dfn}[1]{{\boldmath\bfseries #1}}
+\newcommand{\idf}[1]{{\boldmath\bfseries #1\index{#1}}}
+
+%	Improved math script
+\newcommand{\scr}[1]{\ensuremath{\EuScript{#1}}}
+
+%----------------------------------------------%
+%       Graphics                               %
+%----------------------------------------------%
+
+%	Figure place holder
+\newcommand{\fighere}{\begin{figure}[hbt]\vspace*{1in}\caption{figure here}\vspace{1in}\end{figure}}
+
+
+%	Place an object in a particular location
+%	in a picture environment
+\newcommand{\place}{\relax}
+\def\place(#1,#2)[#3]#4{\put(#1,#2){\makebox(0,0)[#3]{#4}}}
+
+%	Blobs for points in picture environments:
+%	\blob or \blob[size].  	Default size is 2 units
+\newcommand{\blob}[1][2]{\circle*{#1}}
+
+%  Redefine \caption to use period, not colon
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1. #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1. #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+%----------------------------------------------%
+%       Mathematical Formatting                %
+%----------------------------------------------%
+
+%   Quantified expressions, e.g.
+%	\qe{\forall y}{f(x)+p\cdot(y-x)\leq f(y)}
+\newcommand{\qe}[2]{\mathord{\mathop{\left(#1\right)}\,\left[#2\right]}}
+
+\newcommand{\qqe}[3]{\mathord{\mathop{\left(#1\right)}\mathop{\left(#2\right)}\,\left[#3\right]}}
+
+\newcommand{\qqqe}[4]{\mathord{\mathop{\left(#1\right)}\mathop{\left(#2\right)}\mathop{\left(#3\right)}\,\left[#4\right]}}
+
+\newcommand{\qqqqe}[5]{\mathord{\mathop{\left(#1\right)}\mathop{\left(#2\right)}\mathop{\left(#3\right)}\mathop{\left(#4\right)}\,\left[#5\right]}}
+
+%	Bold symbols
+\newcommand{\bs}[1]{\ensuremath{\boldsymbol{#1}}}
+
+%	Fractions
+%	medium fractions
+\newcommand{\mfrac}[2]{\mathchoice
+{\text{\small$\frac{#1}{#2}$}}{\text{\large$\frac{#1}{#2}$}}{\frac{#1}{#2}}{\frac{#1}{#2}}}
+%\newcommand{\dfrac}[2]{{\displaystyle\frac{#1}{#2}}}
+%\newcommand{\tfrac}[2]{{\textstyle\frac{#1}{#2}}}
+
+%	Accents and decorations
+\newcommand{\bbar}[1]{\underline{#1}}
+\newcommand{\tbar}[1]{\overline{#1}}
+\newcommand{\angles}[2]{\langle #1,#2\rangle}
+\newcommand{\barbar}[1]{\mathord{\bar{\bar{#1}}}}
+\providecommand{\underbar}[1]{\text{\underline{$#1$}}}
+\renewcommand{\underbar}[1]{\text{\underline{$#1$}}}
+\def\undertilde#1{\mathord{\vtop{\ialign{##\crcr
+   $\hfil{#1}\hfil$\crcr\noalign{\kern.5pt\nointerlineskip}
+   $\hfil\tilde{}\hfil$\crcr\noalign{\kern-.5pt}}}}}
+
+%	Stacked super/subscripts
+\newcommand{\stacklines}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+\newcommand{\stackscript}[2]{\genfrac{}{}{0pt}{3}{#1}{#2}}
+
+%	Replacement for the {x \over y} construction
+\newcommand{\varsitybluesover}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+
+%	Ordinals: \nth = nth; \nth[i] = ith, etc.
+\newcommand{\nth}[1][n]{\ensuremath{#1^{\mathrm{th}}}}
+
+%	Definition by Cases;
+%	\kcases{blah & blah \\ blah & blah \\ etc.}
+%	adds .5 baselineskip between lines
+%	Optional argument governs column spacing (in ems)
+\newcommand{\kcases}[2][3]{%
+\def\@xarraycr{\@ifnextchar[\@argarraycr{\ifnum0=`{\fi}${}\@yargarraycr{.5\normalbaselineskip}}}%
+\left\{\begin{array}{@{}c@{\hspace{#1em}}l}
+#2
+\end{array}\right.}% 	matching }
+
+%	Text-like Operators
+%\newcommand{\mathword}[1]{\mathop{\operator@font #1}\nolimits}
+%\newcommand{\mathword}[1]{\mathop{\mathrm{#1}}\nolimits}
+
+%  Use \DeclareMathOpertor instead!
+
+% font for typesetting a dimension:
+\newcommand{\dmn}[1]{\mathrm{#1}}
+
+% Labels underneath (like \underbrace w/o brace)
+\newcommand{\underlabel}[1]{\mathop{\vtop{\ialign{##\crcr
+$\hfil\displaystyle{#1}\hfil$\crcr\noalign{\kern3pt\nointerlineskip}}}}\limits}
+
+%	Space around equal signs in eqnarray
+\newcommand{\equalsp}{\hskip 2\arraycolsep}
+%	better version: \esp or \esp[<], etc.
+\newcommand{\esp}[1][=]{\hskip 2\arraycolsep\mathrel{#1}\hskip 2\arraycolsep}
+
+%	Modern Greek
+\let\oldepsilon\epsilon
+\let\oldphi\phi
+\let\epsilon\varepsilon
+\let\phi\varphi
+
+%	Text Spacing
+\newcommand{\qtext}[1]{\quad\text{#1}\quad}
+\newcommand{\qqtext}[1]{\qquad\text{#1}\qquad}
+\newcommand{\stext}[1]{\ \text{#1}\ }
+\newcommand{\qstext}[1]{\quad\text{#1}\ }
+\newcommand{\texts}[1]{\text{#1}\ }
+
+%	Improved Array Spacing: \openitup{extra space}
+\newlength{\rowheight}
+\newlength{\rowdepth}
+\newcommand{\openitup}[1]%
+{\setlength{\rowheight}{#1}\setlength{\rowdepth}{.4\rowheight}\addtolength{\rowheight}{\arraystretch\baselineskip}%
+\rule[-\rowdepth]{0pt}{\rowheight}}
+
+%----------------------------------------------%
+%       Mathematical symbols                   %
+%----------------------------------------------%
+
+%	Common sets of numbers
+\newcommand{\R}{\mathbb R}	    % real numbers
+\newcommand{\eR}{\R^{\sharp}}		% extended reals
+\newcommand{\Q}{\mathbb Q}      % rational numbers
+\newcommand{\N}{\mathbb N}			% natural numbers
+\newcommand{\Z}{\mathbb Z}			% integers
+\newcommand{\Cx}{\mathbb C}			% complex numbers
+
+%	Euclidean spaces e.g., \Rm or \Rm[+1]
+\newcommand{\Rk}[1][]{\ensuremath{\R^{\dmn{k}#1}}}
+\newcommand{\Rl}[1][]{\ensuremath{\R^{\ell#1}}}
+\newcommand{\Rm}[1][]{\ensuremath{\R^{\dmn{m}#1}}}
+\newcommand{\Rn}[1][]{\ensuremath{\R^{\dmn{n}#1}}}
+\newcommand{\Rp}[1][]{\ensuremath{\R^{\dmn{p}#1}}}
+
+\newcommand{\Qm}[1][]{\ensuremath{\Q^{\dmn{m}#1}}}
+\newcommand{\Qn}[1][]{\ensuremath{\Q^{\dmn{n}#1}}}
+\newcommand{\Zm}[1][]{\ensuremath{\Z^{\dmn{m}#1}}}
+\newcommand{\Zn}[1][]{\ensuremath{\Z^{\dmn{n}#1}}}
+
+% 	Set of probability measures: \prob or \prob{X}
+\newcommand{\prob}[1]{\ensuremath{\def\@temp{#1}\ifx\@temp\@empty \scr P\else\scr P(#1)\fi}}
+
+%	Expectation
+\newcommand{\E}{\mathbb E}
+
+%	Inverse image or event:
+\newcommand{\ev}[1]{\ensuremath{\left\{\protect\mathstrut #1\right\}}}
+% The math strut needs to protected in case it's used in a \caption command.  I don't know why.
+
+%	Set Theory
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\superset}{\supset}
+\newcommand{\union}{\cup}
+\newcommand{\inter}{\cap}
+% slighty larger \textstyle:
+\newcommand{\tcap}{\mathop{\text{\large$\textstyle\bigcap$}}\limits}
+\newcommand{\tcup}{\mathop{\text{\large$\textstyle\bigcup$}}\limits}
+
+%	Topology
+\newcommand{\cl}[1]{\overline{#1}}		% closure
+\DeclareMathOperator{\itr}{int}		% interior
+\DeclareMathOperator{\clo}{cl}
+\DeclareMathOperator{\diam}{diam}
+\newcommand{\Gdelta}{\scr G_\delta}
+\newcommand{\Fsigma}{\scr F_\sigma}
+\newcommand{\Hd}{{\Cursive h}}		% Hausdorff distance
+\newcommand{\weakstar}{\text{weak\raisebox{-.4ex}{*}}\xspace}
+
+%	Norm and absolute value
+\newlength{\@normbarht}
+\newlength{\@normarght}
+
+\newcommand{\norm}[1]{\setbox0\vbox{\ensuremath{#1}}
+\setlength{\@normarght}{\ht0}
+\setbox0\vbox{\ensuremath{\Vert}}
+\setlength{\@normbarht}{\ht0}
+\ifthenelse{\lengthtest{1.1\@normbarht>\@normarght}}{\lVert#1\rVert}{\left\lVert#1\right\rVert}}
+
+\newcommand{\abs}[1]{\setbox0\vbox{\ensuremath{#1}}
+\setlength{\@normarght}{\ht0}
+\setbox0\vbox{\ensuremath{\vert}}
+\setlength{\@normbarht}{\ht0}
+\ifthenelse{\lengthtest{1.1\@normbarht>\@normarght}}{\lvert#1\rvert}{\left\lvert#1\right\rvert}}
+
+%	Convexity
+% \kc xy\lambda = (1-\lambda)x+\lambda y
+\newcommand{\kc}[3]{(1-{#3}){#1}+{#3}{#2}}
+% \kcd xy\lambda = x+\lambda(y-x)
+\newcommand{\kcd}[3]{{#1}+{#3}({#2}-{#1})}
+% \kcp xy\lambda = \bigl((1-\lambda)x+\lambda y\bigr)
+\newcommand{\kcp}[3]{\bigl(\kc{#1}{#2}{#3}\bigr)}
+
+% \kcf fxy\lambda = f\bigl((1-\lambda)x+\lambda y\bigr)
+\newcommand{\kcf}[4]{{#1}\bigl(\kc{#2}{#3}{#4}\bigr)}
+% \kcfd fxy\lambda = f\bigl(x+\lambda(y-x)\bigr)
+\newcommand{\kcfd}[4]{{#1}\bigl(\kcd{#2}{#3}{#4}\bigr)}
+
+\DeclareMathOperator{\co}{co}	% convex hull
+\DeclareMathOperator{\cone}{cone}	% conical hull
+\newcommand{\ray}[1]{\langle#1\rangle} 	% ray
+\DeclareMathOperator{\cco}{\cl{\operatorname{co}}}
+\DeclareMathOperator{\aff}{aff}
+\DeclareMathOperator{\cor}{cor}
+\DeclareMathOperator{\icr}{icr}
+\DeclareMathOperator{\ri}{ri}
+\newcommand{\extr}[1]{\scr E(#1)}		% extreme points
+
+%	Functions and correspondences
+\providecommand{\too}{\twoheadrightarrow}
+\providecommand{\mapstoo}{\mathrel{\mapstochar\too}}
+\providecommand{\mapstoto}{\mapstoo}
+\DeclareMathOperator{\Gr}{gr}
+\newcommand{\inv}{^{-1}}			% inverse
+\newcommand{\upinv}{^{\text{u}}}
+\newcommand{\lowinv}{^{\ell}}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\epi}{epi}
+\DeclareMathOperator{\hypo}{hypo}
+% point on a graph \gpt xf = (x,f(x))
+\newcommand{\gpt}[2]{\bigl(#1,#2(#1)\bigr)}
+
+%	Linear Algebra
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Range}{range}
+\DeclareMathOperator{\NullSpace}{null\ space}
+\DeclareMathOperator{\Rank}{rank}
+\DeclareMathOperator{\Trace}{tr}
+\newcommand{\Nullity}{nullity}
+\newcommand{\Mat}[1]{\Cursive{M}(#1)}
+\newcommand{\Lin}[2]{\Cursive{L}(#1,#2)}
+
+%	Vector orders and binary relations
+\newcommand{\vgeq}{\geqq}
+\newcommand{\vleq}{\leqq}
+\newcommand{\vgg}{\gg}
+\newcommand{\vll}{\ll}
+\providecommand{\sgeq}{>}
+\providecommand{\sleq}{<}
+\let\ogeq\geq
+\let\oleq\leq
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+
+%	Preference relations
+\newcommand{\pref}{\ensuremath{\mathrel{\succcurlyeq}}}	% preference
+\newcommand{\rpref}
+	{\ensuremath{\mathrel{\preccurlyeq}}} % reversed preference
+\newcommand{\spref}{\ensuremath{\mathrel{\succ}}} % strict preference
+\newcommand{\indiff}{\ensuremath{\mathrel{\sim}}} % indifference
+
+%	Miscellany
+\let\by\times	     % synonym for n\by m matrices
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\one}{\ensuremath{\boldsymbol{1}}}
+\DeclareMathOperator*{\maximize}{maximize}
+\DeclareMathOperator*{\minimize}{minimize}
+
+\newcommand{\mathword}[1]{\mathop{\text{#1}}}
+
+% Does not imply
+\newlength{\notwd}
+\newlength{\implieswd}
+\settowidth{\notwd}{$\not$}
+\settowidth{\implieswd}{$\implies$}
+\newcommand{\nimplies}{{\mbox{$\kern.3\implieswd\not\kern-\notwd\kern-.3\implieswd\implies$}}}
+
+%  Make indices more compact:
+\newcommand{\minus}{\mathord{-}}%% for n-1, etc.
+\newcommand{\plus}{\mathord{+}}%% for n+1, etc.
+
+\newcommand{\stack}[1]{\mathop{#1}\limits}
+
+%----------------------------------------------%
+%       Adjustable Convergence Arrow           %
+%----------------------------------------------%
+% 1995/05/09;     cf. p. 359 of the TeXBook
+
+\newcommand{\converges}[2]{\def\convsub{#1}\def\convsup{#2}
+\ifx\convsub\@empty
+	\ifx\convsup\@empty\rightarrow
+	\else
+	\mathrel{\vbox{\ialign{##\crcr\noalign{\kern -1pt\nointerlineskip}
+	$\hfil\scriptstyle\mathstrut{\ #2\ \,}\hfil$\crcr\noalign{\kern -2pt\nointerlineskip}
+	\rightarrowfill\crcr%%%%%\noalign{\kern -1pt\nointerlineskip}
+	}}}\fi
+\else
+	\ifx\convsup\@empty
+	\mathrel{\vtop{\ialign{##\crcr
+	\rightarrowfill\crcr\noalign{\kern -3pt\nointerlineskip}
+	$\hfil\scriptstyle\mathstrut{\ #1\ \,}\hfil$\crcr
+	}}}
+	\else
+\mathrel{\vcenter{\ialign{##\crcr
+	$\hfil\scriptstyle\mathstrut{\ #2\ \,}\hfil$\crcr\noalign{\kern -2pt\nointerlineskip}
+	\rightarrowfill\crcr\noalign{\kern -3pt\nointerlineskip}
+	$\hfil\scriptstyle\mathstrut{\ #1\ \,}\hfil$\crcr
+	}}}
+	\fi
+\fi
+}
+
+%----------------------------------------------%
+%   Matrix & vector algebra & Jacobians, etc.  %
+%----------------------------------------------%
+
+\newcommand{\vect}[2]{#1_1,\ldots,#1_{#2}}
+\newcommand{\diff}[4]{\dfrac{\partial #1^{#2}}{\partial #3_{#4}}}
+\newcommand{\diffat}[5]{\dfrac{\partial #1^{#2}(#5)}{\partial #3_{#4}}}
+
+\newcommand{\jacobian}[4]{\left[\begin{array}{ccc}
+\diff {#1}1{#3}1 &\cdots &\diff {#1}1{#3}{#4}\\
+\vdots &&\vdots\\
+\diff {#1}{#2}{#3}1 &\cdots&\diff{#1}{#2}{#3}{#4}
+\end{array}\right]}
+
+\newcommand{\jacobianat}[5]{\left[\begin{array}{ccc}
+\diffat {#1}1{#3}1{#5} &\cdots &\diffat {#1}1{#3}{#4}{#5}\\
+\vdots &&\vdots\\
+\diffat {#1}{#2}{#3}1{#5} &\cdots&\diffat{#1}{#2}{#3}{#4}{#5}
+\end{array}\right]}
+
+\newcommand{\CramerJacobian}[8]{\frac{\left| \begin{array}{ccccccc}
+\diff{#1}1{#3}1 & \cdots &\diff{#1}1{#3}{{#6}-1} &\diff{#5}1{#7}{#8} &\diff{#1}1{#3}{{#6}+1} &\cdots &\diff{#1}1{#3}{#4}\\
+\vdots &&\vdots&\vdots&\vdots &&\vdots\\
+\diff{#1}{#2}{#3}1 &\cdots &\diff{#1}{#2}{#3}{{#6}-1} &\diff{#5}{#2}{#7}{#8} &\diff{#1}{#2}{#3}{{#6}+1} &\cdots &\diff{#1}{#2}{#3}{#4}
+\end{array}\right|}
+{\left| \begin{array}{ccc}
+\diff {#1}1{#3}1 & \cdots & \diff {#1}1{#3}{#4}\\
+\vdots &&\vdots\\
+\diff {#1}{#2}{#3}1 &\cdots&\diff{#1}{#2}{#3}{#4}
+\end{array}\right|}
+}
+
+\newcommand{\setcolsep}{\setlength{\arraycolsep}{2.5pt}}
+
+\newcommand{\partition}[4]{{\setcolsep
+\left[ \begin{array}{c|c}
+#1&#2\\\hline
+#3&#4
+\end{array}\right]}}
+
+\newcommand{\stackvec}[2]{{\setcolsep
+\left[ \begin{array}{c}
+#1\\\hline#2\end{array}\right]}}
+
+\newcommand{\catvec}[2]{{\setcolsep
+\left[ \begin{array}{c|c}
+#1&#2\end{array}\right]}}
+
+%\newcommand{\colvec}[1]{\left[ \begin{array}{@{}c@{}}#1\end{array}\right]}
+\newcommand{\colvec}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+%----------------------------------------------%
+%            Commutative triangles             %
+%----------------------------------------------%
+
+% Args  = (3 spaces clockwise, 3 functions clockwise,
+%		 scale)
+\newcommand{\commutes}[7]{\begingroup
+\setlength{\unitlength}{#7bp}
+\begin{picture}(90,90)
+	\put(10,75){\vector(1,0){60}}
+	\put(75,70){\vector(0,-1){60}}
+	\put(5,70){\vector(1,-1){65}}
+	\place(7.5,72.5)[br]{$#1$}
+	\place(72.5,72.5)[bl]{$#2$}
+	\place(72.5,7.5)[tl]{$#3$}
+	\place(40,80)[b]{$#4$}
+	\place(80,38)[l]{$#5$}
+	\place(32.5,37.5)[tr]{$#6$}
+\end{picture}
+\endgroup}
+
+%----------------------------------------------%
+%            Commutative rectangles            %
+%----------------------------------------------%
+
+% Args  = (4 spaces clockwise, 4 functions clockwise,
+%		 scale)
+\newcommand{\commutesq}[9]{\begingroup
+\setlength{\unitlength}{#9bp}
+\begin{picture}(90,90)
+	\put(10,75){\vector(1,0){60}}
+	\put(7.5,8.5){\vector(1,0){60}}
+	\put(75,70){\vector(0,-1){60}}
+	\put(2.5,70){\vector(0,-1){60}}
+	\place(7.5,72.5)[br]{$#1$}
+	\place(72.5,72.5)[bl]{$#2$}
+	\place(72.5,5)[tl]{$#3$}
+	\place(7.5,5)[tr]{$#4$}
+	\place(40,80)[b]{$#5$}
+	\place(80,38)[l]{$#6$}
+	\place(40,5)[t]{$#7$}
+	\place(0,38)[r]{$#8$}
+\end{picture}
+\endgroup}

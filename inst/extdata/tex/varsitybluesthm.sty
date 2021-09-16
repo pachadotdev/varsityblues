@@ -1,0 +1,162 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{varsitybluesthm}[Varsity Blues theorems]
+
+\RequirePackage{ifthen}[1994/06/01]
+
+% Option names
+\newboolean{separate}
+\newboolean{bysection}
+\newboolean{bychapter}
+\newboolean{numfirst}
+
+\DeclareOption{separate}{\setboolean{separate}{true}}
+\DeclareOption{bychapter}{\setboolean{bychapter}{true}}
+\DeclareOption{bysection}{\setboolean{bysection}{true}}
+\DeclareOption{numfirst}{\setboolean{numfirst}{true}}
+
+\ProcessOptions
+
+% Use the standard theorem package
+\RequirePackage{theorem}
+
+% Use bold math in theorem headers:
+\gdef\theorem@headerfont{\normalfont\bfseries\boldmath}
+
+% If numfirst option specified:
+\ifthenelse{\boolean{numfirst}}
+{\theoremstyle{change}}
+{\relax}
+
+% bysection option overrides bychapter:
+\ifthenelse{\boolean{bysection}}
+	{\newtheorem{theorem}{Theorem}[section]}
+	{
+	\ifthenelse{\boolean{bychapter}}
+		{\newtheorem{theorem}{Theorem}[chapter]}
+		{\newtheorem{theorem}{Theorem}}
+	}	
+
+% If the separate option is specified:
+\ifthenelse{\boolean{separate}}
+	{
+	\ifthenelse{\boolean{bychapter}}
+		{
+		\newtheorem{assumption}{Assumption}[chapter]
+		\newtheorem{axiom}{Axiom}[chapter]
+		\newtheorem{claim}{Claim}[chapter]
+		\newtheorem{conjecture}{Conjecture}[chapter]
+		\newtheorem{corollary}{Corollary}[chapter]
+		\newtheorem{definition}{Definition}[chapter]
+		{\theorembodyfont{\normalfont}\newtheorem{ex@mple}{Example}[chapter]}
+		{\theorembodyfont{\normalfont}\newtheorem{rem@rk}{Remark}[chapter]}
+		\newtheorem{exercise}{Exercise}[chapter]
+		\newtheorem{fact}{Fact}[chapter]
+		\newtheorem{lemma}{Lemma}[chapter]
+		\newtheorem{proposition}{Proposition}[chapter]
+		\newtheorem{property}{Property}[chapter]
+		}
+	 	{	
+		\ifthenelse{\boolean{bysection}}
+			{
+			\newtheorem{assumption}{Assumption}[section]
+			\newtheorem{axiom}{Axiom}[section]
+			\newtheorem{claim}{Claim}[section]
+			\newtheorem{conjecture}{Conjecture}[section]
+			\newtheorem{corollary}{Corollary}[section]
+			\newtheorem{definition}{Definition}[section]
+			{\theorembodyfont{\normalfont}\newtheorem	{ex@mple}{Example}[section]}
+		{\theorembodyfont{\normalfont}\newtheorem{rem@rk}{Remark}[section]}
+			\newtheorem{exercise}{Exercise}[section]
+			\newtheorem{fact}{Fact}[section]
+			\newtheorem{lemma}{Lemma}[section]
+			\newtheorem{proposition}{Proposition}[section]
+			\newtheorem{property}{Property}[section]
+			}
+		{
+		\newtheorem{assumption}{Assumption}
+		\newtheorem{axiom}{Axiom}
+		\newtheorem{claim}{Claim}
+		\newtheorem{conjecture}{Conjecture}
+		\newtheorem{corollary}{Corollary}
+		\newtheorem{definition}{Definition}
+		{\theorembodyfont{\normalfont}\newtheorem{ex@mple}{Example}}
+		{\theorembodyfont{\normalfont}\newtheorem{rem@rk}{Remark}}
+		\newtheorem{exercise}{Exercise}
+		\newtheorem{fact}{Fact}
+		\newtheorem{lemma}{Lemma}
+		\newtheorem{proposition}{Proposition}
+		\newtheorem{property}{Property}
+		}
+		}
+	}
+	{
+	\newtheorem{assumption}[theorem]{Assumption}
+	\newtheorem{axiom}[theorem]{Axiom}
+	\newtheorem{claim}[theorem]{Claim}
+	\newtheorem{conjecture}[theorem]{Conjecture}
+	\newtheorem{corollary}[theorem]{Corollary}
+	\newtheorem{definition}[theorem]{Definition}
+	{\theorembodyfont{\normalfont}\newtheorem{ex@mple}[theorem]{Example}}
+	{\theorembodyfont{\normalfont}\newtheorem{rem@rk}[theorem]{Remark}}
+	\newtheorem{exercise}[theorem]{Exercise}
+	\let\theexercise\thetheorem % for use with answers package
+	\newtheorem{fact}[theorem]{Fact}
+	\newtheorem{lemma}[theorem]{Lemma}
+	\newtheorem{proposition}[theorem]{Proposition}
+	\newtheorem{property}[theorem]{Property}
+	}
+
+% result (named theorem) environment; no numbers!! 
+%	unless numfirst specified
+\ifthenelse{\boolean{numfirst}}
+	{%
+		\newenvironment{result}[1][Theorem]
+			{\refstepcounter{theorem}\trivlist
+				\item[\hskip \labelsep\theorem@headerfont\thetheorem\ #1]\hskip 0pt plus 1em \itshape}
+       	{\endtrivlist}
+	}
+	{%
+		\newenvironment{result}[1][Theorem]
+			{\trivlist
+				\item[\hskip \labelsep\theorem@headerfont #1]\hskip 0pt plus 1em \itshape}
+			{\endtrivlist}
+	}
+
+% Proof environment
+\newenvironment{proof}[1][Proof]
+	{\trivlist\item[\hskip\labelsep\textit{#1}:]}
+	{\kcbendproofskip\qedmark\endtrivlist}
+
+\newenvironment{solution}[1][Solution]
+	{\trivlist\item[\hskip\labelsep\textit{#1}:]}
+	{\kcbendproofskip\solutionmark\endtrivlist}
+
+\newenvironment{answer}[1][Sample answer]
+	{\trivlist\item[\hskip\labelsep\textbf{#1:}]}
+	{\kcbendproofskip\solutionmark\endtrivlist}
+	
+\newcommand{\kcbendproofskip}[1]{%
+\ifvmode\vskip -\baselineskip\fi\unskip%
+\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak\hfill{#1}\penalty50}
+
+% End markers
+\newcommand{\goldenrectangle}{\rule{1ex}{1.61803ex}}
+\newcommand{\qedmark}        {\goldenrectangle}
+\newcommand{\solutionmark}   {\goldenrectangle}
+\RequirePackage{amssymb}
+\newcommand{\examplemark}    {$\square$}
+
+% Example environment
+\newenvironment{example}
+	{\begin{ex@mple}}
+	{\kcbendproofskip\examplemark\end{ex@mple}}
+
+% Remark environment
+\newenvironment{remark}
+	{\begin{rem@rk}}
+	{\end{rem@rk}}
+
+% Aside environment (is unnumbered remark, labeled as Aside)
+\newenvironment{aside}[1][Aside]
+	{\trivlist\item[\hskip\labelsep\textbf{#1}:]}
+	{\endtrivlist}

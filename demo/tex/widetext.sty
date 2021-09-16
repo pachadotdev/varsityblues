@@ -1,0 +1,15 @@
+% **************** Narrow H&SS margins---yuck!%	8-1-91, kcb%	rev. 7-10-96%
+%	If the document is a letter, 
+%	we don't want to overwrite our letterhead.
+%	The letter documentclass defines \opening,
+%	so we can use that to decide if we have a letter.
+
+%	Page height
+\@ifundefined{opening}{%	Not a letter\topmargin 0in\textheight 9in\advance\textheight by -\headheight\advance\textheight by -\headsep}%	else it is a letter{\topmargin -.25in\textheight 9in}
+
+%	Page width depends on type size.
+%	Note: \@ptsize is 0, 1,or 2 as point size is
+%		10, 11, or 12pt, so \ifcase works.
+\ifcase \@ptsize	%		if 10 pt	\oddsidemargin .375in	\evensidemargin .375in	\textwidth 5.75in	\marginparwidth .75in\or	% 						if 11 pt	\oddsidemargin .125in	\evensidemargin .125in	\textwidth 6.25in	\marginparwidth 1in\or	%						if 12 pt	\oddsidemargin .125in	\evensidemargin .125in	\textwidth 6.25in	\marginparwidth .85in\fi
+
+
