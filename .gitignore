@@ -5,7 +5,7 @@
 inst/rmarkdown/templates/thesis/skeleton/_book/*
 inst/rmarkdown/templates/thesis/skeleton/_bookdown_files/*
 docs
-inst/extdata/*.tex
-inst/extdata/*.pdf
-inst/extdata/*.log
-inst/extdata/*_files
+inst/extdata/assignment1/*.tex
+inst/extdata/assignment1/*.pdf
+inst/extdata/assignment1/*.log
+inst/extdata/assignment1/assignment1_files
