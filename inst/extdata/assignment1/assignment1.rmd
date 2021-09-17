@@ -23,36 +23,15 @@ metadata used to produce the document.  Be careful with spacing in this header!
 If you receive a duplicate label error after knitting, make sure to delete the index.Rmd file and then knit again.
 -->
 
-```{r include_packages, include=FALSE}
-# This chunk ensures that the varsityblues package is
-# installed and loaded. This varsityblues package includes
-# the template files for the thesis.
-if (!require(remotes)) {
-  if (params$`Install needed packages for {varsityblues}`) {
-    install.packages("remotes", repos = "https://cran.rstudio.com")
-  } else {
-    stop(
-      paste('You need to run install.packages("remotes")",
-            "first in the Console.')
-    )
-  }
-}
-if (!require(varsityblues)) {
-  if (params$`Install needed packages for {varsityblues}`) {
-    remotes::install_github("pachadotdev/varsityblues")
-  } else {
-    stop(
-      paste(
-        "You need to run",
-        'remotes::install_github("pachadotdev/varsityblues")',
-        "first in the Console."
-      )
-    )
-  }
-}
-library(varsityblues)
-# Set how wide the R output will go
-options(width = 70)
+<!--
+You can delete this chunk afterwards, but Knit without removing it first to setup LaTeX. On Windows, you might need to restart your computer and try again if knitting the document doesn't work.
+-->
+```{r latex_setup}
+if (!require("remotes")) install.packages("remotes", repos = "https://cran.rstudio.com")
+if (!require("rmarkdown")) install.packages("rmarkdown", repos = "https://cran.rstudio.com")
+if (!require("tinytex")) install.packages("tinytex", repos = "https://cran.rstudio.com")
+
+if (isFALSE(tinytex::is_tinytex())) tinytex::install_tinytex()
 ```
 
 <!--
