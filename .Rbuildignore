@@ -2,7 +2,7 @@
 ^\.Rproj\.user$
 R/.setup.R
 ^images$
-^LICENSE\.md$
+^LICENSE$
 ^example_output$
 ^demo$
 ^\.github$
