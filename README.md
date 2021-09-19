@@ -21,16 +21,15 @@ See an example output in
 
 ## Using varsityblues
 
-1) Install the varsityblues package. Note that varsityblues is not available on CRAN which is why `install.packages("varsityblues")` **won't** work. Use `remotes::install_github()` as shown below instead to install the package.
+1) Install the varsityblues package. Note that varsityblues is not available on CRAN and that you will be installing from an unofficial source which is my GitHub repository.
 
 ```r
-if (!require("remotes")) install.packages("remotes", repos = "https://cran.rstudio.org")
-remotes::install_github("pachadotdev/varsityblues")
+install.packages("varsityblues", repos = "https://pachadotdev.r-universe.dev")
 ```
 
-Note that you may need to restart RStudio at this point for the following dialog to show up.
+2) Click *File -> New Project -> New Directory -> UofT assignments using varsityblues* in RStudio's top bar.
 
-2) Use the *File -> New Project -> New Directory -> UofT assignments using varsityblues* dialog in RStudio's top bar.
+Note that you may need to restart RStudio at this point if the dialog didn't show up.
 
 ![Create new project](images/assignments_project.png)
 
