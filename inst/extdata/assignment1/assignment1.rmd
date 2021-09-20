@@ -29,6 +29,14 @@ delete the bibliography and/or csl as well
 -->
 
 <!--
+This chunk sets the global options and can be deleted, you could add
+warning = FALSE or any other R Markdown option
+-->
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
+<!--
 You can delete the next chunk afterwards, but Knit without removing it first to 
 setup LaTeX. On Windows, you might need to restart your computer and try again 
 if knitting the document doesn't work.
