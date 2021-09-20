@@ -3,11 +3,12 @@
 %--------------------------------------------------------%
 
 % Author: KCB <kcb@caltech.edu>
+% Modified by Pacha to use ISO dates
 
-% Creates the commands \datetoday and \timeofday, which are 
+% Creates the commands \datetoday and \timeofday, which are
 % fixed when the package is read.
 
-% Also creates \timestamp \and \forwhom, 
+% Also creates \timestamp \and \forwhom,
 % which redefine the footer to include
 % \datetoday and \timeofday, and the optional \@forwhom
 %--------------------------------------------------------%
@@ -34,34 +35,34 @@
 	\@tempcntb\@tempcnta
 	\divide \@tempcnta by 100    % throws away remainder
 	\multiply \@tempcnta by 100
-	\advance\@tempcntb by -\@tempcnta % remainder 
+	\advance\@tempcntb by -\@tempcnta % remainder
 	% format for output:
 \two@digits{\the\@tempcntb}
 }
 
-\def\@datetoday{\the\year.\two@digits{\the\month}.\two@digits{\the\day}}
+\def\@datetoday{\the\year-\two@digits{\the\month}-\two@digits{\the\day}}
 \let\datetoday\@datetoday
 
 %--------------------------------------------------------%
 % Now for time of day
-\def\@timeofday{% 
+\def\@timeofday{%
 	%	set the temp counters to the system time in minutes since midnight
 	\@tempcnta \time
 	\@tempcntb	\@tempcnta
 	% get minutes after the hour and store in @tempcntab
-	\divide   \@tempcnta by 60 
-	\multiply \@tempcnta by 60 
+	\divide   \@tempcnta by 60
+	\multiply \@tempcnta by 60
 	\advance  \@tempcntb by -\@tempcnta
 	% put the number of hours since midinght back in @tempcnta
-	\divide   \@tempcnta by 60 
+	\divide   \@tempcnta by 60
 	% format for output:
-	\two@digits{\number\@tempcnta}.\two@digits{\the\@tempcntb}
+	\two@digits{\number\@tempcnta}:\two@digits{\the\@tempcntb}
 }
-	
+
 \let\timeofday\@timeofday
 
 %--------------------------------------------------------%
-\newcommand{\@timestamp}{\datetoday::\timeofday}
+\newcommand{\@timestamp}{\datetoday\:\timeofday}
 
 % Command to put them in footer
 \newcommand{\timestamp}{%
