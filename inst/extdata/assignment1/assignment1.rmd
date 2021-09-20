@@ -1,48 +1,71 @@
 ---
 title: 'My Assignment'
 author: 'You R. Name'
-date: 'Subject to change - Last major revision: September 15, 2021'
 output:
   rmarkdown::pdf_document:
     latex_engine: pdflatex
     template: ../tex/template.tex
+    # Supported styles include "default", "tango", "pygments", "kate", 
+    # "monochrome", "espresso", "zenburn", "haddock". Delete the highlighting 
+    # line NULL to turn off highlighting.
+    highlight: tango
     keep_tex: yes
 bibliography: ../bib/references.bib
 # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
 csl: ../csl/chicago.csl
-# This will automatically install the {remotes} package and {varsityblues}
-# Change this to FALSE if you'd like to install them manually on your own.
-params:
-  'Install required packages for {varsityblues}': True
 ---
 
 <!--
+This text in between arrows is commented and will be ignored in the final PDF.
+
 Above is the YAML (YAML Ain't Markup Language) header that includes a lot of 
 metadata used to produce the document.  Be careful with spacing in this header!
 
-If you receive a duplicate label error after knitting, make sure to delete the index.Rmd file and then knit again.
+If you receive a duplicate label error after knitting, make sure to delete the 
+index.Rmd file and then knit again.
+
+You can delete all the lines starting with "#" in the header, also you can 
+delete the bibliography and/or csl as well
 -->
 
 <!--
-You can delete this chunk afterwards, but Knit without removing it first to setup LaTeX. On Windows, you might need to restart your computer and try again if knitting the document doesn't work.
+You can delete the next chunk afterwards, but Knit without removing it first to 
+setup LaTeX. On Windows, you might need to restart your computer and try again 
+if knitting the document doesn't work.
 -->
 ```{r latex_setup}
-if (!require("remotes")) install.packages("remotes", repos = "https://cran.rstudio.com")
-if (!require("rmarkdown")) install.packages("rmarkdown", repos = "https://cran.rstudio.com")
-if (!require("tinytex")) install.packages("tinytex", repos = "https://cran.rstudio.com")
+if (!require("remotes")) 
+  install.packages("remotes", repos = "https://cran.rstudio.com")
+if (!require("rmarkdown")) 
+  install.packages("rmarkdown", repos = "https://cran.rstudio.com")
+if (!require("tinytex")) 
+  install.packages("tinytex", repos = "https://cran.rstudio.com")
 
 if (isFALSE(tinytex::is_tinytex())) tinytex::install_tinytex()
 ```
 
 <!--
-The {#rmd-basics} text after the chapter declaration will allow us to link throughout the document back to the beginning of Chapter 1.  These labels will automatically be generated (if not specified) by changing the spaces to hyphens and capital letters to lowercase.  Look for the reference to this label at the beginning of Chapter 2.
+The {#rmd-basics} text after the chapter declaration will allow us to link 
+throughout the document back to the beginning of Chapter 1.  These labels will 
+automatically be generated (if not specified) by changing the spaces to hyphens 
+and capital letters to lowercase.  Look for the reference to this label at the 
+beginning of Chapter 2.
 -->
 
 # R Markdown Basics {#rmd-basics}
 
-Here is a brief introduction into using _R Markdown_. _Markdown_ is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. _R Markdown_ provides the flexibility of _Markdown_ with the implementation of **R** input and output.  For more details on using _R Markdown_ see <https://rmarkdown.rstudio.com>.  
+Here is a brief introduction into using _R Markdown_. _Markdown_ is a simple 
+formatting syntax for authoring HTML, PDF, and MS Word documents. _R Markdown_ 
+provides the flexibility of _Markdown_ with the implementation of **R** input 
+and output.  For more details on using _R Markdown_ see 
+<https://rmarkdown.rstudio.com>.  
 
-Be careful with your spacing in _Markdown_ documents.  While whitespace largely is ignored, it does at times give _Markdown_ signals as to how to proceed.  As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph.  In other words, there is no need to indent basic text in the Rmd document (in fact, it might cause your text to do funny things if you do).
+Be careful with your spacing in _Markdown_ documents.  While whitespace largely 
+is ignored, it does at times give _Markdown_ signals as to how to proceed.  As 
+a habit, try to keep everything left aligned whenever possible, especially as 
+you type a new paragraph.  In other words, there is no need to indent basic 
+text in the Rmd document (in fact, it might cause your text to do funny things 
+if you do).
 
 ## Lists
 
@@ -56,9 +79,12 @@ or it can be ordered like
 1. Item 1
 4. Item 2
 
-Notice that I intentionally mislabeled Item 2 as number 4.  _Markdown_ automatically figures this out!  You can put any numbers in the list and it will create the list.  Check it out below.
+Notice that I intentionally mislabeled Item 2 as number 4.  _Markdown_ 
+automatically figures this out!  You can put any numbers in the list and it 
+will create the list.  Check it out below.
 
-To create a sublist, just indent the values a bit (at least four spaces or a tab).  (Here's one case where indentation is key!)
+To create a sublist, just indent the values a bit (at least four spaces or a 
+tab).  (Here's one case where indentation is key!)
 
 1. Item 1
 1. Item 2
@@ -68,20 +94,27 @@ To create a sublist, just indent the values a bit (at least four spaces or a tab
 
 ## Line breaks
 
-Make sure to add white space between lines if you'd like to start a new paragraph.  Look at what happens below in the outputted document if you don't:
+Make sure to add white space between lines if you'd like to start a new 
+paragraph.  Look at what happens below in the outputted document if you don't:
 
-Here is the first sentence.  Here is another sentence.  Here is the last sentence to end the paragraph.
+Here is the first sentence.  Here is another sentence.  Here is the last 
+sentence to end the paragraph.
+
 This should be a new paragraph.
 
 *Now for the correct way:* 
 
-Here is the first sentence.  Here is another sentence.  Here is the last sentence to end the paragraph.
+Here is the first sentence.  Here is another sentence.  Here is the last 
+sentence to end the paragraph.
 
 This should be a new paragraph.
 
 ## R chunks
 
-When you click the **Knit** button above a document will be generated that includes both content as well as the output of any embedded **R** code chunks within the document. You can embed an **R** code chunk like this (`cars` is a built-in **R** dataset):
+When you click the **Knit** button above a document will be generated that 
+includes both content as well as the output of any embedded **R** code chunks 
+within the document. You can embed an **R** code chunk like this (`ntcars` is a 
+built-in **R** dataset):
 
 ```{r mtcars}
 summary(mtcars)
@@ -93,7 +126,8 @@ hist(mtcars$wt)
 
 ## Inline code
 
-If you'd like to put the results of your analysis directly into your discussion, add inline code like this:
+If you'd like to put the results of your analysis directly into your discussion,
+add inline code like this:
 
 > The `cos` of $2 \pi$ is `r cos(2*pi)`. 
 
@@ -101,27 +135,39 @@ Another example would be the direct calculation of the standard deviation:
 
 > The standard deviation of `speed` in `cars` is `r sd(cars$speed)`.
 
-One last neat feature is the use of the `ifelse` conditional statement which can be used to output text depending on the result of an **R** calculation:
+One last neat feature is the use of the `ifelse` conditional statement which can
+be used to output text depending on the result of an **R** calculation:
 
-> `r ifelse(sd(cars$speed) < 6, "The standard deviation is less than 6.", "The standard deviation is equal to or greater than 6.")`
+> `r ifelse(sd(cars$speed) < 6, "The standard deviation is less than 6.", "The 
+> standard deviation is equal to or greater than 6.")`
 
-Note the use of `>` here, which signifies a quotation environment that will be indented.
+Note the use of `>` here, which signifies a quotation environment that will be 
+indented.
 
-As you see with `$2 \pi$` above, mathematics can be added by surrounding the mathematical text with dollar signs.  More examples of this are in [Mathematics and Science] if you uncomment the code in [Math].  
+As you see with `$2 \pi$` above, mathematics can be added by surrounding the 
+mathematical text with dollar signs.  More examples of this are in 
+[Mathematical equations].
 
 # Mathematical equations
 
 ## Math
 
-\TeX\ is the best way to typeset mathematics. Donald Knuth designed \TeX\ when he got frustrated at how long it was taking the typesetters to finish his book, which contained a lot of mathematics.
+\TeX\ is the best way to typeset mathematics. Donald Knuth designed \TeX\ when 
+he got frustrated at how long it was taking the typesetters to finish his book, 
+which contained a lot of mathematics.
 
 One nice feature of _R Markdown_ is its ability to read LaTeX code directly.
 
 ## An example of *some* of the package's shortcuts
 
-Let $K$ be a field of \dfn{scalars}\index{field!scalar}\index{scalar}---usually either the real numbers $\R$ or the complex numbers 
-$\mathbb C$, or occasionally the rationals $\mathbb Q$. A \idfn{vector space} over $K$ is a set
-$V$ of \dfn{vectors}\index{vector} equipped with two operations, vector addition $(x,y)\mapsto x+y$, and scalar multiplication $(\alpha,x)\mapsto \alpha x$, where $x,y\in V$ and $\alpha\in K$.  The operations satisfy:
+Let $K$ be a field of \dfn{scalars}\index{field!scalar}\index{scalar}---usually 
+either the real numbers $\R$ or the complex numbers 
+$\mathbb C$, or occasionally the rationals $\mathbb Q$. A \idfn{vector space} 
+over $K$ is a set
+$V$ of \dfn{vectors}\index{vector} equipped with two operations, vector 
+addition $(x,y)\mapsto x+y$, and scalar multiplication 
+$(\alpha,x)\mapsto \alpha x$, where $x,y\in V$ and $\alpha\in K$.  The 
+operations satisfy:
 
 \begin{description}
 \item[V.1] $x+y=y+x$
@@ -136,24 +182,34 @@ $V$ of \dfn{vectors}\index{vector} equipped with two operations, vector addition
 
 # Additional resources
 
-- _Markdown_ Cheatsheet - <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>
+- _Markdown_ Cheatsheet - 
+<https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>
 
 - _R Markdown_
-    - Reference Guide - <https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf>
-    - Cheatsheet - <https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf>
+    - Reference Guide - 
+    <https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf>
+    - Cheatsheet - 
+    <https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf>
 
 - _RStudio IDE_
-    - Cheatsheet - <https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf>
-    - Official website - <https://rstudio.com/products/rstudio/>
+    - Cheatsheet - 
+    <https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf>
+    - Official website - 
+    <https://rstudio.com/products/rstudio/>
 
-- Introduction to `dplyr` - <https://cran.rstudio.com/web/packages/dplyr/vignettes/dplyr.html>
+- Introduction to `dplyr` - 
+<https://cran.rstudio.com/web/packages/dplyr/vignettes/dplyr.html>
 
 - `ggplot2`
-    - Documentation - <https://ggplot2.tidyverse.org/>
-    - Cheatsheet - <https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf>
+    - Documentation - 
+    <https://ggplot2.tidyverse.org/>
+    - Cheatsheet - 
+    <https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf>
 
 <!--
-The bib chunk below must go last in this document according to how R Markdown renders.  More info is at http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+The bib chunk below must go last in this document according to how R Markdown 
+renders.  More info is at 
+http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
 -->
 
 # References {-}
@@ -169,7 +225,9 @@ To remove the indentation of the first entry.
 \noindent
 
 <!--
-This is just for testing with more citations for the bibliography at the end.  Add other entries into the list here if you'd like them to appear in the bibliography even if they weren't explicitly cited in the document.
+This is just for testing with more citations for the bibliography at the end.  
+Add other entries into the list here if you'd like them to appear in the 
+bibliography even if they weren't explicitly cited in the document.
 -->
 
 ---
