@@ -1,7 +1,9 @@
 \documentclass{article}
 
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
+% \usepackage{lmodern}
+\IfFileExists{lucimatx.sty}{\usepackage[stdmathitalics=true,math-style=default,lucidasmallscale=true,romanfamily=bright]{lucimatx}}{\usepackage{times}}
+\let\digamma\relax
 \usepackage[timestamp]{../tex/varsitybluesnotes}
 \usepackage[numfirst]{../tex/varsitybluesthm}
 \usepackage{../tex/varsitybluesmacros,../tex/varsityblueslists,../tex/cursive,../tex/widetext}
@@ -269,9 +271,6 @@ More examples of this are in
 \hypertarget{mathematical-equations}{%
 \section{Mathematical equations}\label{mathematical-equations}}
 
-\hypertarget{math}{%
-\subsection{Math}\label{math}}
-
 \TeX~is the best way to typeset mathematics. Donald Knuth designed
 \TeX~when he got frustrated at how long it was taking the typesetters to
 finish his book, which contained a lot of mathematics.
@@ -279,9 +278,10 @@ finish his book, which contained a lot of mathematics.
 One nice feature of \emph{R Markdown} is its ability to read LaTeX code
 directly.
 
-\hypertarget{an-example-of-some-of-the-packages-shortcuts}{%
-\subsection{\texorpdfstring{An example of \emph{some} of the package's
-shortcuts}{An example of some of the package's shortcuts}}\label{an-example-of-some-of-the-packages-shortcuts}}
+\hypertarget{a-quick-example-of-some-of-the-packages-shortcuts}{%
+\subsection{\texorpdfstring{A quick example of \emph{some} of the
+package's
+shortcuts}{A quick example of some of the package's shortcuts}}\label{a-quick-example-of-some-of-the-packages-shortcuts}}
 
 Let \(K\) be a field of
 \dfn{scalars}\index{field!scalar}\index{scalar}---usually either the
@@ -303,18 +303,252 @@ multiplication \((\alpha,x)\mapsto \alpha x\), where \(x,y\in V\) and
 \item[V.8] $(\alpha+\beta)x=(\alpha x)+(\beta x)$
 \end{description}
 
-You can also type matrices with relative efficiency \[
-\varsitybluesmatrix{\mbox{indices}&1&2&3&4\\
+\hypertarget{statistical-notation}{%
+\subsection{Statistical notation}\label{statistical-notation}}
+
+\begin{itemize}
+\tightlist
+\item
+  Algebra and semi-algebra: \(\A,\S\)
+\item
+  Sigma field: \(\F\)
+\item
+  Set of probability measures: \(\prob\), \(\prob{X}\), \(\prob{A}\),
+  etc
+\item
+  Probability of \(x\): \(\P(X = x)\)
+\item
+  Different thetas: \(\thetah, \thetat\)
+\item
+  Convergence in probability: \(\thetah \probconv \theta\)
+\item
+  Union and intersection:
+  \(\infunion, \infintersection, \union{a}{b}, \intersection{a}{b}\)
+\item
+  Normal distributions: \(\normalstd, \normal{\mu}{\sigma^2}\)
+\item
+  Measurable and probability space: \(\mespace, \prspace\)
+\end{itemize}
+
+\hypertarget{calculus-notation}{%
+\subsection{Calculus notation}\label{calculus-notation}}
+
+Many shortcuts for derivatives. Let \(\fn1\), then
+\[\dfx, \dfy, \dfi, \dfj\] \[\dFx, \dFy, \dFi, \dFj\] Same for \(g()\)
+which is \(\gn1\) \[\dgx, \dgy, \dgi, \dgj\]
+
+Now let \(f\) be a \(\C^2\) function \[
+\ddfyx, \ddfxy, \ddfx, \ddfy, \ddfij, \ddfji, \ldots, \dfij
+\]
+
+You can also have \(\fgn1\) and \(\fgnm\).
+
+In general, you can write \[
+\prd{f}{x}
+\] or more general
+\[\diff{L}{}{\beta}{} \text{ or } \diffat{L}{}{\beta}{}{\hat\beta_{\lambda}}\]
+which is more flexible because it allows
+\[\diffat{L}{2}{\beta}{3}{\hat\beta_{\lambda}}\]
+
+\hypertarget{matrices}{%
+\subsection{Matrices}\label{matrices}}
+
+You can also type matrices with relative efficiency. Here are some
+simple examples of use, and of course you can use \LaTeX default
+commands.
+
+Start by replacing
+\texttt{\textbackslash{}left{[}\textbackslash{}begin\{array\}\{...\}} by
+\texttt{\textbackslash{}vbmatrix\{}. Note that there is no column
+specifier. You can make as many columns as you like, but they will all
+be centered. To finish, instead of
+\texttt{\textbackslash{}end\{array\}\textbackslash{}right{]}}, just type
+\texttt{\}}. Like this:
+
+\[
+\vbmatrix{\mbox{indices}&1&2&3&4\\
 1&M_{1,1}&M_{1,2}&M_{1,3}&M_{1,4}\\
 2&M_{2,1}&M_{2,2}&M_{2,3}&M_{2,4}
 }
 \]
 
+Without a column specifier, how do we put vertical rules in?
+Unfortunately, you have to put a \texttt{\textbackslash{}vrule} in its
+own column in each row.
+
 \[
-\varsitybluesmatrix{\mbox{indices}&
+\vbmatrix{\mbox{indices}&1&2&3&4\\
+1&M_{1,1}&M_{1,2}&M_{1,3}&M_{1,4}\\
+2&M_{2,1}&M_{2,2}&M_{2,3}&M_{2,4}
+}
+\]
+
+Note the gap in the bar below the first row. This emphasizes that the
+first row is different. (It also means that I couldn't figure out a nice
+way to get rid of it and still add extra space below the first row.)
+
+If you don't like all the horizontal space around the vertical rule, you
+can get rid of it using plain TEX's \texttt{\textbackslash{}omit}
+command.
+
+\[
+\vbmatrix{\mbox{indices}&
+1&2&\omit\vrule&3&4\\
+1&M_{1,1}&M_{1,2}&\omit\vrule&
+M_{1,3}&M_{1,4}\\
+2&M_{2,1}&M_{2,2}&\omit\vrule&
+M_{2,3}&M_{2,4}}
+\]
+
+If you think the vertical rule in the first row is too tall, you can
+shorten it using plain TEX's \texttt{height} command.
+
+\[
+\vbmatrix{\mbox{indices}&
+1&2&\omit\vrule height 1ex&3&4\\
+1&M_{1,1}&M_{1,2}&\omit\vrule&
+M_{1,3}&M_{1,4}\\
+2&M_{2,1}&M_{2,2}&\omit\vrule&
+M_{2,3}&M_{2,4}}
+\]
+
+Horizontal lines works as you might expect.
+
+\[
+\vbmatrix{\mbox{indices}&
 1&2&\vrule&3&4\\
-1&M_{1,1}&M_{1,2}&\vrule&M_{1,3}&M_{1,4}\\
-2&M_{2,1}&M_{2,2}&\vrule&M_{2,3}&M_{2,4}
+1&M_{1,1}&M_{1,2}&\vrule&
+M_{1,3}&M_{1,4}\\\hline
+2&M_{2,1}&M_{2,2}&\vrule&
+M_{2,3}&M_{2,4}
+}
+\]
+
+Notice how the \texttt{\textbackslash{}hline} cuts across all the
+columns, but it doesn't connect to the closing bracket. I am not sure I
+like this behavior, but you can use \texttt{\textbackslash{}cline}.
+
+\[
+\vbmatrix{\mbox{indices}&1&2&
+\vrule&3&4\\
+1&M_{1,1}&M_{1,2}&\vrule&M_{1,3}&
+M_{1,4}\\\cline{1-1} \cline{2-6}
+2&M_{2,1}&M_{2,2}&\vrule&M_{2,3}&
+M_{2,4}}
+\]
+
+\[
+\vbmatrix{\mbox{indices}&1&2&
+\vrule&3&4\\
+1&M_{1,1}&M_{1,2}&\vrule&M_{1,3}&
+M_{1,4}\\\cline{2-6}
+2&M_{2,1}&M_{2,2}&\vrule&
+M_{2,3}&M_{2,4}
+}
+\]
+
+Here's a more complex example tht summarises the previous steps.
+
+\[
+\vbmatrix{\text{indices}&
+(1\cdot11)&(1\cdot12)&(1\cdot22)&
+\vrule&
+(2\cdot11)&(2\cdot12)&(2\cdot22)\\
+%
+(1)&\lambda(1)^2&2\lambda(1)\lambda(2)&\lambda(2)^2&\vrule&0&0&0\\
+3
+(2)&0&0&0&\vrule&\lambda(1)^2&2\lambda(1)\lambda(2)&\lambda(2)^2\\
+\hline
+(111)&3&0&0&\vrule&0&0&0\\
+(112)&0&2&0&\vrule&1&0&0\\
+(122)&0&0&1&\vrule&0&2&0\\
+(222)&0&0&0&\vrule&0&0&3}
+\]
+
+where \texttt{\textbackslash{}text\{\}} is defined in the amstext
+\LaTeX package.
+
+\hypertarget{changing-delimiters}{%
+\subsubsection{Changing delimiters}\label{changing-delimiters}}
+
+The varsitybluesmatrix package defines four style parameters that can be
+used to change the appearance of the array. The first two are
+\texttt{\textbackslash{}vbldelim} and \texttt{\textbackslash{}vbrdelim},
+the left and right delimiters. By default they are \texttt{{[}} and
+\texttt{{]}} but you can change them like this:
+
+\[
+\renewcommand{\vbldelim}{\{}
+\renewcommand{\vbrdelim}{.}
+\vbmatrix{\mbox{indices}&1&2&
+\vrule&3&4\\
+1&M_{1,1}&M_{1,2}&\vrule&M_{1,3}&
+M_{1,4}\\\cline{2-6}
+2&M_{2,1}&M_{2,2}&\vrule&
+M_{2,3}&M_{2,4}
+}
+\]
+
+Another option:
+
+\[
+\renewcommand{\vbldelim}{\langle}
+\renewcommand{\vbrdelim}{|} 
+\vbmatrix{\mbox{indices}&1&2&
+\vrule&3&4\\
+1&M_{1,1}&M_{1,2}&\vrule&M_{1,3}&
+M_{1,4}\\\cline{2-6}
+2&M_{2,1}&M_{2,2}&\vrule&
+M_{2,3}&M_{2,4}
+}
+\]
+
+Yet another option:
+
+\[
+\renewcommand{\vbldelim}{(}
+\renewcommand{\vbrdelim}{)} 
+\vbmatrix{\mbox{indices}&1&2&
+\vrule&3&4\\
+1&M_{1,1}&M_{1,2}&\vrule&M_{1,3}&
+M_{1,4}\\\cline{2-6}
+2&M_{2,1}&M_{2,2}&\vrule&
+M_{2,3}&M_{2,4}
+}
+\]
+
+\hypertarget{changing-the-border-row-and-column-style}{%
+\subsubsection{Changing the border row and column
+style}\label{changing-the-border-row-and-column-style}}
+
+You can change the style of the border row and column column entries by
+redefining \texttt{\textbackslash{}vbrowstyle} and
+\texttt{\textbackslash{}vbcolstyle}, which are by default set to
+\texttt{\textbackslash{}scriptstyle}. You could, for instance, say
+\texttt{\textbackslash{}renewcommand\{\textbackslash{}vbrowstyle\}\{\textbackslash{}relax\}}
+to typeset the first row as usual. By the way, the upper left corner is
+governed by the column style. You can always use an
+\texttt{\textbackslash{}mbox\{\}} to change the style of any particular
+entry.
+
+\hypertarget{changing-spacing}{%
+\subsubsection{Changing spacing}\label{changing-spacing}}
+
+Besides changing the delimiters, you can also change the space inserted
+after the first row and after the first column. These are governed by
+the lengths \texttt{\textbackslash{}vbrowsep} and
+\texttt{\textbackslash{}vbcolsep}. By default they are \texttt{0pt} and
+\texttt{.5\textbackslash{}arraycolsep}, respectively.
+
+\[
+\setlength{\vbrowsep}{10pt}
+\setlength{\vbcolsep}{10pt}
+\vbmatrix{\mbox{indices}&1&2&
+\vrule&3&4\\
+1&M_{1,1}&M_{1,2}&\vrule&M_{1,3}&
+M_{1,4}\\\cline{2-6}
+2&M_{2,1}&M_{2,2}&\vrule&
+M_{2,3}&M_{2,4}
 }
 \]
 
@@ -322,46 +556,30 @@ You can also type matrices with relative efficiency \[
 \section{Additional resources}\label{additional-resources}}
 
 \begin{itemize}
+\tightlist
 \item
-  \emph{Markdown} Cheatsheet -
-  \url{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}
+  \href{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}{\emph{Markdown}
+  Cheatsheet}
 \item
-  \emph{R Markdown}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Reference Guide -
-    \url{https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf}
-  \item
-    Cheatsheet -
-    \url{https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf}
-  \end{itemize}
+  \href{https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf}{\emph{R
+  Markdown} Reference Guide}
 \item
-  \emph{RStudio IDE}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Cheatsheet -
-    \url{https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf}
-  \item
-    Official website - \url{https://rstudio.com/products/rstudio/}
-  \end{itemize}
+  \href{https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf}{\emph{R
+  Markdown} Cheatsheet}
 \item
-  Introduction to \texttt{dplyr} -
-  \url{https://cran.rstudio.com/web/packages/dplyr/vignettes/dplyr.html}
+  \href{https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf}{\emph{RStudio
+  IDE} Cheatsheet}
 \item
-  \texttt{ggplot2}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Documentation - \url{https://ggplot2.tidyverse.org/}
-  \item
-    Cheatsheet -
-    \url{https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf}
-  \end{itemize}
+  \href{https://rstudio.com/products/rstudio/}{\emph{RStudio IDE}
+  Official website}
+\item
+  \href{https://cran.rstudio.com/web/packages/dplyr/vignettes/dplyr.html}{Introduction
+  to \texttt{dplyr}}
+\item
+  \href{https://ggplot2.tidyverse.org/}{\texttt{ggplot2} Documentation}
+\item
+  \href{https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf}{\texttt{ggplot2}
+  Cheatsheet}
 \end{itemize}
 
 \hypertarget{references}{%

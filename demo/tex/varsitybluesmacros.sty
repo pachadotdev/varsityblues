@@ -281,12 +281,6 @@ $\hfil\displaystyle{#1}\hfil$\crcr\noalign{\kern3pt\nointerlineskip}}}}\limits}
 \newcommand{\Zm}[1][]{\ensuremath{\Z^{\dmn{m}#1}}}
 \newcommand{\Zn}[1][]{\ensuremath{\Z^{\dmn{n}#1}}}
 
-% 	Set of probability measures: \prob or \prob{X}
-\newcommand{\prob}[1]{\ensuremath{\def\@temp{#1}\ifx\@temp\@empty \scr P\else\scr P(#1)\fi}}
-
-%	Expectation
-\newcommand{\E}{\mathbb E}
-
 %	Inverse image or event:
 \newcommand{\ev}[1]{\ensuremath{\left\{\protect\mathstrut #1\right\}}}
 % The math strut needs to protected in case it's used in a \caption command.  I don't know why.
@@ -349,6 +343,12 @@ $\hfil\displaystyle{#1}\hfil$\crcr\noalign{\kern3pt\nointerlineskip}}}}\limits}
 \DeclareMathOperator{\ri}{ri}
 \newcommand{\extr}[1]{\scr E(#1)}		% extreme points
 
+\def\seq{\{x_n\}_{n\in\N}} % sequence
+\newcommand{\sseq}{\{x_{n_k}\}_{k\in\N}} % double sequence
+\newcommand{\adh}[1]{\text{adh}({#1})} % adherence
+\newcommand{\inte}[1]{\text{int}({#1})} % interior
+\newcommand{\fr}[1]{\text{fr}({#1})} % frrontier
+
 %	Functions and correspondences
 \providecommand{\too}{\twoheadrightarrow}
 \providecommand{\mapstoo}{\mathrel{\mapstochar\too}}
@@ -372,6 +372,54 @@ $\hfil\displaystyle{#1}\hfil$\crcr\noalign{\kern3pt\nointerlineskip}}}}\limits}
 \newcommand{\Nullity}{nullity}
 \newcommand{\Mat}[1]{\Cursive{M}(#1)}
 \newcommand{\Lin}[2]{\Cursive{L}(#1,#2)}
+
+% Derivatives in general
+\def\fn1{f:A\subseteq\R^n\to\R}
+\def\fnm{f:A\subseteq\R^n\to\R^m}
+\def\gn1{g:A\subseteq\R^n\to\R}
+\def\gnm{g:A\subseteq\R^n\to\R^m}
+\def\fgn1{f,g:A\subseteq\R^n\to\R}
+\def\fgnm{f,g:A\subseteq\R^n\to\R^m}
+\newcommand{\C}{\mathcal C} % differentiability order
+\def\dfx{\frac{\partial f}{\partial x}}
+\def\dfy{\frac{\partial f}{\partial y}}
+\def\dfi{\frac{\partial f}{\partial x_i}}
+\def\dfj{\frac{\partial f}{\partial x_j}}
+\def\dFx{\frac{\partial F}{\partial x}}
+\def\dFy{\frac{\partial F}{\partial y}}
+\def\dFi{\frac{\partial F}{\partial x_i}}
+\def\dFj{\frac{\partial F}{\partial x_j}}
+\def\dgx{\frac{\partial g}{\partial x}}
+\def\dgy{\frac{\partial g}{\partial y}}
+\def\dgi{\frac{\partial g}{\partial x_i}}
+\def\dgj{\frac{\partial g}{\partial x_j}}
+\def\ddfyx{\frac{\partial^2 f}{\partial y\partial x}}
+\def\ddfxy{\frac{\partial^2 f}{\partial x\partial y}}
+\def\ddfx{\frac{\partial^2 f}{\partial x^2}}
+\def\ddfy{\frac{\partial^2 f}{\partial y^2}}
+\def\ddfij{\frac{\partial^2 f}{\partial x_j\partial x_i}}
+\def\ddfji{\frac{\partial^2 f}{\partial x_i\partial x_j}}
+\def\dfij{\frac{\partial f_i}{\partial x_j}}
+\newcommand{\prd}[2]{\frac{\partial #1}{\partial #2}}
+
+% stats notation
+\newcommand{\A}{\mathcal A} % algebra
+\renewcommand{\S}{\mathcal S} % semi-algebra
+\newcommand{\F}{\mathcal F} % sigma field
+\newcommand{\prob}[1]{\ensuremath{\def\@temp{#1}\ifx\@temp\@empty \scr P\else\scr P(#1)\fi}} % Set of probability measures: \prob or \prob{X}
+\newcommand{\E}{\mathbb E} % Expectation
+\renewcommand{\P}{\mathbb P} % Probability
+\newcommand{\thetah}{\hat{\theta}} % theta hat
+\newcommand{\thetat}{\tilde{\theta}} % theta hat
+\newcommand{\probconv}{\xrightarrow[]{p}} % convergence in probability
+\newcommand{\infunion}{\bigcup_{i=1}^{\infty}}
+\newcommand{\infintersection}{\bigcap_{i=1}^{\infty}}
+\renewcommand{\union}[2]{\bigcup_{#1}^{#2}}
+\newcommand{\intersection}[2]{\bigcap_{#1}^{#2}}
+\newcommand{\normalstd}{\mathcal{N}(0,1)}
+\newcommand{\normal}[2]{\mathcal{N}({#1},{#2})}
+\newcommand{\mespace}{(\Omega, \F)}
+\newcommand{\prspace}{(\Omega, \F, \P)}
 
 %	Vector orders and binary relations
 \newcommand{\vgeq}{\geqq}

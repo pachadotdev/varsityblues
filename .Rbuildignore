@@ -6,3 +6,7 @@ R/.setup.R
 ^example_output$
 ^demo$
 ^\.github$
+inst/extdata/assignment1/*.tex
+inst/extdata/assignment1/*.pdf
+inst/extdata/assignment1/*.log
+inst/extdata/assignment1/assignment1_files

@@ -1,6 +1,6 @@
 Package: varsityblues
 Title: Writing your UofT assignmente using R Markdown
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(person("Mauricio", "Vargas", 
     role = c("aut","cre","cph"), 
     email = "m.vargas.sepulveda@mail.utoronto.ca", 

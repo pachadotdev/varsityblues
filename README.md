@@ -69,3 +69,18 @@ Store your figures and data here and reference them in your R Markdown files. Se
 ## Using wihout RStudio
 
 You can use `varsityblues` without RStudio. For example, you can write the Rmd files in your favourite text editor (e.g. [Atom](https://atom.io/), [Notepad++](https://notepad-plus-plus.org/)). But RStudio **is** the easiest tool for writing both R code and text in your assignment. It also provides a nice way to build your documents while editing.
+
+## (Totally optional) Install lucimatx
+
+`lucimatx` provides better typography but it's a paid package. Install it 
+under `~/.TinyTeX/texmf-local`.
+
+The steps that worked for me are:
+```
+cd ~/.TinyTeX/texfmf-local
+unzip ~/Downloads/lucida-type1.zip
+unzip ~/Downloads/lucimacros.zip
+mktexlsr
+updmap-sys --enable Map=lucida.map
+updmap-sys
+```

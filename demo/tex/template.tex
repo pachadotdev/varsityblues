@@ -1,7 +1,9 @@
 \documentclass{article}
 
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
+% \usepackage{lmodern}
+\IfFileExists{lucimatx.sty}{\usepackage[stdmathitalics=true,math-style=default,lucidasmallscale=true,romanfamily=bright]{lucimatx}}{\usepackage{times}}
+\let\digamma\relax
 \usepackage[timestamp]{../tex/varsitybluesnotes}
 \usepackage[numfirst]{../tex/varsitybluesthm}
 \usepackage{../tex/varsitybluesmacros,../tex/varsityblueslists,../tex/cursive,../tex/widetext}
