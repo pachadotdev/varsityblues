@@ -1,3 +1,10 @@
+# varsityblues 0.2.1
+
+* vectors in bold
+* shortcuts \vx, \vy, \vb, \ve for linear models
+* shortcuts \siga, \sigf for sigma algebra/field
+* shorcut \mulprod for A_1 x ... x A_n
+
 # varsityblues 0.2.0
 
 * `varsitybluesmatrix` renamed to `vbmatrix` with better default visuals
@@ -6,6 +13,7 @@
   \prspace, \A, \S
 * adds calculus shortcuts \dfx, \dfy, \dfi, \dfj, \dFx, \dFy, \dFi, \dFj,
   \dgx, \dgy, \dgi, \dgj, \C, \fgn1, \fgnm, \prd
+* adds \N0 = "natural numbers and zero"
 * uses times or lucida font (whatever is available on your system)
 
 # varsityblues 0.1.0

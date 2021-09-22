@@ -266,6 +266,7 @@ $\hfil\displaystyle{#1}\hfil$\crcr\noalign{\kern3pt\nointerlineskip}}}}\limits}
 \newcommand{\eR}{\R^{\sharp}}		% extended reals
 \newcommand{\Q}{\mathbb Q}      % rational numbers
 \newcommand{\N}{\mathbb N}			% natural numbers
+\newcommand{\Nz}{\N \cup \{0\}}	% natural numbers + 0
 \newcommand{\Z}{\mathbb Z}			% integers
 \newcommand{\Cx}{\mathbb C}			% complex numbers
 
@@ -380,7 +381,6 @@ $\hfil\displaystyle{#1}\hfil$\crcr\noalign{\kern3pt\nointerlineskip}}}}\limits}
 \def\gnm{g:A\subseteq\R^n\to\R^m}
 \def\fgn1{f,g:A\subseteq\R^n\to\R}
 \def\fgnm{f,g:A\subseteq\R^n\to\R^m}
-\newcommand{\C}{\mathcal C} % differentiability order
 \def\dfx{\frac{\partial f}{\partial x}}
 \def\dfy{\frac{\partial f}{\partial y}}
 \def\dfi{\frac{\partial f}{\partial x_i}}
@@ -403,9 +403,21 @@ $\hfil\displaystyle{#1}\hfil$\crcr\noalign{\kern3pt\nointerlineskip}}}}\limits}
 \newcommand{\prd}[2]{\frac{\partial #1}{\partial #2}}
 
 % stats notation
+\newcommand{\siga}{$\sigma$-algebra\:} % sigma algebra
+\newcommand{\sigf}{$\sigma$-field\:} % sigma field
+\newcommand{\mulprod}{\times \ldots \times} % sigma algebra
+
+\renewcommand{\vec}[1]{\boldsymbol{#1}} % bold vectors
+\newcommand{\vx}{\vec{x}} % x vector
+\newcommand{\vy}{\vec{y}} % y vector
+\newcommand{\vb}{\vec{\beta}} % y vector
+\newcommand{\ve}{\vec{\varepsilon}} % y vector
 \newcommand{\A}{\mathcal A} % algebra
 \renewcommand{\S}{\mathcal S} % semi-algebra
 \newcommand{\F}{\mathcal F} % sigma field
+\newcommand{\C}{\mathcal C} % collection
+\renewcommand{\S}{\mathcal S} % semialgebra
+\newcommand{\BR}{\mathcal R} % collection
 \newcommand{\prob}[1]{\ensuremath{\def\@temp{#1}\ifx\@temp\@empty \scr P\else\scr P(#1)\fi}} % Set of probability measures: \prob or \prob{X}
 \newcommand{\E}{\mathbb E} % Expectation
 \renewcommand{\P}{\mathbb P} % Probability
