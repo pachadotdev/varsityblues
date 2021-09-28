@@ -1,3 +1,7 @@
+# varsityblues 0.2.2
+
+* add latex pkgs float and flafter to allow floating images
+
 # varsityblues 0.2.1
 
 * vectors in bold
