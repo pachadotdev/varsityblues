@@ -121,7 +121,7 @@ This should be a new paragraph.
 
 When you click the **Knit** button above a document will be generated that 
 includes both content as well as the output of any embedded **R** code chunks 
-within the document. You can embed an **R** code chunk like this (`ntcars` is a 
+within the document. You can embed an **R** code chunk like this (`mtcars` is a 
 built-in **R** dataset):
 
 ```{r mtcars}
@@ -239,22 +239,7 @@ $$
 }
 $$
 
-Without a column specifier, how do we put vertical rules in? Unfortunately, you 
-have to put a `\vrule` in its own column in each row.
-
-$$
-\vbmatrix{\mbox{indices}&1&2&3&4\\
-1&M_{1,1}&M_{1,2}&M_{1,3}&M_{1,4}\\
-2&M_{2,1}&M_{2,2}&M_{2,3}&M_{2,4}
-}
-$$
-
-Note the gap in the bar below the first row. This emphasizes that the first row 
-is different. (It also means that I couldn’t figure out a nice way to get rid of
-it and still add extra space below the first row.)
-
-If you don’t like all the horizontal space around the vertical rule, you can get 
-rid of it using plain TEX’s `\omit` command.
+You can also add a vertical rule and if you don’t like all the horizontal space around the vertical rule, you can get rid of it using plain TEX’s `\omit` command.
 
 $$
 \vbmatrix{\mbox{indices}&
@@ -312,7 +297,7 @@ M_{2,3}&M_{2,4}
 }
 $$
 
-Here's a more complex example tht summarises the previous steps.
+Here's a more complex example that summarises the previous steps.
 
 $$
 \vbmatrix{\text{indices}&

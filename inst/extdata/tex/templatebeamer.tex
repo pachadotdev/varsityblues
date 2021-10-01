@@ -1,0 +1,43 @@
+\documentclass{beamer}
+\usetheme{metropolis}
+
+\usepackage[T1]{fontenc}
+\let\digamma\relax
+\IfFileExists{lucimatx.sty}{\usepackage[stdmathitalics=true,lucidasmallscale=true,romanfamily=bright]{lucimatx}}{\usepackage{times}}
+\usepackage{../tex/varsityblueslists, ../tex/varsitybluesshortcuts, ../tex/varsitybluesmatrix}
+
+% texlive 2020
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{CSLReferences}[2]
+  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}
+  {\par}
+$endif$
+
+\makeindex
+
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% To pass between YAML and LaTeX the dollar signs are added by CII
+% Syntax highlighting #22
+$if(highlighting-macros)$
+  $highlighting-macros$
+$endif$
+
+\author{$author$}
+\title{$title$}
+
+\makeindex
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+  \titlepage
+\end{frame}
+
+$body$
+
+\end{document}

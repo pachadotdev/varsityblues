@@ -2,14 +2,16 @@
 title: 'My Assignment'
 author: 'You R. Name'
 output:
-  rmarkdown::pdf_document:
+  rmarkdown::beamer_presentation:
     latex_engine: pdflatex
-    template: ../tex/template.tex
+    template: ../tex/templatebeamer.tex
     # Supported styles include "default", "tango", "pygments", "kate", 
     # "monochrome", "espresso", "zenburn", "haddock". Delete the highlighting 
     # line NULL to turn off highlighting.
     highlight: tango
     keep_tex: yes
+    toc: yes
+classoption: "aspectratio=169"
 bibliography: ../bib/references.bib
 # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
 csl: ../csl/chicago.csl
@@ -33,7 +35,7 @@ This chunk sets the global options and can be deleted, you could add
 warning = FALSE or any other R Markdown option
 -->
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, fig.width = 4.5, fig.height = 3)
 ```
 
 <!--
@@ -41,7 +43,7 @@ You can delete the next chunk afterwards, but Knit without removing it first to
 setup LaTeX. On Windows, you might need to restart your computer and try again 
 if knitting the document doesn't work.
 -->
-```{r latex_setup}
+```{r latex_setup, include=FALSE}
 if (!require("remotes")) 
   install.packages("remotes", repos = "https://cran.rstudio.com")
 if (!require("rmarkdown")) 
@@ -68,12 +70,16 @@ provides the flexibility of _Markdown_ with the implementation of **R** input
 and output.  For more details on using _R Markdown_ see 
 <https://rmarkdown.rstudio.com>.  
 
+---
+
 Be careful with your spacing in _Markdown_ documents.  While whitespace largely 
 is ignored, it does at times give _Markdown_ signals as to how to proceed.  As 
 a habit, try to keep everything left aligned whenever possible, especially as 
 you type a new paragraph.  In other words, there is no need to indent basic 
 text in the Rmd document (in fact, it might cause your text to do funny things 
 if you do).
+
+---
 
 ## Lists
 
@@ -86,6 +92,8 @@ or it can be ordered like
 
 1. Item 1
 4. Item 2
+
+---
 
 Notice that I intentionally mislabeled Item 2 as number 4.  _Markdown_ 
 automatically figures this out!  You can put any numbers in the list and it 
@@ -100,6 +108,8 @@ tab).  (Here's one case where indentation is key!)
     - Item 3a
     - Item 3b
 
+---
+
 ## Line breaks
 
 Make sure to add white space between lines if you'd like to start a new 
@@ -110,6 +120,8 @@ sentence to end the paragraph.
 
 This should be a new paragraph.
 
+---
+
 *Now for the correct way:* 
 
 Here is the first sentence.  Here is another sentence.  Here is the last 
@@ -117,20 +129,30 @@ sentence to end the paragraph.
 
 This should be a new paragraph.
 
+---
+
 ## R chunks
 
 When you click the **Knit** button above a document will be generated that 
 includes both content as well as the output of any embedded **R** code chunks 
-within the document. You can embed an **R** code chunk like this (`mtcars` is a 
+within the document.
+
+---
+
+You can embed an **R** code chunk like this (`mtcars` is a 
 built-in **R** dataset):
 
 ```{r mtcars}
 summary(mtcars)
 ```
 
+---
+
 ```{r mtcars2}
 hist(mtcars$wt)
 ```
+
+---
 
 ## Inline code
 
@@ -143,6 +165,8 @@ Another example would be the direct calculation of the standard deviation:
 
 > The standard deviation of `speed` in `cars` is `r sd(cars$speed)`.
 
+---
+
 One last neat feature is the use of the `ifelse` conditional statement which can
 be used to output text depending on the result of an **R** calculation:
 
@@ -151,6 +175,8 @@ be used to output text depending on the result of an **R** calculation:
 
 Note the use of `>` here, which signifies a quotation environment that will be 
 indented.
+
+---
 
 As you see with `$2 \pi$` above, mathematics can be added by surrounding the 
 mathematical text with dollar signs.  More examples of this are in 
@@ -164,6 +190,8 @@ which contained a lot of mathematics.
 
 One nice feature of _R Markdown_ is its ability to read LaTeX code directly.
 
+---
+
 ## A quick example of *some* of the package's shortcuts
 
 Let $K$ be a field of \dfn{scalars}\index{field!scalar}\index{scalar}---usually 
@@ -172,8 +200,11 @@ $\mathbb C$, or occasionally the rationals $\mathbb Q$. A \idfn{vector space}
 over $K$ is a set
 $V$ of \dfn{vectors}\index{vector} equipped with two operations, vector 
 addition $(x,y)\mapsto x+y$, and scalar multiplication 
-$(\alpha,x)\mapsto \alpha x$, where $x,y\in V$ and $\alpha\in K$.  The 
-operations satisfy:
+$(\alpha,x)\mapsto \alpha x$, where $x,y\in V$ and $\alpha\in K$.
+
+---
+
+The operations satisfy:
 
 \begin{description}
 \item[V.1] $x+y=y+x$
@@ -186,6 +217,8 @@ operations satisfy:
 \item[V.8] $(\alpha+\beta)x=(\alpha x)+(\beta x)$
 \end{description}
 
+---
+
 ## Statistical notation
 
 * Algebra and semi-algebra: $\A,\S$
@@ -197,6 +230,8 @@ operations satisfy:
 * Union and intersection: $\infunion, \infintersection, \union{a}{b}, \intersection{a}{b}$
 * Normal distributions: $\normalstd, \normal{\mu}{\sigma^2}$
 * Measurable and probability space: $\mespace, \prspace$
+
+---
 
 ## Calculus notation
 
@@ -211,6 +246,8 @@ $$
 \ddfyx, \ddfxy, \ddfx, \ddfy, \ddfij, \ddfji, \ldots, \dfij
 $$
 
+---
+
 You can also have $\fgn1$ and $\fgnm$.
 
 In general, you can write
@@ -221,6 +258,8 @@ or more general
 $$\diff{L}{}{\beta}{} \text{ or } \diffat{L}{}{\beta}{}{\hat\beta_{\lambda}}$$
 which is more flexible because it allows
 $$\diffat{L}{2}{\beta}{3}{\hat\beta_{\lambda}}$$
+
+---
 
 ## Matrices
 
@@ -239,6 +278,8 @@ $$
 }
 $$
 
+---
+
 You can also add a vertical rule and if you don’t like all the horizontal space around the vertical rule, you can get rid of it using plain TEX’s `\omit` command.
 
 $$
@@ -249,6 +290,8 @@ M_{1,3}&M_{1,4}\\
 2&M_{2,1}&M_{2,2}&\omit\vrule&
 M_{2,3}&M_{2,4}}
 $$
+
+---
 
 If you think the vertical rule in the first row is too tall, you can shorten it 
 using plain TEX’s `height` command.
@@ -262,6 +305,8 @@ M_{1,3}&M_{1,4}\\
 M_{2,3}&M_{2,4}}
 $$
 
+---
+
 Horizontal lines works as you might expect.
 
 $$
@@ -273,6 +318,8 @@ M_{1,3}&M_{1,4}\\\hline
 M_{2,3}&M_{2,4}
 }
 $$
+
+---
 
 Notice how the `\hline` cuts across all the columns, but it doesn’t connect to 
 the closing bracket. I am not sure I like this behavior, but you can use 
@@ -297,6 +344,8 @@ M_{2,3}&M_{2,4}
 }
 $$
 
+---
+
 Here's a more complex example that summarises the previous steps.
 
 $$
@@ -317,6 +366,8 @@ $$
 
 where `\text{}` is defined in the amstext \LaTeX package.
 
+---
+
 ### Changing delimiters
 
 The varsitybluesmatrix package defines four style parameters that can be used to
@@ -336,6 +387,8 @@ M_{2,3}&M_{2,4}
 }
 $$
 
+---
+
 Another option:
 
 $$
@@ -349,6 +402,8 @@ M_{1,4}\\\cline{2-6}
 M_{2,3}&M_{2,4}
 }
 $$
+
+---
 
 Yet another option:
 
@@ -364,6 +419,8 @@ M_{2,3}&M_{2,4}
 }
 $$
 
+---
+
 ### Changing the border row and column style
 
 You can change the style of the border row and column column entries by 
@@ -372,6 +429,8 @@ redefining `\vbrowstyle` and `\vbcolstyle`, which are by default set to
 `\renewcommand{\vbrowstyle}{\relax}` to typeset the first row as usual. By the 
 way, the upper left corner is governed by the column style. You can always use 
 an `\mbox{}` to change the style of any particular entry.
+
+---
 
 ### Changing spacing
 
@@ -391,6 +450,8 @@ M_{1,4}\\\cline{2-6}
 M_{2,3}&M_{2,4}
 }
 $$
+
+---
 
 # Additional resources
 

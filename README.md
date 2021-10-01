@@ -16,8 +16,11 @@ Catholic University of Chile and the late professor Kim C. Border.
 Thanks a lot to Kelsey Gonzalez for polishing beardown, it made creating
 varsityblues much more simple!
 
-See an example output in 
+See an example **document** output in 
 [RMD](https://github.com/pachadotdev/varsityblues/blob/main/demo/assignment1/assignment1.rmd) and [PDF](https://github.com/pachadotdev/varsityblues/blob/main/demo/assignment1/assignment1.pdf).
+
+See an example **document** output in 
+[RMD](https://github.com/pachadotdev/varsityblues/blob/main/demo/presentation1/presentation1.rmd) and [PDF](https://github.com/pachadotdev/varsityblues/blob/main/demo/presentation1/presentation1.pdf).
 
 ## Using varsityblues
 

@@ -2,17 +2,13 @@
 
 \usepackage[T1]{fontenc}
 % \usepackage{lmodern}
-\IfFileExists{lucimatx.sty}{\usepackage[stdmathitalics=true,math-style=default,lucidasmallscale=true,romanfamily=bright]{lucimatx}}{\usepackage{times}}
+\IfFileExists{lucimatx.sty}{\usepackage[stdmathitalics=true,lucidasmallscale=true,romanfamily=bright]{lucimatx}}{\usepackage{times}}
 \let\digamma\relax
 \usepackage[timestamp]{../tex/varsitybluesnotes}
 \usepackage[numfirst]{../tex/varsitybluesthm}
-\usepackage{../tex/varsitybluesmacros,../tex/varsityblueslists,../tex/cursive,../tex/widetext}
+\usepackage{../tex/varsitybluesmacros,../tex/varsityblueslists,../tex/cursive,../tex/widetext, ../tex/varsitybluesshortcuts}
 \usepackage{rotating}
 \usepackage[colorlinks]{hyperref}
-\newcommand{\minor}[3][A]{#1\left(\begin{array}{c}\scriptstyle#2\\
-        \scriptstyle#3\end{array}\right)}
-\newcommand{\cof}[2][\alpha]{\mathword{cof}#1_{#2}}
-\newcommand{\idfn}[1]{{\boldmath\textbf{#1}}\index{#1}} % indexed defn
 \usepackage{makeidx}
 \usepackage{framed}
 \usepackage{fancyvrb}

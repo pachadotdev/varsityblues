@@ -1,6 +1,10 @@
 # varsityblues 0.2.2
 
 * add latex pkgs float and flafter to allow floating images
+* adds \Pr for cursive P
+* drops use of euscript
+* puts shortcuts in a dedicated sty file
+* adds beamer presentation (still very gross but it works)
 
 # varsityblues 0.2.1
 

@@ -1,22 +1,10 @@
-\documentclass{article}
+\documentclass{beamer}
+\usetheme{metropolis}
 
 \usepackage[T1]{fontenc}
-% \usepackage{lmodern}
-\IfFileExists{lucimatx.sty}{\usepackage[stdmathitalics=true,lucidasmallscale=true,romanfamily=bright]{lucimatx}}{\usepackage{times}}
 \let\digamma\relax
-\usepackage[timestamp]{../tex/varsitybluesnotes}
-\usepackage[numfirst]{../tex/varsitybluesthm}
-\usepackage{../tex/varsitybluesmacros,../tex/varsityblueslists,../tex/cursive,../tex/widetext, ../tex/varsitybluesshortcuts}
-\usepackage{rotating}
-\usepackage[colorlinks]{hyperref}
-\usepackage{makeidx}
-\usepackage{framed}
-\usepackage{fancyvrb}
-\usepackage{color}
-\usepackage{hyperref}
-\hypersetup{colorlinks = true, allcolors = blue}
-\usepackage{float}
-\usepackage{flafter}
+\IfFileExists{lucimatx.sty}{\usepackage[stdmathitalics=true,lucidasmallscale=true,romanfamily=bright]{lucimatx}}{\usepackage{times}}
+\usepackage{../tex/varsityblueslists, ../tex/varsitybluesshortcuts, ../tex/varsitybluesmatrix}
 
 % texlive 2020
 \newlength{\cslhangindent}
@@ -74,52 +62,41 @@
 
 \author{You R. Name}
 \title{My Assignment}
-\date{}
 
-\setlength\parindent{0pt}
-\setlength\parskip{2pt}
+\makeindex
 
 \begin{document}
 
-\maketitle
-\thispagestyle{empty}
-\tableofcontents
-\setcounter{page}{0}
-\clearpage
+% Title page frame
+\begin{frame}
+  \titlepage
+\end{frame}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(}\StringTok{"remotes"}\NormalTok{)) }
-  \FunctionTok{install.packages}\NormalTok{(}\StringTok{"remotes"}\NormalTok{, }\AttributeTok{repos =} \StringTok{"https://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(}\StringTok{"rmarkdown"}\NormalTok{)) }
-  \FunctionTok{install.packages}\NormalTok{(}\StringTok{"rmarkdown"}\NormalTok{, }\AttributeTok{repos =} \StringTok{"https://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(}\StringTok{"tinytex"}\NormalTok{)) }
-  \FunctionTok{install.packages}\NormalTok{(}\StringTok{"tinytex"}\NormalTok{, }\AttributeTok{repos =} \StringTok{"https://cran.rstudio.com"}\NormalTok{)}
+\begin{frame}
+\end{frame}
 
-\ControlFlowTok{if}\NormalTok{ (}\FunctionTok{isFALSE}\NormalTok{(tinytex}\SpecialCharTok{::}\FunctionTok{is\_tinytex}\NormalTok{())) tinytex}\SpecialCharTok{::}\FunctionTok{install\_tinytex}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{rmd-basics}{%
-\section{R Markdown Basics}\label{rmd-basics}}
-
+\begin{frame}{R Markdown Basics}
+\protect\hypertarget{rmd-basics}{}
 Here is a brief introduction into using \emph{R Markdown}.
 \emph{Markdown} is a simple formatting syntax for authoring HTML, PDF,
 and MS Word documents. \emph{R Markdown} provides the flexibility of
 \emph{Markdown} with the implementation of \textbf{R} input and output.
 For more details on using \emph{R Markdown} see
 \url{https://rmarkdown.rstudio.com}.
+\end{frame}
 
+\begin{frame}
 Be careful with your spacing in \emph{Markdown} documents. While
 whitespace largely is ignored, it does at times give \emph{Markdown}
 signals as to how to proceed. As a habit, try to keep everything left
 aligned whenever possible, especially as you type a new paragraph. In
 other words, there is no need to indent basic text in the Rmd document
 (in fact, it might cause your text to do funny things if you do).
+\end{frame}
 
-\hypertarget{lists}{%
-\subsection{Lists}\label{lists}}
-
+\begin{frame}
+\begin{block}{Lists}
+\protect\hypertarget{lists}{}
 It's easy to create a list. It can be unordered like
 
 \begin{itemize}
@@ -133,14 +110,16 @@ It's easy to create a list. It can be unordered like
 or it can be ordered like
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   Item 1
 \item
   Item 2
 \end{enumerate}
+\end{block}
+\end{frame}
 
+\begin{frame}
 Notice that I intentionally mislabeled Item 2 as number 4.
 \emph{Markdown} automatically figures this out! You can put any numbers
 in the list and it will create the list. Check it out below.
@@ -149,7 +128,6 @@ To create a sublist, just indent the values a bit (at least four spaces
 or a tab). (Here's one case where indentation is key!)
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   Item 1
@@ -166,10 +144,11 @@ or a tab). (Here's one case where indentation is key!)
     Item 3b
   \end{itemize}
 \end{enumerate}
+\end{frame}
 
-\hypertarget{line-breaks}{%
-\subsection{Line breaks}\label{line-breaks}}
-
+\begin{frame}
+\begin{block}{Line breaks}
+\protect\hypertarget{line-breaks}{}
 Make sure to add white space between lines if you'd like to start a new
 paragraph. Look at what happens below in the outputted document if you
 don't:
@@ -178,22 +157,30 @@ Here is the first sentence. Here is another sentence. Here is the last
 sentence to end the paragraph.
 
 This should be a new paragraph.
+\end{block}
+\end{frame}
 
+\begin{frame}
 \emph{Now for the correct way:}
 
 Here is the first sentence. Here is another sentence. Here is the last
 sentence to end the paragraph.
 
 This should be a new paragraph.
+\end{frame}
 
-\hypertarget{r-chunks}{%
-\subsection{R chunks}\label{r-chunks}}
-
+\begin{frame}
+\begin{block}{R chunks}
+\protect\hypertarget{r-chunks}{}
 When you click the \textbf{Knit} button above a document will be
 generated that includes both content as well as the output of any
-embedded \textbf{R} code chunks within the document. You can embed an
-\textbf{R} code chunk like this (\texttt{mtcars} is a built-in
-\textbf{R} dataset):
+embedded \textbf{R} code chunks within the document.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+You can embed an \textbf{R} code chunk like this (\texttt{mtcars} is a
+built-in \textbf{R} dataset):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -224,18 +211,21 @@ embedded \textbf{R} code chunks within the document. You can embed an
 ##  3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
 ##  Max.   :1.0000   Max.   :5.000   Max.   :8.000
 \end{verbatim}
+\end{frame}
 
+\begin{frame}[fragile]
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{hist}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{wt)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{assignment1_files/figure-latex/mtcars2-1.pdf}
+\includegraphics{presentation1_files/figure-beamer/mtcars2-1.pdf}
+\end{frame}
 
-\hypertarget{inline-code}{%
-\subsection{Inline code}\label{inline-code}}
-
+\begin{frame}[fragile]
+\begin{block}{Inline code}
+\protect\hypertarget{inline-code}{}
 If you'd like to put the results of your analysis directly into your
 discussion, add inline code like this:
 
@@ -249,7 +239,10 @@ deviation:
 \begin{quote}
 The standard deviation of \texttt{speed} in \texttt{cars} is 5.2876444.
 \end{quote}
+\end{block}
+\end{frame}
 
+\begin{frame}[fragile]
 One last neat feature is the use of the \texttt{ifelse} conditional
 statement which can be used to output text depending on the result of an
 \textbf{R} calculation:
@@ -260,27 +253,28 @@ The standard deviation is less than 6.
 
 Note the use of \texttt{\textgreater{}} here, which signifies a
 quotation environment that will be indented.
+\end{frame}
 
+\begin{frame}[fragile]
 As you see with \texttt{\$2\ \textbackslash{}pi\$} above, mathematics
 can be added by surrounding the mathematical text with dollar signs.
 More examples of this are in
 \protect\hyperlink{mathematical-equations}{Mathematical equations}.
+\end{frame}
 
-\hypertarget{mathematical-equations}{%
-\section{Mathematical equations}\label{mathematical-equations}}
-
+\begin{frame}{Mathematical equations}
+\protect\hypertarget{mathematical-equations}{}
 \TeX~is the best way to typeset mathematics. Donald Knuth designed
 \TeX~when he got frustrated at how long it was taking the typesetters to
 finish his book, which contained a lot of mathematics.
 
 One nice feature of \emph{R Markdown} is its ability to read LaTeX code
 directly.
+\end{frame}
 
-\hypertarget{a-quick-example-of-some-of-the-packages-shortcuts}{%
-\subsection{\texorpdfstring{A quick example of \emph{some} of the
-package's
-shortcuts}{A quick example of some of the package's shortcuts}}\label{a-quick-example-of-some-of-the-packages-shortcuts}}
-
+\begin{frame}
+\begin{block}{A quick example of \emph{some} of the package's shortcuts}
+\protect\hypertarget{a-quick-example-of-some-of-the-packages-shortcuts}{}
 Let \(K\) be a field of
 \dfn{scalars}\index{field!scalar}\index{scalar}---usually either the
 real numbers \(\R\) or the complex numbers \(\mathbb C\), or
@@ -288,7 +282,12 @@ occasionally the rationals \(\mathbb Q\). A \idfn{vector space} over
 \(K\) is a set \(V\) of \dfn{vectors}\index{vector} equipped with two
 operations, vector addition \((x,y)\mapsto x+y\), and scalar
 multiplication \((\alpha,x)\mapsto \alpha x\), where \(x,y\in V\) and
-\(\alpha\in K\). The operations satisfy:
+\(\alpha\in K\).
+\end{block}
+\end{frame}
+
+\begin{frame}
+The operations satisfy:
 
 \begin{description}
 \item[V.1] $x+y=y+x$
@@ -300,10 +299,11 @@ multiplication \((\alpha,x)\mapsto \alpha x\), where \(x,y\in V\) and
 \item[V.7] $\alpha(x+y)=(\alpha x)+(\alpha y)$
 \item[V.8] $(\alpha+\beta)x=(\alpha x)+(\beta x)$
 \end{description}
+\end{frame}
 
-\hypertarget{statistical-notation}{%
-\subsection{Statistical notation}\label{statistical-notation}}
-
+\begin{frame}
+\begin{block}{Statistical notation}
+\protect\hypertarget{statistical-notation}{}
 \begin{itemize}
 \tightlist
 \item
@@ -327,10 +327,12 @@ multiplication \((\alpha,x)\mapsto \alpha x\), where \(x,y\in V\) and
 \item
   Measurable and probability space: \(\mespace, \prspace\)
 \end{itemize}
+\end{block}
+\end{frame}
 
-\hypertarget{calculus-notation}{%
-\subsection{Calculus notation}\label{calculus-notation}}
-
+\begin{frame}
+\begin{block}{Calculus notation}
+\protect\hypertarget{calculus-notation}{}
 Many shortcuts for derivatives. Let \(\fn1\), then
 \[\dfx, \dfy, \dfi, \dfj\] \[\dFx, \dFy, \dFi, \dFj\] Same for \(g()\)
 which is \(\gn1\) \[\dgx, \dgy, \dgi, \dgj\]
@@ -338,7 +340,10 @@ which is \(\gn1\) \[\dgx, \dgy, \dgi, \dgj\]
 Now let \(f\) be a \(\C^2\) function \[
 \ddfyx, \ddfxy, \ddfx, \ddfy, \ddfij, \ddfji, \ldots, \dfij
 \]
+\end{block}
+\end{frame}
 
+\begin{frame}
 You can also have \(\fgn1\) and \(\fgnm\).
 
 In general, you can write \[
@@ -347,10 +352,11 @@ In general, you can write \[
 \[\diff{L}{}{\beta}{} \text{ or } \diffat{L}{}{\beta}{}{\hat\beta_{\lambda}}\]
 which is more flexible because it allows
 \[\diffat{L}{2}{\beta}{3}{\hat\beta_{\lambda}}\]
+\end{frame}
 
-\hypertarget{matrices}{%
-\subsection{Matrices}\label{matrices}}
-
+\begin{frame}[fragile]
+\begin{block}{Matrices}
+\protect\hypertarget{matrices}{}
 You can also type matrices with relative efficiency. Here are some
 simple examples of use, and of course you can use \LaTeX default
 commands.
@@ -369,7 +375,10 @@ be centered. To finish, instead of
 2&M_{2,1}&M_{2,2}&M_{2,3}&M_{2,4}
 }
 \]
+\end{block}
+\end{frame}
 
+\begin{frame}[fragile]
 You can also add a vertical rule and if you don't like all the
 horizontal space around the vertical rule, you can get rid of it using
 plain TEX's \texttt{\textbackslash{}omit} command.
@@ -382,7 +391,9 @@ M_{1,3}&M_{1,4}\\
 2&M_{2,1}&M_{2,2}&\omit\vrule&
 M_{2,3}&M_{2,4}}
 \]
+\end{frame}
 
+\begin{frame}[fragile]
 If you think the vertical rule in the first row is too tall, you can
 shorten it using plain TEX's \texttt{height} command.
 
@@ -394,7 +405,9 @@ M_{1,3}&M_{1,4}\\
 2&M_{2,1}&M_{2,2}&\omit\vrule&
 M_{2,3}&M_{2,4}}
 \]
+\end{frame}
 
+\begin{frame}
 Horizontal lines works as you might expect.
 
 \[
@@ -406,7 +419,9 @@ M_{1,3}&M_{1,4}\\\hline
 M_{2,3}&M_{2,4}
 }
 \]
+\end{frame}
 
+\begin{frame}[fragile]
 Notice how the \texttt{\textbackslash{}hline} cuts across all the
 columns, but it doesn't connect to the closing bracket. I am not sure I
 like this behavior, but you can use \texttt{\textbackslash{}cline}.
@@ -429,7 +444,9 @@ M_{1,4}\\\cline{2-6}
 M_{2,3}&M_{2,4}
 }
 \]
+\end{frame}
 
+\begin{frame}[fragile]
 Here's a more complex example that summarises the previous steps.
 
 \[
@@ -450,10 +467,11 @@ Here's a more complex example that summarises the previous steps.
 
 where \texttt{\textbackslash{}text\{\}} is defined in the amstext
 \LaTeX package.
+\end{frame}
 
-\hypertarget{changing-delimiters}{%
-\subsubsection{Changing delimiters}\label{changing-delimiters}}
-
+\begin{frame}[fragile]
+\begin{block}{Changing delimiters}
+\protect\hypertarget{changing-delimiters}{}
 The varsitybluesmatrix package defines four style parameters that can be
 used to change the appearance of the array. The first two are
 \texttt{\textbackslash{}vbldelim} and \texttt{\textbackslash{}vbrdelim},
@@ -471,7 +489,10 @@ M_{1,4}\\\cline{2-6}
 M_{2,3}&M_{2,4}
 }
 \]
+\end{block}
+\end{frame}
 
+\begin{frame}
 Another option:
 
 \[
@@ -485,7 +506,9 @@ M_{1,4}\\\cline{2-6}
 M_{2,3}&M_{2,4}
 }
 \]
+\end{frame}
 
+\begin{frame}
 Yet another option:
 
 \[
@@ -499,11 +522,11 @@ M_{1,4}\\\cline{2-6}
 M_{2,3}&M_{2,4}
 }
 \]
+\end{frame}
 
-\hypertarget{changing-the-border-row-and-column-style}{%
-\subsubsection{Changing the border row and column
-style}\label{changing-the-border-row-and-column-style}}
-
+\begin{frame}[fragile]
+\begin{block}{Changing the border row and column style}
+\protect\hypertarget{changing-the-border-row-and-column-style}{}
 You can change the style of the border row and column column entries by
 redefining \texttt{\textbackslash{}vbrowstyle} and
 \texttt{\textbackslash{}vbcolstyle}, which are by default set to
@@ -513,10 +536,12 @@ to typeset the first row as usual. By the way, the upper left corner is
 governed by the column style. You can always use an
 \texttt{\textbackslash{}mbox\{\}} to change the style of any particular
 entry.
+\end{block}
+\end{frame}
 
-\hypertarget{changing-spacing}{%
-\subsubsection{Changing spacing}\label{changing-spacing}}
-
+\begin{frame}[fragile]
+\begin{block}{Changing spacing}
+\protect\hypertarget{changing-spacing}{}
 Besides changing the delimiters, you can also change the space inserted
 after the first row and after the first column. These are governed by
 the lengths \texttt{\textbackslash{}vbrowsep} and
@@ -534,10 +559,11 @@ M_{1,4}\\\cline{2-6}
 M_{2,3}&M_{2,4}
 }
 \]
+\end{block}
+\end{frame}
 
-\hypertarget{additional-resources}{%
-\section{Additional resources}\label{additional-resources}}
-
+\begin{frame}[fragile]{Additional resources}
+\protect\hypertarget{additional-resources}{}
 \begin{itemize}
 \tightlist
 \item
@@ -564,11 +590,10 @@ M_{2,3}&M_{2,4}
   \href{https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf}{\texttt{ggplot2}
   Cheatsheet}
 \end{itemize}
+\end{frame}
 
-\hypertarget{references}{%
-\section*{References}\label{references}}
-\addcontentsline{toc}{section}{References}
-
+\begin{frame}{References}
+\protect\hypertarget{references}{}
 \markboth{References}{References}
 
 \noindent
@@ -588,8 +613,6 @@ with OpenGL}. Boston, MA: Addison Wesley Longman, 2000.
 Longman, 2001.
 
 \end{CSLReferences}
-
-% Index?
-% \printindex
+\end{frame}
 
 \end{document}

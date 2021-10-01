@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.9.16)  21 SEP 2021 17:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.9.16)  1 OCT 2021 17:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -33,11 +33,7 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 )
 Package lucimatx Info: Nonlinear scaling (`lucidasmallscale') on input line 145
 .
-
-Package lucimatx Warning: Unexpected value `default'
-(lucimatx)                of option `math-style' instead of
-(lucimatx)                `tex', `iso' or `french'.
-
+Package lucimatx Info: TeX math style on input line 231.
 Now handling font encoding LMR ...
 ... no UTF-8 mapping file for font encoding LMR
 LaTeX Font Info:    Redeclaring symbol font `letters' on input line 297.
@@ -116,17 +112,6 @@ LaTeX Font Info:    Redeclaring math accent \check on input line 341.
 LaTeX Font Info:    Redeclaring math accent \hat on input line 342.
 LaTeX Font Info:    Redeclaring math accent \dot on input line 343.
 LaTeX Font Info:    Redeclaring math accent \mathring on input line 344.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 422.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 423.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 424.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 425.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 426.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 427.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 428.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 429.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 430.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 431.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 432.
 LaTeX Font Info:    Redeclaring math symbol \rightleftharpoons on input line 58
 1.
 LaTeX Font Info:    Redeclaring math symbol \leftrightharpoons on input line 58
@@ -458,10 +443,6 @@ LaTeX Info: Redefining \] on input line 2924.
 ) (/home/pacha/.TinyTeX/texmf-dist/tex/latex/amsmath/amsxtra.sty
 Package: amsxtra 1999/11/15 v1.2c AMS extra commands
 LaTeX Info: Redefining \nobreakspace on input line 54.
-) (/home/pacha/.TinyTeX/texmf-dist/tex/latex/amsfonts/euscript.sty
-Package: euscript 2009/06/22 v3.00 Euler Script fonts
-LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
-(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
 ) (/home/pacha/.TinyTeX/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (/home/pacha/.TinyTeX/texmf-dist/tex/latex/pict2e/pict2e.sty
@@ -509,62 +490,63 @@ Package: varsitybluesmatrix Varsity Blues bordered matrix with brackets
 )
 \rowheight=\skip58
 \rowdepth=\skip59
+) (../tex/varsityblueslists.sty) (../tex/widetext.sty) (../tex/varsitybluesshor
+tcuts.sty
 \@normbarht=\skip60
 \@normarght=\skip61
 \notwd=\skip62
 \implieswd=\skip63
-LaTeX Font Info:    Trying to load font information for T1+hlh on input line 45
-5.
+LaTeX Font Info:    Trying to load font information for T1+hlh on input line 21
+7.
 (/home/pacha/.TinyTeX/texmf-local/tex/latex/lucida/t1hlh.fd
 File: t1hlh.fd 2005/09/15 font definitions for T1/hlh (WaS/PCTeX/TUG)
 )
 LaTeX Font Info:    Font shape `T1/hlh/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 455.
+(Font)              scaled to size 8.99994pt on input line 217.
 LaTeX Font Info:    Font shape `T1/hlh/m/n' will be
-(Font)              scaled to size 6.58002pt on input line 455.
+(Font)              scaled to size 6.58002pt on input line 217.
 LaTeX Font Info:    Font shape `T1/hlh/m/n' will be
-(Font)              scaled to size 4.89998pt on input line 455.
+(Font)              scaled to size 4.89998pt on input line 217.
 LaTeX Font Info:    Font shape `OML/hlcm/m/itx' will be
-(Font)              scaled to size 8.99994pt on input line 455.
+(Font)              scaled to size 8.99994pt on input line 217.
 LaTeX Font Info:    Font shape `OML/hlcm/m/itx' will be
-(Font)              scaled to size 6.58002pt on input line 455.
+(Font)              scaled to size 6.58002pt on input line 217.
 LaTeX Font Info:    Font shape `OML/hlcm/m/itx' will be
-(Font)              scaled to size 4.89998pt on input line 455.
+(Font)              scaled to size 4.89998pt on input line 217.
 LaTeX Font Info:    Font shape `OMS/hlcy/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 455.
+(Font)              scaled to size 8.99994pt on input line 217.
 LaTeX Font Info:    Font shape `OMS/hlcy/m/n' will be
-(Font)              scaled to size 6.58002pt on input line 455.
+(Font)              scaled to size 6.58002pt on input line 217.
 LaTeX Font Info:    Font shape `OMS/hlcy/m/n' will be
-(Font)              scaled to size 4.89998pt on input line 455.
+(Font)              scaled to size 4.89998pt on input line 217.
 LaTeX Font Info:    Font shape `OMX/hlcv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 455.
+(Font)              scaled to size 8.99994pt on input line 217.
 LaTeX Font Info:    Font shape `OMX/hlcv/m/n' will be
-(Font)              scaled to size 6.58002pt on input line 455.
+(Font)              scaled to size 6.58002pt on input line 217.
 LaTeX Font Info:    Font shape `OMX/hlcv/m/n' will be
-(Font)              scaled to size 4.89998pt on input line 455.
+(Font)              scaled to size 4.89998pt on input line 217.
 LaTeX Font Info:    Font shape `OML/hlcm/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 455.
+(Font)              scaled to size 8.99994pt on input line 217.
 LaTeX Font Info:    Font shape `OML/hlcm/m/n' will be
-(Font)              scaled to size 6.58002pt on input line 455.
+(Font)              scaled to size 6.58002pt on input line 217.
 LaTeX Font Info:    Font shape `OML/hlcm/m/n' will be
-(Font)              scaled to size 4.89998pt on input line 455.
+(Font)              scaled to size 4.89998pt on input line 217.
 LaTeX Font Info:    Font shape `LMR/hlcm/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 455.
+(Font)              scaled to size 8.99994pt on input line 217.
 LaTeX Font Info:    Font shape `LMR/hlcm/m/n' will be
-(Font)              scaled to size 6.58002pt on input line 455.
+(Font)              scaled to size 6.58002pt on input line 217.
 LaTeX Font Info:    Font shape `LMR/hlcm/m/n' will be
-(Font)              scaled to size 4.89998pt on input line 455.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 455
+(Font)              scaled to size 4.89998pt on input line 217.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 217
 .
 (/home/pacha/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 455
+LaTeX Font Info:    Trying to load font information for U+msb on input line 217
 .
 (/home/pacha/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)) (../tex/varsityblueslists.sty) (../tex/widetext.sty) (/home/pacha/.TinyTeX/t
-exmf-dist/tex/latex/graphics/rotating.sty
+)) (/home/pacha/.TinyTeX/texmf-dist/tex/latex/graphics/rotating.sty
 Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
 (/home/pacha/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
@@ -718,7 +700,19 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 21.
+Package hyperref Info: Option `colorlinks' set `true' on input line 17.
+(/home/pacha/.TinyTeX/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count283
+\float@exts=\toks27
+\float@box=\box54
+\@float@everytoks=\toks28
+\@floatcapt=\box55
+) (/home/pacha/.TinyTeX/texmf-dist/tex/latex/base/flafter.sty
+Package: flafter 2018/11/28 v1.4d Standard LaTeX floats after reference (FMi)
+Applying: [2015/01/01] float order in 2-column on input line 49.
+Already applied: [0000/00/00] float order in 2-column on input line 151.
+)
 \cslhangindent=\skip68
 \@indexfile=\write4
 \openout4 = `assignment1.idx'.
@@ -726,35 +720,35 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 21.
 Writing index file assignment1.idx
 (/home/pacha/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count283
-\l__pdf_internal_box=\box54
+\l__color_backend_stack_int=\count284
+\l__pdf_internal_box=\box56
 ) (./assignment1.aux)
 \openout1 = `assignment1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for LMR/hlcm/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Info: Redefining \longleftarrow on input line 84.
-LaTeX Info: Redefining \longrightarrow on input line 84.
-LaTeX Info: Redefining \Longleftarrow on input line 84.
-LaTeX Info: Redefining \Longrightarrow on input line 84.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for LMR/hlcm/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Info: Redefining \longleftarrow on input line 82.
+LaTeX Info: Redefining \longrightarrow on input line 82.
+LaTeX Info: Redefining \Longleftarrow on input line 82.
+LaTeX Info: Redefining \Longrightarrow on input line 82.
 (/home/pacha/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -763,7 +757,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 84.
+Package hyperref Info: Link coloring ON on input line 82.
 (/home/pacha/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 (/home/pacha/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
@@ -772,30 +766,30 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 y
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count284
+\c@section@level=\count285
 )
-LaTeX Info: Redefining \ref on input line 84.
-LaTeX Info: Redefining \pageref on input line 84.
-LaTeX Info: Redefining \nameref on input line 84.
+LaTeX Info: Redefining \ref on input line 82.
+LaTeX Info: Redefining \pageref on input line 82.
+LaTeX Info: Redefining \nameref on input line 82.
 (./assignment1.out) (./assignment1.out)
 \@outlinefile=\write5
 \openout5 = `assignment1.out'.
 
-LaTeX Font Info:    Trying to load font information for T1+hls on input line 87
+LaTeX Font Info:    Trying to load font information for T1+hls on input line 85
 .
 (/home/pacha/.TinyTeX/texmf-local/tex/latex/lucida/t1hls.fd
 File: t1hls.fd 2005/09/15 font definitions for T1/hls (WaS/PCTeX/TUG)
 )
 LaTeX Font Info:    Font shape `T1/hls/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 87.
+(Font)              scaled to size 8.99994pt on input line 85.
 LaTeX Font Info:    Font shape `T1/hlh/m/n' will be
-(Font)              scaled to size 8.19003pt on input line 87.
+(Font)              scaled to size 8.19003pt on input line 85.
 LaTeX Font Info:    Font shape `T1/hlh/m/n' will be
-(Font)              scaled to size 12.52792pt on input line 87.
+(Font)              scaled to size 12.52792pt on input line 85.
 LaTeX Font Info:    Font shape `T1/hlh/b/n' will be
-(Font)              scaled to size 12.52792pt on input line 87.
+(Font)              scaled to size 12.52792pt on input line 85.
 LaTeX Font Info:    Font shape `T1/hlh/m/n' will be
-(Font)              scaled to size 10.56006pt on input line 87.
+(Font)              scaled to size 10.56006pt on input line 85.
 (./assignment1.toc
 LaTeX Font Info:    Font shape `T1/hlh/b/n' will be
 (Font)              scaled to size 8.99994pt on input line 1.
@@ -809,23 +803,23 @@ LaTeX Font Info:    Font shape `T1/hlh/m/it' will be
 
 {/home/pacha/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T1+hlst on input line 9
-3.
+1.
 (/home/pacha/.TinyTeX/texmf-local/tex/latex/lucida/t1hlst.fd
 File: t1hlst.fd 2005/09/15 font definitions for T1/hlst (WaS/PCTeX/TUG)
 )
 LaTeX Font Info:    Font shape `T1/hlst/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 93.
+(Font)              scaled to size 8.99994pt on input line 91.
 LaTeX Font Info:    Font shape `T1/hlst/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 94.
+(Font)              scaled to size 8.99994pt on input line 92.
 LaTeX Font Info:    Font shape `T1/hlh/b/n' will be
-(Font)              scaled to size 10.56006pt on input line 123.
+(Font)              scaled to size 10.56006pt on input line 121.
 LaTeX Font Info:    Trying to load font information for TS1+hlh on input line 1
-30.
+28.
 (/home/pacha/.TinyTeX/texmf-local/tex/latex/lucida/ts1hlh.fd
 File: ts1hlh.fd 2005/09/15 font definitions for TS1/hlh (WaS/PCTeX/TUG)
 )
 LaTeX Font Info:    Font shape `TS1/hlh/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 130.
+(Font)              scaled to size 8.99994pt on input line 128.
 [1
 
 ]
@@ -833,22 +827,18 @@ LaTeX Font Info:    Font shape `TS1/hlh/m/n' will be
 File: assignment1_files/figure-latex/mtcars2-1.pdf Graphic file (type pdf)
 <use assignment1_files/figure-latex/mtcars2-1.pdf>
 Package pdftex.def Info: assignment1_files/figure-latex/mtcars2-1.pdf  used on 
-input line 236.
+input line 234.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (54.20137pt too wide) in paragraph at lines 236--237
+Overfull \hbox (54.20137pt too wide) in paragraph at lines 234--235
 [][] 
  []
 
 [2] [3 <./assignment1_files/figure-latex/mtcars2-1.pdf>]
 LaTeX Font Info:    Font shape `T1/hlh/b/it' will be
-(Font)              scaled to size 10.56006pt on input line 284.
-LaTeX Font Info:    Trying to load font information for U+eus on input line 316
-.
-(/home/pacha/.TinyTeX/texmf-dist/tex/latex/amsfonts/ueus.fd
-File: ueus.fd 2013/01/14 v3.01 Euler Script
-) [4] [5]
-Overfull \hbox (8.73122pt too wide) in paragraph at lines 524--533
+(Font)              scaled to size 10.56006pt on input line 282.
+[4] [5]
+Overfull \hbox (8.73122pt too wide) in paragraph at lines 507--516
 \T1/hlh/m/n/10 You can change the style of the bor-der row and col-umn col-umn 
 en-tries by re-defin-ing \T1/hlst/m/n/10 \vbrowstyle
  []
@@ -858,25 +848,25 @@ Package rerunfilecheck Info: File `assignment1.out' has not changed.
 (rerunfilecheck)             Checksum: 06735084647875ED8B044623F5C15AB1;2281.
  ) 
 Here is how much of TeX's memory you used:
- 10799 strings out of 480559
- 162510 string characters out of 5903047
- 472610 words of memory out of 5000000
- 28149 multiletter control sequences out of 15000+600000
- 424256 words of font info for 81 fonts, out of 8000000 for 9000
+ 10858 strings out of 480559
+ 163416 string characters out of 5903047
+ 471885 words of memory out of 5000000
+ 28207 multiletter control sequences out of 15000+600000
+ 423656 words of font info for 78 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  71i,11n,80p,382b,339s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/pacha/.TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</home/pacha/.Ti
-nyTeX/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></home/pacha/.Tin
-yTeX/texmf-local/fonts/type1/bh/lucida/lbd.pfb></home/pacha/.TinyTeX/texmf-loca
-l/fonts/type1/bh/lucida/lbdi.pfb></home/pacha/.TinyTeX/texmf-local/fonts/type1/
-bh/lucida/lbi.pfb></home/pacha/.TinyTeX/texmf-local/fonts/type1/bh/lucida/lbma.
-pfb></home/pacha/.TinyTeX/texmf-local/fonts/type1/bh/lucida/lbme.pfb></home/pac
-ha/.TinyTeX/texmf-local/fonts/type1/bh/lucida/lbmi.pfb></home/pacha/.TinyTeX/te
-xmf-local/fonts/type1/bh/lucida/lbms.pfb></home/pacha/.TinyTeX/texmf-local/font
-s/type1/bh/lucida/lbr.pfb></home/pacha/.TinyTeX/texmf-local/fonts/type1/bh/luci
-da/lsr.pfb></home/pacha/.TinyTeX/texmf-local/fonts/type1/bh/lucida/lstb.pfb></h
-ome/pacha/.TinyTeX/texmf-local/fonts/type1/bh/lucida/lstr.pfb>
-Output written on assignment1.pdf (8 pages, 108835 bytes).
+nyTeX/texmf-local/fonts/type1/bh/lucida/lbd.pfb></home/pacha/.TinyTeX/texmf-loc
+al/fonts/type1/bh/lucida/lbdi.pfb></home/pacha/.TinyTeX/texmf-local/fonts/type1
+/bh/lucida/lbi.pfb></home/pacha/.TinyTeX/texmf-local/fonts/type1/bh/lucida/lbma
+.pfb></home/pacha/.TinyTeX/texmf-local/fonts/type1/bh/lucida/lbme.pfb></home/pa
+cha/.TinyTeX/texmf-local/fonts/type1/bh/lucida/lbmi.pfb></home/pacha/.TinyTeX/t
+exmf-local/fonts/type1/bh/lucida/lbmr.pfb></home/pacha/.TinyTeX/texmf-local/fon
+ts/type1/bh/lucida/lbms.pfb></home/pacha/.TinyTeX/texmf-local/fonts/type1/bh/lu
+cida/lbr.pfb></home/pacha/.TinyTeX/texmf-local/fonts/type1/bh/lucida/lsr.pfb></
+home/pacha/.TinyTeX/texmf-local/fonts/type1/bh/lucida/lstb.pfb></home/pacha/.Ti
+nyTeX/texmf-local/fonts/type1/bh/lucida/lstr.pfb>
+Output written on assignment1.pdf (8 pages, 108455 bytes).
 PDF statistics:
  234 PDF objects out of 1000 (max. 8388607)
  196 compressed objects within 2 object streams
