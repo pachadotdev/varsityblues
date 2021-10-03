@@ -3,7 +3,9 @@
 
 \usepackage[T1]{fontenc}
 \let\digamma\relax
-\IfFileExists{lucimatx.sty}{\usepackage[stdmathitalics=true,lucidasmallscale=true,romanfamily=bright]{lucimatx}}{\usepackage{times}}
+\let\eth\relax
+\IfFileExists{lucimatx.sty}{\usefonttheme{professionalfonts} \usepackage[scale=0.85,stdmathitalics=true,stdmathdigits=true,romanfamily=bright]{lucimatx}}{\usepackage{times}}
+\usepackage[timestamp]{../tex/varsitybluesnotes}
 \usepackage{../tex/varsityblueslists, ../tex/varsitybluesshortcuts, ../tex/varsitybluesmatrix}
 
 % texlive 2020
@@ -31,11 +33,18 @@ $endif$
 
 \makeindex
 
+\pretocmd{\tableofcontents}{\begin{minipage}{\textwidth}}{}{}
+\apptocmd{\tableofcontents}{\end{minipage}}{}{}
+
 \begin{document}
 
 % Title page frame
 \begin{frame}
   \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
 \end{frame}
 
 $body$

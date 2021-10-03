@@ -1,5 +1,5 @@
 ---
-title: 'My Assignment'
+title: 'My Presentation'
 author: 'You R. Name'
 output:
   rmarkdown::beamer_presentation:
@@ -9,8 +9,8 @@ output:
     # "monochrome", "espresso", "zenburn", "haddock". Delete the highlighting 
     # line NULL to turn off highlighting.
     highlight: tango
-    keep_tex: yes
-    toc: yes
+    keep_tex: TRUE
+    slide_level: 3
 classoption: "aspectratio=169"
 bibliography: ../bib/references.bib
 # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
@@ -62,7 +62,7 @@ and capital letters to lowercase.  Look for the reference to this label at the
 beginning of Chapter 2.
 -->
 
-# R Markdown Basics {#rmd-basics}
+# R Markdown Basics
 
 Here is a brief introduction into using _R Markdown_. _Markdown_ is a simple 
 formatting syntax for authoring HTML, PDF, and MS Word documents. _R Markdown_ 
@@ -78,8 +78,6 @@ a habit, try to keep everything left aligned whenever possible, especially as
 you type a new paragraph.  In other words, there is no need to indent basic 
 text in the Rmd document (in fact, it might cause your text to do funny things 
 if you do).
-
----
 
 ## Lists
 
@@ -108,8 +106,6 @@ tab).  (Here's one case where indentation is key!)
     - Item 3a
     - Item 3b
 
----
-
 ## Line breaks
 
 Make sure to add white space between lines if you'd like to start a new 
@@ -128,8 +124,6 @@ Here is the first sentence.  Here is another sentence.  Here is the last
 sentence to end the paragraph.
 
 This should be a new paragraph.
-
----
 
 ## R chunks
 
@@ -151,8 +145,6 @@ summary(mtcars)
 ```{r mtcars2}
 hist(mtcars$wt)
 ```
-
----
 
 ## Inline code
 
@@ -190,8 +182,6 @@ which contained a lot of mathematics.
 
 One nice feature of _R Markdown_ is its ability to read LaTeX code directly.
 
----
-
 ## A quick example of *some* of the package's shortcuts
 
 Let $K$ be a field of \dfn{scalars}\index{field!scalar}\index{scalar}---usually 
@@ -217,8 +207,6 @@ The operations satisfy:
 \item[V.8] $(\alpha+\beta)x=(\alpha x)+(\beta x)$
 \end{description}
 
----
-
 ## Statistical notation
 
 * Algebra and semi-algebra: $\A,\S$
@@ -230,8 +218,6 @@ The operations satisfy:
 * Union and intersection: $\infunion, \infintersection, \union{a}{b}, \intersection{a}{b}$
 * Normal distributions: $\normalstd, \normal{\mu}{\sigma^2}$
 * Measurable and probability space: $\mespace, \prspace$
-
----
 
 ## Calculus notation
 
@@ -258,8 +244,6 @@ or more general
 $$\diff{L}{}{\beta}{} \text{ or } \diffat{L}{}{\beta}{}{\hat\beta_{\lambda}}$$
 which is more flexible because it allows
 $$\diffat{L}{2}{\beta}{3}{\hat\beta_{\lambda}}$$
-
----
 
 ## Matrices
 
@@ -450,8 +434,6 @@ M_{1,4}\\\cline{2-6}
 M_{2,3}&M_{2,4}
 }
 $$
-
----
 
 # Additional resources
 

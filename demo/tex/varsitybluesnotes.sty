@@ -47,10 +47,7 @@
 \def\@runninghead{\@headertitle}
 \newcommand{\runninghead}[1]{\renewcommand{\@runninghead}{#1}}
 \let\currentdate\today
-\renewcommand{\today}{\ifcase\month\or
- Winter\or Winter\or Winter\or Spring\or Spring\or Spring\or
-Summer\or Summer\or Fall\or Fall\or Fall\or Fall\fi
- \space\number\year}
+\renewcommand{\today}{v.\:\datetoday\:\timeofday}
 
 \let\@ldtitle\title
 \renewcommand{\title}{\@ifnextchar[\@titlehead\@ldtitle}
@@ -69,33 +66,37 @@ Summer\or Summer\or Fall\or Fall\or Fall\or Fall\fi
 % center @title between prof and page number
 % assuming that prof is longer than page number
 
-\pagestyle{headings}
+\@ifclassloaded{beamer}{}{\pagestyle{headings}}
 \setlength{\headheight}{\baselineskip}
 \addtolength{\headheight}{2pt}
 
+\@ifclassloaded{beamer}{}{
 \renewcommand{\@oddhead}{\reset@font\small\@author\hfill\@runninghead\hfill%
 %\phantom{\@author}\smash{\thepage}%
 \thepage%
 \vadjust{\simplerule}}
+}
 
 \let\@evenhead\@oddhead
 
 \newcommand{\simplerule}{\kern 2\p@
 \hrule width \columnwidth}
 
+\@ifclassloaded{beamer}{}{
 \ifthenelse{\boolean{timestamp}}
 {\renewcommand{\@oddfoot}{\reset@font\small
 \hfill v.~\@timestamp\hfill}
 \let\@evenfoot\@oddfoot
 }
 {}
-
+}
 
 %------------------------------------------------------%
 % 		***** Title *****
 %------------------------------------------------------%
 %
 % if the titlepage option is used
+\@ifclassloaded{beamer}{}{
 \if@titlepage
 \def\maketitle{\begin{titlepage}
 \setcounter{footnote}{0}
@@ -143,7 +144,9 @@ Summer\or Summer\or Fall\or Fall\or Fall\or Fall\fi
 	\@checkargs
 }
 \fi
+}
 
+\@ifclassloaded{beamer}{}{
 \def\@maketitle{\vspace*{-\headheight}
 \vspace*{-\headsep}
 \vspace*{-\baselineskip}
@@ -163,5 +166,4 @@ Summer\or Summer\or Fall\or Fall\or Fall\or Fall\fi
 \end{center}
 \bigskip
 }
-
-
+}

@@ -1,5 +1,9 @@
 # varsityblues 0.2.2
 
+* beamer presentation looks decent and with table of contents
+
+# varsityblues 0.2.2
+
 * add latex pkgs float and flafter to allow floating images
 * adds \Pr for cursive P
 * drops use of euscript
