@@ -1,3 +1,7 @@
+# varsityblues 0.2.3
+
+* adds longtable and booktabs package for effortless PDF tables from R chunks with knitr/stargazer
+
 # varsityblues 0.2.2
 
 * beamer presentation looks decent and with table of contents
