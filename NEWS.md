@@ -1,7 +1,7 @@
 # varsityblues 0.2.3
 
 * adds longtable and booktabs package for effortless PDF tables from R chunks with knitr/stargazer
-* adds \plim shortcut
+* adds \plim, \avar, \sumi, \sumj shortcuts
 
 # varsityblues 0.2.2
 
