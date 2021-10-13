@@ -151,28 +151,37 @@
 \def\dfij{\frac{\partial f_i}{\partial x_j}}
 \newcommand{\prd}[2]{\frac{\partial #1}{\partial #2}}
 
-% stats notation
-\newcommand{\siga}{$\sigma$-algebra\:} % sigma algebra
-\newcommand{\sigf}{$\sigma$-field\:} % sigma field
-\newcommand{\mulprod}{\times \ldots \times} % sigma algebra
+%---------------------%
+% Statistics notation %
+%---------------------%
 
 \renewcommand{\vec}[1]{\boldsymbol{#1}} % bold vectors
 \newcommand{\vx}{\vec{x}} % x vector
 \newcommand{\vy}{\vec{y}} % y vector
 \newcommand{\vb}{\vec{\beta}} % y vector
 \newcommand{\ve}{\vec{\varepsilon}} % y vector
+
+\newcommand{\cov}{\text{cov}}
+\newcommand{\plim}{\text{plim}}
+
+\newcommand{\siga}{$\sigma$-algebra\:} % sigma algebra
+\newcommand{\sigf}{$\sigma$-field\:} % sigma field
+\newcommand{\mulprod}{\times \ldots \times} % sigma algebra
 \newcommand{\A}{\mathcal A} % algebra
 \renewcommand{\S}{\mathcal S} % semi-algebra
 \newcommand{\F}{\mathcal F} % sigma field
 \newcommand{\C}{\mathcal C} % collection
 \renewcommand{\S}{\mathcal S} % semialgebra
 \newcommand{\BR}{\mathcal R} % collection
+
 \renewcommand{\P}{\mathbb P} % Probability
 \renewcommand{\Pr}{\mathcal P} % Probability space
 \newcommand{\prob}[1]{\ensuremath{\def\@temp{#1}\ifx\@temp\@empty \Pr\else \Pr(#1)\fi}} % Set of probability measures: \prob or \prob{X}
 \newcommand{\E}{\mathbb E} % Expectation
+\newcommand{\var}{\text{var}} % Variance
 \newcommand{\thetah}{\hat{\theta}} % theta hat
 \newcommand{\thetat}{\tilde{\theta}} % theta hat
+\newcommand{\distconv}{\xrightarrow[]{d}} % convergence in distribution
 \newcommand{\probconv}{\xrightarrow[]{p}} % convergence in probability
 \newcommand{\infunion}{\bigcup_{i=1}^{\infty}}
 \newcommand{\infintersection}{\bigcap_{i=1}^{\infty}}
@@ -182,6 +191,9 @@
 \newcommand{\normal}[2]{\mathcal{N}({#1},{#2})}
 \newcommand{\mespace}{(\Omega, \F)}
 \newcommand{\prspace}{(\Omega, \F, \P)}
+
+\newcommand{\sumi}{\sum_{i = 1}^n}
+\newcommand{\sumj}{\sum_{j = 1}^n}
 
 %	Vector orders and binary relations
 \newcommand{\vgeq}{\geqq}
