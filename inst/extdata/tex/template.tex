@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[$fontsize$]{article}
 
 \usepackage[T1]{fontenc}
 % \usepackage{lmodern}
@@ -19,6 +19,12 @@
 \usepackage{flafter}
 \usepackage{longtable}
 \usepackage{booktabs}
+\usepackage{multirow}
+
+$if(linespacing)$
+  \usepackage{setspace}
+  \setstretch{$linespacing$}
+$endif$
 
 % texlive 2020
 $if(csl-refs)$

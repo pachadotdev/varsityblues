@@ -13,6 +13,8 @@ output:
 bibliography: ../bib/references.bib
 # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
 csl: ../csl/chicago.csl
+fontsize: 12pt
+linespacing: 1.5
 ---
 
 <!--
