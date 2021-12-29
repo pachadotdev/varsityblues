@@ -25,15 +25,6 @@
 {}
 
 %------------------------------------------------------%
-% 		***** New commands *****
-%------------------------------------------------------%
-%  Change the division
-\newcommand{\@division}{Department of Statistical Sciences}
-
-\newcommand{\setdivision}[1]{\renewcommand{\@division}{#1}}
-
-
-%------------------------------------------------------%
 %	Command to make sure no info is omitted
 \newcommand{\@checkargs}{\ifx\@author\@empty\@warning{Missing prof command}\fi
 \ifx\@title\@empty\@warning{Missing title command}\fi
@@ -104,9 +95,9 @@
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \begin{center}
 \Large
-\sffamily UNIVERSITY OF TORONTO\\[6pt]
+\sffamily \university\\[6pt]
 \large
-\@division\\
+\department\\
 \rmfamily\normalsize\vspace{180pt}
 %
 \Large\@title\\
@@ -150,9 +141,9 @@
 \def\@maketitle{\vspace*{-\headheight}
 \vspace*{-\headsep}
 \vspace*{-\baselineskip}
-\centerline{\reset@font\sffamily UNIVERSITY OF TORONTO}
+\centerline{\reset@font\sffamily \university}
 \smallskip
-\centerline{\reset@font\small\rmfamily\@division}
+\centerline{\reset@font\small\rmfamily\department}
 \bigskip
 \begin{center}
 \reset@font\Large\bfseries\boldmath\@title

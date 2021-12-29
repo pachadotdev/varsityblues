@@ -1,6 +1,8 @@
 ---
 title: 'My Assignment'
 author: 'You R. Name'
+university: 'University of Toronto'
+department: 'Department of Statistical Sciences'
 output:
   rmarkdown::pdf_document:
     latex_engine: pdflatex
@@ -35,6 +37,7 @@ This chunk sets the global options and can be deleted, you could add
 warning = FALSE or any other R Markdown option
 -->
 ```{r setup, include=FALSE}
+library(knitr)
 knitr::opts_chunk$set(echo = TRUE, message = FALSE)
 ```
 
@@ -44,10 +47,14 @@ setup LaTeX. On Windows, you might need to restart your computer and try again
 if knitting the document doesn't work.
 -->
 ```{r latex_setup}
-if (!require("remotes")) 
-  install.packages("remotes", repos = "https://cran.rstudio.com")
+if (!require("knitr")) 
+  install.packages("knitr", repos = "https://cran.rstudio.com")
 if (!require("rmarkdown")) 
   install.packages("rmarkdown", repos = "https://cran.rstudio.com")
+if (!require("ggplot2")) 
+  install.packages("ggplot2", repos = "https://cran.rstudio.com")
+if (!require("stargazer")) 
+  install.packages("stargazer", repos = "https://cran.rstudio.com")
 if (!require("tinytex")) 
   install.packages("tinytex", repos = "https://cran.rstudio.com")
 
@@ -130,10 +137,6 @@ built-in **R** dataset):
 summary(mtcars)
 ```
 
-```{r mtcars2}
-hist(mtcars$wt)
-```
-
 ## Inline code
 
 If you'd like to put the results of your analysis directly into your discussion,
@@ -157,6 +160,41 @@ indented.
 As you see with `$2 \pi$` above, mathematics can be added by surrounding the 
 mathematical text with dollar signs.  More examples of this are in 
 [Mathematical equations].
+
+## Plots
+
+Varsity blues already solves all the packages in order to insert plots right
+away from your code.
+
+```{r plots}
+library(ggplot2)
+
+ggplot(mtcars) +
+  geom_point(aes(x = cyl, y = wt, color = am))
+```
+
+## Tables
+
+As for the case of plots, this package alredy solves all the dependencies in 
+order to use different types of tables in \LaTeX.
+
+Simple table:
+```{r tables}
+kable(xtabs(~ am, mtcars))
+```
+
+Complex table:
+```{r tables2, results='asis'}
+library(stargazer)
+
+model1 <- lm(mpg ~ cyl, mtcars)
+model2 <- lm(mpg ~ cyl + am, mtcars)
+model3 <- lm(mpg ~ cyl + am + wt, mtcars)
+
+stargazer(model1, model2, model3, header = F)
+```
+
+\newpage
 
 # Mathematical equations
 

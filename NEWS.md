@@ -1,3 +1,8 @@
+# varsityblues 0.2.4
+
+* allows to change university/department on rmd headers
+* installs ggplot2 and stargazer
+
 # varsityblues 0.2.3
 
 * adds longtable and booktabs package for effortless PDF tables from R chunks with knitr/stargazer
