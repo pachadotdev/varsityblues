@@ -12,7 +12,7 @@ font_add("Varsity Team", '~/Downloads/varsity_2/varsity_regular.ttf')
 showtext_auto()
 
 sticker(cap,
-  package = "toronto rstats",
+  package = "toronto rmd",
   p_family = "Varsity Team",
   p_size = 15, p_color = "#ffffff", # p_x = 4, p_y = 1.4,
   s_x = 1, s_y = .8, s_height = 0.35,
