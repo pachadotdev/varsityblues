@@ -19,7 +19,7 @@ varsityblues much more simple!
 See an example **document** output in 
 [RMD](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/assignment1/assignment1.rmd) and [PDF](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/assignment1/assignment1.pdf).
 
-See an example **document** output in 
+See an example **presentation** output in 
 [RMD](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/presentation1/presentation1.rmd) and [PDF](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/presentation1/presentation1.pdf).
 
 ## Using varsityblues
