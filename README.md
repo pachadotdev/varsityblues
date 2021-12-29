@@ -46,9 +46,9 @@ Note that you may need to restart RStudio at this point if the dialog didn't sho
 
 The following components are ones you should edit to write your assignments:
 
-### `index.Rmd`
+### `assignment1/assignment1.Rmd`
 
-This file contains all the meta information that goes at the beginning of your
+This file contains the text and all the meta information that goes at the beginning of your
 document. You'll need to edit the top portion of this file (the YAML) to put your name on the first page, the title, etc.
 
 ### `bib/`
