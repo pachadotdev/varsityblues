@@ -191,6 +191,8 @@ ggplot(mtcars) +
 
 ## Tables
 
+### Simple table
+
 As for the case of plots, this package alredy solves all the dependencies in 
 order to use different types of tables in \LaTeX.
 
@@ -203,7 +205,8 @@ kable(xtabs(~ am, mtcars))
 
 ---
 
-Complex table:
+### Complex table (regression table)
+
 ```{r tables2, results='asis', eval=FALSE}
 library(stargazer)
 
