@@ -1,3 +1,7 @@
+# varsityblues 0.2.5
+
+* institution name with same font as the rest of the document
+
 # varsityblues 0.2.4
 
 * allows to change university/department on rmd headers
