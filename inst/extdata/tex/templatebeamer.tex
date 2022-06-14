@@ -1,16 +1,25 @@
-\documentclass{beamer}
-\usetheme{metropolis}
+\documentclass[aspectratio=169]{beamer}
+\definecolor{myblue}{RGB}{0,42,92}
+\usetheme[progressbar=frametitle]{metropolis}
+\useoutertheme{metropolis}
+\useinnertheme{metropolis}
+\setbeamercolor{background canvas}{bg=white}
 
-\usepackage[T1]{fontenc}
-\let\digamma\relax
-\let\eth\relax
-\IfFileExists{lucimatx.sty}{\usefonttheme{professionalfonts} \usepackage[scale=0.85,stdmathitalics=true,stdmathdigits=true,romanfamily=bright]{lucimatx}}{\usepackage{times}}
+%\usecolortheme[named=myblue]{structure}
+\setbeamercolor{frametitle}{bg=myblue}
+
+\usepackage[protrusion=true,expansion=true]{microtype}
 \usepackage[timestamp]{../tex/varsitybluesnotes}
-\usepackage{../tex/varsityblueslists, ../tex/varsitybluesshortcuts, ../tex/varsitybluesmatrix}
 
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{multirow}
+
+$if(amsmath)$
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{amsthm}
+$endif$
 
 % texlive 2020
 $if(csl-refs)$

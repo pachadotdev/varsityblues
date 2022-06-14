@@ -1,12 +1,9 @@
 \documentclass[$fontsize$]{article}
 
-\usepackage[T1]{fontenc}
-% \usepackage{lmodern}
-\IfFileExists{lucimatx.sty}{\usepackage[scale=0.85,stdmathitalics=true,stdmathdigits=true,romanfamily=bright]{lucimatx}}{\usepackage{times}}
-\let\digamma\relax
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+\usepackage{../tex/widetext}
 \usepackage[timestamp]{../tex/varsitybluesnotes}
-\usepackage[numfirst]{../tex/varsitybluesthm}
-\usepackage{../tex/varsitybluesmacros,../tex/varsityblueslists,../tex/cursive,../tex/widetext, ../tex/varsitybluesshortcuts}
 \usepackage{rotating}
 \usepackage[colorlinks]{hyperref}
 \usepackage{makeidx}
@@ -20,6 +17,12 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{multirow}
+
+$if(amsmath)$
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{amsthm}
+$endif$
 
 $if(linespacing)$
   \usepackage{setspace}
