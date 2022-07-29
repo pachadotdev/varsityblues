@@ -1,6 +1,14 @@
 # varsityblues 0.2.5
 
+* allows to write all the report in sans-serif
+* allows large table insertion
+* provides option to insert creative commons license
+
+# varsityblues 0.2.5
+
 * institution name with same font as the rest of the document
+* presentations default top 16:9 with blue color scheme
+* allows to turn AMS packages on/off
 
 # varsityblues 0.2.4
 
