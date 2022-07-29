@@ -18,6 +18,8 @@ csl: ../csl/chicago.csl
 fontsize: 12pt
 linespacing: 1.0
 amsmath: true
+sansserif: true
+creativecommons: by-nc-sa
 ---
 
 <!--

@@ -14,6 +14,7 @@
 \hypersetup{colorlinks = true, allcolors = blue}
 \usepackage{float}
 \usepackage{flafter}
+\usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{multirow}
@@ -37,6 +38,17 @@ $if(csl-refs)$
   {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}
   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}
   {\par}
+$endif$
+
+$if(sansserif)$
+\usepackage{sansmath}
+\renewcommand{\familydefault}{\sfdefault}
+\sansmath
+$endif$
+
+$if(creativecommons)$
+\usepackage{hyperxmp}
+\usepackage[type={CC}, modifier={$creativecommons$}, version={4.0}]{doclicense}
 $endif$
 
 \makeindex
@@ -64,6 +76,11 @@ $endif$
 \begin{document}
 
 \maketitle
+
+$if(creativecommons)$
+\doclicenseThis
+$endif$
+
 \thispagestyle{empty}
 \tableofcontents
 \setcounter{page}{0}
