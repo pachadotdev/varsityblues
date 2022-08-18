@@ -11,9 +11,6 @@ Description: Using the rmarkdown package and LaTeX, this package aims to
     and analyses as well.
 Depends:
     R (>= 3.2.0)
-Imports: 
-    rmarkdown,
-    knitr
 Suggests:
     remotes,
     usethis

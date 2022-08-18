@@ -1,25 +1,18 @@
 ---
-title: 'My Assignment'
+title: 'My Presentation'
 author: 'You R. Name'
 university: 'University of Toronto'
 department: 'Your Department'
-output:
-  rmarkdown::pdf_document:
-    latex_engine: pdflatex
-    template: ../tex/template.tex
-    # Supported styles include "default", "tango", "pygments", "kate", 
-    # "monochrome", "espresso", "zenburn", "haddock". Delete the highlighting 
-    # line NULL to turn off highlighting.
-    highlight: tango
-    keep_tex: yes
+format:
+  beamer:
+    highlight: tango # "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", "haddock"
+    template: "../tex/templatebeamer.tex"
+    pdf-engine: pdflatex
+    slide-level: 3
 bibliography: ../bib/references.bib
 # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
 csl: ../csl/chicago.csl
-fontsize: 12pt
-linespacing: 1.0
 amsmath: true
-sansserif: true
-creativecommons: by-nc-sa
 ---
 
 <!--
@@ -72,13 +65,15 @@ and capital letters to lowercase.  Look for the reference to this label at the
 beginning of Chapter 2.
 -->
 
-# R Markdown Basics {#rmd-basics}
+# R Markdown Basics
 
 Here is a brief introduction into using _R Markdown_. _Markdown_ is a simple 
 formatting syntax for authoring HTML, PDF, and MS Word documents. _R Markdown_ 
 provides the flexibility of _Markdown_ with the implementation of **R** input 
 and output.  For more details on using _R Markdown_ see 
-<https://rmarkdown.rstudio.com>.
+<https://rmarkdown.rstudio.com>.  
+
+---
 
 Be careful with your spacing in _Markdown_ documents.  While whitespace largely 
 is ignored, it does at times give _Markdown_ signals as to how to proceed.  As 
@@ -99,6 +94,8 @@ or it can be ordered like
 1. Item 1
 4. Item 2
 
+---
+
 Notice that I intentionally mislabeled Item 2 as number 4.  _Markdown_ 
 automatically figures this out!  You can put any numbers in the list and it 
 will create the list.  Check it out below.
@@ -112,12 +109,16 @@ tab).  (Here's one case where indentation is key!)
     - Item 3a
     - Item 3b
 
+---
+
 ## Line breaks
 
 Make sure to add white space between lines if you'd like to start a new 
 paragraph.  Look at what happens below in the outputted document if you don't:
+
 Here is the first sentence.  Here is another sentence.  Here is the last 
 sentence to end the paragraph.
+
 This should be a new paragraph.
 
 *Now for the correct way:* 
@@ -131,7 +132,11 @@ This should be a new paragraph.
 
 When you click the **Knit** button above a document will be generated that 
 includes both content as well as the output of any embedded **R** code chunks 
-within the document. You can embed an **R** code chunk like this (`mtcars` is a 
+within the document.
+
+---
+
+You can embed an **R** code chunk like this (`mtcars` is a 
 built-in **R** dataset):
 
 ```{r mtcars}
@@ -149,6 +154,8 @@ Another example would be the direct calculation of the standard deviation:
 
 > The standard deviation of `speed` in `cars` is `r sd(cars$speed)`.
 
+---
+
 One last neat feature is the use of the `ifelse` conditional statement which can
 be used to output text depending on the result of an **R** calculation:
 
@@ -157,6 +164,8 @@ be used to output text depending on the result of an **R** calculation:
 
 Note the use of `>` here, which signifies a quotation environment that will be 
 indented.
+
+---
 
 As you see with `$2 \pi$` above, mathematics can be added by surrounding the 
 mathematical text with dollar signs.  More examples of this are in 
@@ -167,7 +176,9 @@ mathematical text with dollar signs.  More examples of this are in
 Varsity blues already solves all the packages in order to insert plots right
 away from your code.
 
-```{r plots, fig.width=5, fig.height=3, fig.cap="An elementary plot"}
+---
+
+```{r plots, fig.height=2.5, fig.width=4}
 library(ggplot2)
 
 ggplot(mtcars) +
@@ -176,18 +187,23 @@ ggplot(mtcars) +
 
 ## Tables
 
-As for the case of plots, this package already solves all the dependencies in 
-order to use different types of tables in \LaTeX.
-
 ### Simple table
 
+As for the case of plots, this package alredy solves all the dependencies in 
+order to use different types of tables in \LaTeX.
+
+---
+
+Simple table:
 ```{r tables}
 kable(xtabs(~ am, mtcars))
 ```
 
+---
+
 ### Complex table (regression table)
 
-```{r tables2, results='asis'}
+```{r tables2, results='asis', eval=FALSE}
 library(stargazer)
 
 model1 <- lm(mpg ~ cyl, mtcars)
@@ -197,9 +213,24 @@ model3 <- lm(mpg ~ cyl + am + wt, mtcars)
 stargazer(model1, model2, model3, header = F)
 ```
 
+---
+
+Complex table:
+\begin{tiny}
+```{r results='asis', echo=FALSE}
+library(stargazer)
+
+model1 <- lm(mpg ~ cyl, mtcars)
+model2 <- lm(mpg ~ cyl + am, mtcars)
+model3 <- lm(mpg ~ cyl + am + wt, mtcars)
+
+stargazer(model1, model2, model3, header = F)
+```
+\end{tiny}
+
 \newpage
 
-## Mathematical equations
+# Mathematical equations
 
 Consider a function $f: U \to \mathbb{R}$, defined on an open set $U\subset\mathbb{R}$, is said to be **differentiable** at $a\in U$ if the derivative $f'(a) = \lim_{h \to 0}\frac{f(a+h)-f(a)}{h}$ exists. In general, $f$ is of class $\mathcal{C}^k$ if its first $k$ derivatives $f^{\prime}(x), f^{\prime\prime}(x), \ldots, f^{(k)}(x)$ exist and are continuous.
 
@@ -219,8 +250,6 @@ The bib chunk below must go last in this document according to how R Markdown
 renders.  More info is at 
 http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
 -->
-
-\newpage
 
 # References {-}
 
