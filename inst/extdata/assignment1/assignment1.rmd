@@ -3,11 +3,11 @@ title: 'My Assignment'
 author: 'You R. Name'
 university: 'University of Toronto'
 department: 'Your Department'
-format:
-  pdf:
+output:
+  rmarkdown::pdf_document:
     highlight: tango # "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", "haddock"
     template: "../tex/template.tex"
-    pdf-engine: pdflatex
+    latex_engine: pdflatex
 bibliography: ../bib/references.bib
 csl: ../csl/chicago.csl # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
 fontsize: 12pt

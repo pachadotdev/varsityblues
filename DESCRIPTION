@@ -1,6 +1,6 @@
 Package: varsityblues
 Title: Writing your UofT assignments using R Markdown
-Version: 0.3.0
+Version: 0.3.5
 Authors@R: c(person("Mauricio", "Vargas", 
     role = c("aut","cre","cph"), 
     email = "mv.sepulveda@mail.utoronto.ca", 
@@ -9,6 +9,9 @@ Description: Using the rmarkdown package and LaTeX, this package aims to
     encourage reproducible research and better reproducibility practices using 
     simple Markdown syntax while embedding all of the R code to produce plots
     and analyses as well.
+Imports: 
+    rmarkdown,
+    knitr
 Depends:
     R (>= 3.2.0)
 Suggests:

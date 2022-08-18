@@ -3,16 +3,17 @@ title: 'My Presentation'
 author: 'You R. Name'
 university: 'University of Toronto'
 department: 'Your Department'
-format:
-  beamer:
+output:
+  rmarkdown::beamer_presentation:
     highlight: tango # "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", "haddock"
+    slide_level: 3
     template: "../tex/templatebeamer.tex"
-    pdf-engine: pdflatex
-    slide-level: 3
+    latex_engine: pdflatex
 bibliography: ../bib/references.bib
-# Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
-csl: ../csl/chicago.csl
+csl: ../csl/chicago.csl # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
+fontsize: 12pt
 amsmath: true
+creativecommons: by-nc-sa
 ---
 
 <!--

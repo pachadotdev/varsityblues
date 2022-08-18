@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169]{beamer}
+\documentclass[$fontsize$, aspectratio=169]{beamer}
 \definecolor{myblue}{RGB}{0,42,92}
 \usetheme[progressbar=frametitle]{metropolis}
 \useoutertheme{metropolis}
@@ -31,6 +31,11 @@ $if(csl-refs)$
   {\par}
 $endif$
 
+$if(creativecommons)$
+\usepackage{hyperxmp}
+\usepackage[type={CC}, modifier={$creativecommons$}, version={4.0}]{doclicense}
+$endif$
+
 \makeindex
 
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -55,6 +60,12 @@ $endif$
 \begin{frame}
   \titlepage
 \end{frame}
+
+$if(creativecommons)$
+\begin{frame}
+  \doclicenseThis
+\end{frame}
+$endif$
 
 \begin{frame}{Outline}
   \tableofcontents
