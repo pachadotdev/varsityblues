@@ -36,7 +36,7 @@ Note that you may need to restart RStudio at this point if the dialog didn't sho
 
 ![Create new project](images/assignments_project.png)
 
-3) Edit `assignment1`'s contents for your first assignment. To render your assignment into a PDF, open the `rmd` file inside the `assignment1` directory in RStudio and then click the "knit" button. The PDF file of your thesis will be deposited in the same directory.
+3) Edit `assignment1`'s contents for your first assignment. To render your assignment into a PDF, open the `rmd` file inside the `assignment1` directory in RStudio and then click the "knit" button. The PDF file of your assignment will be deposited in the same directory.
 
 4) Copy `assignment1` for the 2nd, 3rd, ..., Nth assignment
 
@@ -67,7 +67,7 @@ Store your figures and data here and reference them in your R Markdown files. Se
 ## Troubleshooting
 
 1) The varsityblues templates shall detect existing LaTeX install or shall install a minimal version that just works when you knit the document.
-2) Ensure that you have already installed LaTeX on ytour system and that you are using the latest version of [RStudio](https://www.rstudio.com/products/rstudio/download/).
+2) Ensure that you have already installed LaTeX on your system and that you are using the latest version of [RStudio](https://www.rstudio.com/products/rstudio/download/).
 
 ## Using wihout RStudio
 
