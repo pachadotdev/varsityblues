@@ -1,3 +1,8 @@
+# varsityblues 0.3.5
+
+* uses geometry package instead of own margins file
+* allows to control margin and paper size from Rmd header
+
 # varsityblues 0.2.5
 
 * allows to write all the report in sans-serif

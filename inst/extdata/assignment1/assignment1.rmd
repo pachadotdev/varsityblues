@@ -11,9 +11,11 @@ output:
 bibliography: ../bib/references.bib
 csl: ../csl/chicago.csl # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
 fontsize: 12pt
-linespacing: 1.0
+linespacing: 2.0
+margin: 1in
+paper: letterpaper # a4paper, executivepaper, legalpaper, etc also works
 amsmath: true
-sansserif: true
+sansserif: false
 creativecommons: by-nc-sa
 ---
 
