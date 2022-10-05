@@ -1,0 +1,16 @@
+# Additional resources
+
+- [_Markdown_ Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+- [_R Markdown_ Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+- [_R Markdown_ Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+- [_RStudio IDE_ Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
+- [_RStudio IDE_ Official website](https://rstudio.com/products/rstudio/)
+- [Introduction to `dplyr`](https://cran.rstudio.com/web/packages/dplyr/vignettes/dplyr.html)
+- [`ggplot2` Documentation](https://ggplot2.tidyverse.org/)
+- [`ggplot2` Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+
+<!--
+The bib chunk below must go last in this document according to how R Markdown 
+renders.  More info is at 
+http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+-->

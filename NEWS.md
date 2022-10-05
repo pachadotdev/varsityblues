@@ -1,3 +1,7 @@
+# varsityblues 0.4.0
+
+* provides thesis template
+
 # varsityblues 0.3.5
 
 * uses geometry package instead of own margins file
