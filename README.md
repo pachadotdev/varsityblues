@@ -22,6 +22,9 @@ See an example **document** output in
 See an example **presentation** output in 
 [RMD](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/presentation1/presentation1.rmd) and [PDF](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/presentation1/presentation1.pdf).
 
+See an example **thesis** output in
+[RMD](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/thesis/thesis.rmd) and [PDF](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/thesis/thesis.pdf)
+
 ## Using varsityblues
 
 1) Install the varsityblues package. Note that varsityblues is not available on CRAN and that you will be installing from an unofficial source which is my GitHub repository.

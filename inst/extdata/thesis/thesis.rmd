@@ -71,10 +71,10 @@ beginning of Chapter 2.
 
 \mainmatter
 
-```{r child = 'chapters/01-r-markdown-basics.Rmd', eval = T}
+```{r child = 'chapters/01-r-markdown-basics.rmd', eval = T}
 ```
 
-```{r child = 'chapters/02-additional-resources.Rmd', eval = T}
+```{r child = 'chapters/02-additional-resources.rmd', eval = T}
 ```
 
 # References
