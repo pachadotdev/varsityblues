@@ -1,11 +1,4 @@
-%% TAKEN FROM https://raw.githubusercontent.com/jessexknight/ut-thesis/master/ut-thesis/ut-thesis.cls
-%%
-%% This is file `ut-thesis.cls',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% ut-thesis.dtx  (with options: `class')
+%% ADAPTED FROM https://raw.githubusercontent.com/jessexknight/ut-thesis/master/ut-thesis/ut-thesis.cls
 %%
 %% LaTeX2e document class for graduate theses
 %% that conform to the formatting requirements of
@@ -17,39 +10,10 @@
 %%               2020-2021 Jesse Knight <jesse.knight@mail.utoronto.ca>
 %% last updated at 23:30 (EST) on Tue 20 July 2021
 %%
-%% This work may be distributed and/or modified under the conditions of
-%% the LaTeX Project Public Licence, either version 1.3c of this licence
-%% or (at your option) any later version.
-%% The latest version of this licence is in
-%%     http://www.latex-project.org/lppl.txt
-%% and version 1.3c or later is part of all distributions of LaTeX
-%% version 2005/12/01 or later.
-%% Note that the output thesis document (e.g. PDF)
-%% is not considered a "Compiled Work"
-%% and is not covered by the licence.
-%%
 %% This work has the LPPL maintenance status "maintained".
 %%
 %% The Current Maintainer of this work is
 %% Jesse Knight <jesse.knight@mail.utoronto.ca>.
-%%
-%% This work consists of the files:
-%% - README
-%% - ut-thesis.dtx
-%% - ut-thesis.ins
-%% - ut-thesis.pdf (derived user manual)
-%% - ut-thesis.cls (derived class file)
-%%
-%% To generate ut-thesis.cls (class file), run: pdflatex ut-thesis.ins
-%% To generate ut-thesis.pdf (documentation), run: pdflatex ut-thesis.dtx
-%% To use the class, make ut-thesis.cls visible to your LaTeX distribution,
-%% by placing ut-thesis.cls either in your working directory,
-%% or in your texmf tree, perhaps: $texmf/tex/latex/ut-thesis/ut-thesis.cls
-%% and the documentation: $texmf/doc/latex/ut-thesis/ut-thesis.pdf
-%%
-%% See version history on GitHub:
-%% [https://github.com/jessexknight/ut-thesis]
-%%
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{ut-thesis}
 [2022/06/21 v3.1.6 University of Toronto thesis class]
@@ -97,18 +61,21 @@
 \LoadClass{book}
 \RequirePackage{geometry} % for margins etc.
 \RequirePackage{setspace} % for line spacing
+\RequirePackage{../tex/timestamp}
 \renewcommand*{\author}  [1]{\gdef\@author{#1}}
 \renewcommand*{\title}   [1]{\gdef\@title{#1}}
 \newcommand*{\degree}    [1]{\gdef\@degree{#1}}
 \newcommand*{\gradyear}  [1]{\gdef\@gradyear{#1}}
 \newcommand*{\department}[2][Department of]%
   {\gdef\@deptpre{#1}\gdef\@deptname{#2}}
+\newcommand*{\draft}    [1]{\gdef\@draft{#1}}
 \newcommand*{\copyrighttext}[1]{\gdef\@copyrighttext{#1}}
 \author    {(author)}
 \title     {(title)}
 \degree    {(degree)}
 \gradyear  {(gradyear)}
 \department{(department)}
+\draft{(draft)}
 \copyrighttext{{\copyright} Copyright {\@gradyear} by {\@author}}
 \g@addto@macro\frontmatter{\pagenumbering{roman}\pagestyle{plain}}
 \g@addto@macro\mainmatter {\pagenumbering{arabic}\pagestyle{headings}}
@@ -120,6 +87,8 @@
       \null
       \vfill
       \textsc{\@title}
+      % add timestamp if draft is true
+      \ifthenelse{\equal{\@draft}{true}}{\newline\textsc{v.~\@timestamp}}{}
       \vfill
       by
       \vfill

@@ -39,25 +39,15 @@ warning = FALSE or any other R Markdown option
 ```{r setup, include=FALSE}
 library(knitr)
 knitr::opts_chunk$set(echo = TRUE, message = FALSE)
-```
 
-<!--
-You can delete the next chunk afterwards, but Knit without removing it first to 
-setup LaTeX. On Windows, you might need to restart your computer and try again 
-if knitting the document doesn't work.
--->
-```{r latex_setup}
-if (!require("knitr")) 
-  install.packages("knitr", repos = "https://cran.rstudio.com")
-if (!require("rmarkdown")) 
-  install.packages("rmarkdown", repos = "https://cran.rstudio.com")
-if (!require("ggplot2")) 
-  install.packages("ggplot2", repos = "https://cran.rstudio.com")
-if (!require("stargazer")) 
-  install.packages("stargazer", repos = "https://cran.rstudio.com")
-if (!require("tinytex")) 
-  install.packages("tinytex", repos = "https://cran.rstudio.com")
-
+# You can delete the next lines, but Knit without removing it first to 
+# setup LaTeX. On Windows, you might need to restart your computer and try again 
+# if knitting the document doesn't work.
+if (!require("knitr")) install.packages("knitr", repos = "https://cran.rstudio.com")
+if (!require("rmarkdown")) install.packages("rmarkdown", repos = "https://cran.rstudio.com")
+if (!require("ggplot2")) install.packages("ggplot2", repos = "https://cran.rstudio.com")
+if (!require("stargazer")) install.packages("stargazer", repos = "https://cran.rstudio.com")
+if (!require("tinytex")) install.packages("tinytex", repos = "https://cran.rstudio.com")
 if (isFALSE(tinytex::is_tinytex())) tinytex::install_tinytex()
 ```
 

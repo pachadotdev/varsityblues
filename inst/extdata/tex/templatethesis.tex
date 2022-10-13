@@ -1,9 +1,14 @@
-\documentclass{ut-thesis}
+\documentclass{../tex/ut-thesis}
+
+\usepackage{ifthen}
+
 \author{$author$}
+% \ifthenelse{$draft$}{$title$ \@timestamp}{$title$}
 \title{$title$}
 \degree{$degree$}
 \department{$department$}
 \gradyear{$year$}
+\draft{$draft$}
 
 \usepackage[colorlinks]{hyperref}
 \usepackage{color}

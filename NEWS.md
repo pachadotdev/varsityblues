@@ -1,3 +1,8 @@
+# varsityblues 0.4.5
+
+* adds draft option for thesis (prints timestamp)
+* moves latex setup chunk together with knitr setup for all outputs
+
 # varsityblues 0.4.0
 
 * provides thesis template
