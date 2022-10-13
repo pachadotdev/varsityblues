@@ -2,6 +2,7 @@
 
 * adds draft option for thesis (prints timestamp)
 * moves latex setup chunk together with knitr setup for all outputs
+* removes indentation for thesis to mimic word template from https://guides.library.utoronto.ca/thesis/formatting_word
 
 # varsityblues 0.4.0
 
