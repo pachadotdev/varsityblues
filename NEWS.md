@@ -1,3 +1,7 @@
+# varsityblues 0.5.0
+
+* uses Quarto and Chicago author-date style for references as default
+
 # varsityblues 0.4.5
 
 * adds draft option for thesis (prints timestamp)

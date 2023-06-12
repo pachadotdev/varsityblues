@@ -3,16 +3,16 @@ title: 'My Assignment'
 author: 'You R. Name'
 university: 'University of Toronto'
 department: 'Your Department'
-output:
-  rmarkdown::pdf_document:
+format:
+  pdf:
     highlight: tango # "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", "haddock"
     template: "../tex/template.tex"
-    latex_engine: pdflatex
+    keep-tex: false
 bibliography: ../bib/references.bib
-csl: ../csl/chicago.csl # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
+csl: ../csl/chicago_manual_of_style_17th_edition_author_date.csl # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
 fontsize: 12pt
 linespacing: 2.0
-margin: 1in
+margin: 1
 paper: letterpaper # a4paper, executivepaper, legalpaper, etc also works
 amsmath: true
 sansserif: false
@@ -103,16 +103,17 @@ tab).  (Here's one case where indentation is key!)
 
 Make sure to add white space between lines if you'd like to start a new 
 paragraph.  Look at what happens below in the outputted document if you don't:
-Here is the first sentence.  Here is another sentence.  Here is the last 
-sentence to end the paragraph.
-This should be a new paragraph.
+Here is the first sentence.
+Here is another sentence.
+Here is the last sentence.
 
 *Now for the correct way:* 
 
-Here is the first sentence.  Here is another sentence.  Here is the last 
-sentence to end the paragraph.
+Here is the first sentence.
 
-This should be a new paragraph.
+Here is another sentence.
+
+Here is the last sentence.
 
 ## R chunks
 

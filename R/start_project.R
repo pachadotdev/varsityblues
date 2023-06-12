@@ -1,6 +1,9 @@
 # The function itself just echos its inputs and outputs to a file called INDEX,
 # which is then opened by RStudio when the new project is opened.
-start_project <- function(path, ...) {
+#' Start a new project with the varsityblues templates
+#' @param path Path to the new project (defaults to working directory)
+#' @export
+start_project <- function(path = ".") {
   # ensure path exists
   dir.create(path, recursive = TRUE, showWarnings = FALSE)
 

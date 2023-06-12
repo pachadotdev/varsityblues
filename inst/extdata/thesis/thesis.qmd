@@ -1,5 +1,5 @@
 ---
-title: 'The position of Defence Against the Dark Arts using R'
+title: 'Defence Against the Dark Arts using R and LaTeX Integrated via Quarto'
 author: 'You R. Name'
 degree: 'Master of Defence Against the Dark Arts'
 university: 'University of Toronto'
@@ -8,14 +8,14 @@ year: 2022
 abstract: "Defence Against the Dark Arts (in short, DADA) is about how to defend   
  against all aspects of the Dark Arts, including dark creatures, curses, hexes 
  and jinxes (dark charms), and duelling."
-output:
-  rmarkdown::pdf_document:
+format:
+  pdf:
     highlight: tango # "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", "haddock"
     template: "../tex/templatethesis.tex"
-    latex_engine: pdflatex
-    keep_tex: yes
-    pandoc_args: [--top-level-division=chapter, --wrap=none]
+    top-level-division: chapter
+    keep-tex: false
 bibliography: ../bib/references.bib
+csl: ../csl/chicago_manual_of_style_17th_edition_author_date.csl # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
 amsmath: true
 draft: true
 ---

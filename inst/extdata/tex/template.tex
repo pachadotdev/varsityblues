@@ -1,8 +1,10 @@
 \documentclass[$fontsize$]{article}
 
-\usepackage[$paper$, margin=$margin$]{geometry}
+\usepackage[$paper$, margin=$margin$in]{geometry}
 
-\usepackage[protrusion=true,expansion=true]{microtype}
+$if(pdflatex)$
+  \usepackage[protrusion=true,expansion=true]{microtype}
+$endif$
 
 % \usepackage{../tex/widetext}
 \usepackage[timestamp]{../tex/varsitybluesnotes}

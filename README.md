@@ -30,10 +30,16 @@ See an example **thesis** output in
 1) Install the varsityblues package. Note that varsityblues is not available on CRAN and that you will be installing from an unofficial source which is my GitHub repository.
 
 ```r
-install.packages("varsityblues", repos = "https://pachadotdev.r-universe.dev")
+remotes::install_github("pachadotdev/varsityblues")
 ```
 
-2) Click *File -> New Project -> New Directory -> UofT assignments using varsityblues* in RStudio's top bar.
+2) From the R terminal
+
+```r
+varsityblues::start_project()
+```
+
+Otherwise, click *File -> New Project -> New Directory -> UofT assignments using varsityblues* in RStudio's top bar.
 
 Note that you may need to restart RStudio at this point if the dialog didn't show up.
 
@@ -49,14 +55,21 @@ Note that you may need to restart RStudio at this point if the dialog didn't sho
 
 The following components are ones you should edit to write your assignments:
 
-### `assignment1/assignment1.Rmd`
+### `assignment1/assignment1.qmd`
 
-This file contains the text and all the meta information that goes at the beginning of your
-document. You'll need to edit the top portion of this file (the YAML) to put your name on the first page, the title, etc.
+Ready to use template to create a PDF document. You'll need to edit the top portion of this file (the YAML header) to put your name, the title, etc and then you can start writing your assignment.
+
+### `presentation1/presentation1.qmd`
+
+Ready to use template to create a PDF presentation. You'll need to edit the top portion of this file (the YAML header) to put your name on the title slide and then you can start writing your presentation.
+
+### `thesis/thesis.qmd`
+
+Ready to use template to create a PDF thesis according to UofT design rules. You'll need to edit the top portion of this file (the YAML header) to put your name, the title, etc and then you can start writing your thesis.
 
 ### `bib/`
 
-Store your bibliography (as bibtex files) here. We recommend using the [citr addin](https://github.com/crsh/citr) and [Zotero](https://www.zotero.org/) to efficiently manage and insert citations.
+Store your bibliography (as bibtex files) here. I recommend using the [citr addin](https://github.com/crsh/citr) and [Zotero](https://www.zotero.org/) to efficiently manage and insert citations.
 
 ### `csl/`
 

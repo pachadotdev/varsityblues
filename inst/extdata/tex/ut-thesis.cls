@@ -88,7 +88,9 @@
       \vfill
       \textsc{\@title}
       % add timestamp if draft is true
-      \ifthenelse{\equal{\@draft}{true}}{\newline\textsc{v.~\@timestamp}}{}
+      \ifthenelse{\equal{\@draft}{true}}{
+        \vfill
+        \textsc{v.~\@timestamp}}{}
       \vfill
       by
       \vfill

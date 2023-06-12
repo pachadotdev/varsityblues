@@ -1,4 +1,4 @@
-#' varsityblues: Writing your UofT assignmente using R Markdown
+#' varsityblues: Writing your UofT assignments and thesis using Quarto
 #'
 #' @docType package
 #' @name varsityblues
