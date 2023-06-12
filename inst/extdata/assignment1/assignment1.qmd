@@ -37,7 +37,6 @@ This chunk sets the global options and can be deleted, you could add
 warning = FALSE or any other R Markdown option
 -->
 ```{r setup, include=FALSE}
-library(knitr)
 knitr::opts_chunk$set(echo = TRUE, message = FALSE)
 
 # You can delete the next lines, but Knit without removing it first to 
@@ -49,6 +48,8 @@ if (!require("ggplot2")) install.packages("ggplot2", repos = "https://cran.rstud
 if (!require("stargazer")) install.packages("stargazer", repos = "https://cran.rstudio.com")
 if (!require("tinytex")) install.packages("tinytex", repos = "https://cran.rstudio.com")
 if (isFALSE(tinytex::is_tinytex())) tinytex::install_tinytex()
+
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
 ```
 
 <!--
