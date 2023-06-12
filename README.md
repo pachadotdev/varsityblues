@@ -6,24 +6,35 @@
   
 ## About
 
-A package for writing assignments at the University of Toronto based off the 
-[thesisdown](https://github.com/ismayc/thesisdown) and 
-[beardown](https://github.com/kelseygonzalez/beardown) R packages.
+A package for writing UofT assignments, presentations and thesis using Quarto.
 
-This package is heavily inspired by years of LaTeX tricks I learned at the
-Catholic University of Chile and the late professor Kim C. Border.
+This package aims to encourage reproducible research and better reproducibility
+practices using simple Markdown syntax while embedding all of the R code to
+produce plots and analyses as well.
 
-Thanks a lot to Kelsey Gonzalez for polishing beardown, it made creating
-varsityblues much more simple!
+This R package will conduct all the steps required to create a pdf document,
+including installing LaTeX if needed.
+
+## Acknowledgements
+
+This is based on [thesisdown](https://github.com/ismayc/thesisdown), 
+[beardown](https://github.com/kelseygonzalez/beardown) R packages, and
+years of LaTeX tricks I learned at the Catholic University of Chile and the late
+professor Kim C. Border.
+
+Thanks a lot to [Kelsey Gonzalez](https://github.com/kelseygonzalez) for
+polishing beardown, it made creating varsityblues much more simple!
+
+## Examples
 
 See an example **document** output in 
-[RMD](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/assignment1/assignment1.rmd) and [PDF](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/assignment1/assignment1.pdf).
+[qmd](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/assignment1/assignment1.qmd) and [pdf](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/assignment1/assignment1.pdf).
 
 See an example **presentation** output in 
-[RMD](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/presentation1/presentation1.rmd) and [PDF](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/presentation1/presentation1.pdf).
+[qmd](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/presentation1/presentation1.qmd) and [pdf](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/presentation1/presentation1.pdf).
 
 See an example **thesis** output in
-[RMD](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/thesis/thesis.rmd) and [PDF](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/thesis/thesis.pdf)
+[qmd](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/thesis/thesis.qmd) and [pdf](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/thesis/thesis.pdf)
 
 ## Using varsityblues
 
@@ -45,11 +56,13 @@ Note that you may need to restart RStudio at this point if the dialog didn't sho
 
 ![Create new project](images/assignments_project.png)
 
-3) Edit `assignment1`'s contents for your first assignment. To render your assignment into a PDF, open the `rmd` file inside the `assignment1` directory in RStudio and then click the "knit" button. The PDF file of your assignment will be deposited in the same directory.
+3) Edit `assignment1`'s contents for your first assignment. To render your assignment into a pdf, open the `qmd` file inside the `assignment1` directory in RStudio and then click the "render/knit" button. The pdf file of your assignment will be created in the same directory.
 
 4) Copy `assignment1` for the 2nd, 3rd, ..., Nth assignment
 
 5) Profit!
+
+The same steps apply to presentations and thesis (but who writes more than one thesis?)
 
 ## Components
 
@@ -57,15 +70,15 @@ The following components are ones you should edit to write your assignments:
 
 ### `assignment1/assignment1.qmd`
 
-Ready to use template to create a PDF document. You'll need to edit the top portion of this file (the YAML header) to put your name, the title, etc and then you can start writing your assignment.
+Ready to use template to create a pdf document. You'll need to edit the top portion of this file (the YAML header) to put your name, the title, etc and then you can start writing your assignment.
 
 ### `presentation1/presentation1.qmd`
 
-Ready to use template to create a PDF presentation. You'll need to edit the top portion of this file (the YAML header) to put your name on the title slide and then you can start writing your presentation.
+Ready to use template to create a pdf presentation. You'll need to edit the top portion of this file (the YAML header) to put your name on the title slide and then you can start writing your presentation.
 
 ### `thesis/thesis.qmd`
 
-Ready to use template to create a PDF thesis according to UofT design rules. You'll need to edit the top portion of this file (the YAML header) to put your name, the title, etc and then you can start writing your thesis.
+Ready to use template to create a pdf thesis according to UofT design rules. You'll need to edit the top portion of this file (the YAML header) to put your name, the title, etc and then you can start writing your thesis.
 
 ### `bib/`
 
@@ -83,11 +96,11 @@ Store your figures and data here and reference them in your R Markdown files. Se
 ## Troubleshooting
 
 1) The varsityblues templates shall detect existing LaTeX install or shall install a minimal version that just works when you knit the document.
-2) Ensure that you have already installed LaTeX on your system and that you are using the latest version of [RStudio](https://www.rstudio.com/products/rstudio/download/).
+2) Ensure that you have already installed [Quarto](https://quarto.org). I moved everything to Quarto because it is easier to use.
 
 ## Using wihout RStudio
 
-You can use `varsityblues` without RStudio. For example, you can write the Rmd files in your favourite text editor (e.g. [Atom](https://atom.io/), [Notepad++](https://notepad-plus-plus.org/)). But RStudio **is** the easiest tool for writing both R code and text in your assignment. It also provides a nice way to build your documents while editing.
+You can use `varsityblues` without RStudio. For example, you can write the qmd files in your favourite text editor (e.g. Visual Studio Code).
 
 ## (Totally optional) Install lucimatx
 
