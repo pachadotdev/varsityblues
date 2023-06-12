@@ -6,7 +6,7 @@
 \alias{varsityblues-package}
 \title{varsityblues: Writing your UofT assignments and thesis using Quarto}
 \description{
-Using the rmarkdown package and LaTeX, this package aims to encourage reproducible research and better reproducibility practices using simple Markdown syntax while embedding all of the R code to produce plots and analyses as well.
+This package aims to encourage reproducible research and better reproducibility practices using simple Markdown syntax while embedding all of the R code to produce plots and analyses as well.
 }
 \author{
 \strong{Maintainer}: Mauricio Vargas \email{m.sepulveda@mail.utoronto.ca} (\href{https://orcid.org/0000-0003-1017-7574}{ORCID}) [copyright holder]
