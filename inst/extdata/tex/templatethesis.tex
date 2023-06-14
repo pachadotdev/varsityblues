@@ -25,6 +25,16 @@ $if(amsmath)$
   \usepackage{amsthm}
 $endif$
 
+% texlive >= 2020
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{CSLReferences}[2]
+  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}
+  {\par}
+$endif$
+
 \newcommand{\VerbBar}{|}
 \newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
@@ -67,15 +77,6 @@ $endif$
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
-% texlive >= 2020
-$if(csl-refs)$
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newenvironment{CSLReferences}
-  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}
-  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}
-  {\par}
-$endif$
 
 \begin{document}
   \frontmatter
