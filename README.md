@@ -6,7 +6,7 @@
   
 ## About
 
-A package for writing UofT assignments, presentations and thesis using Quarto.
+A package for writing UofT papers, presentations and thesis using Quarto.
 
 This package aims to encourage reproducible research and better reproducibility
 practices using simple Markdown syntax while embedding all of the R code to
@@ -27,11 +27,11 @@ polishing beardown, it made creating varsityblues much more simple!
 
 ## Examples
 
-See an example **document** output in 
-[qmd](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/assignment1/assignment1.qmd) and [pdf](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/assignment1/assignment1.pdf).
+See an example **paper** output in 
+[qmd](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/paper/paper.qmd) and [pdf](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/paper/paper.pdf).
 
 See an example **presentation** output in 
-[qmd](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/presentation1/presentation1.qmd) and [pdf](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/presentation1/presentation1.pdf).
+[qmd](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/presentation/presentation.qmd) and [pdf](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/presentation/presentation.pdf).
 
 See an example **thesis** output in
 [qmd](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/thesis/thesis.qmd) and [pdf](https://github.com/pachadotdev/varsityblues/blob/main/inst/extdata/thesis/thesis.pdf)
@@ -50,29 +50,27 @@ remotes::install_github("pachadotdev/varsityblues")
 varsityblues::start_project()
 ```
 
-Otherwise, click *File -> New Project -> New Directory -> UofT assignments using varsityblues* in RStudio's top bar.
+Otherwise, click *File -> New Project -> New Directory -> UofT paper/presentation/thesis using varsityblues* in RStudio's top bar.
 
 Note that you may need to restart RStudio at this point if the dialog didn't show up.
 
-![Create new project](images/assignments_project.png)
+![Create new project](images/varsityblues_project.png)
 
-3) Edit `assignment1`'s contents for your first assignment. To render your assignment into a pdf, open the `qmd` file inside the `assignment1` directory in RStudio and then click the "render/knit" button. The pdf file of your assignment will be created in the same directory.
+3) Edit `paper`'s contents. To render your paper into a pdf, open the `qmd` file inside the `paper` directory in RStudio and then click the "render/knit" button. The pdf file of your paper will be created in the same directory.
 
-4) Copy `assignment1` for the 2nd, 3rd, ..., Nth assignment
+The same steps apply to presentations and thesis.
 
-5) Profit!
+You can copy and paste the `paper`/`presentation`/`thesis` directory to create a new paper/presentation/thesis as many times as you want and it will be lightweight because the tex files are not duplicated.
 
-The same steps apply to presentations and thesis (but who writes more than one thesis?)
+You can also edit the contents of the `tex` folder, but beware that the changes will after any new paper/presentation/thesis that you create.
 
 ## Components
 
-The following components are ones you should edit to write your assignments:
+### `paper/paper.qmd`
 
-### `assignment1/assignment1.qmd`
+Ready to use template to create a pdf document. You'll need to edit the top portion of this file (the YAML header) to put your name, the title, etc and then you can start writing your paper.
 
-Ready to use template to create a pdf document. You'll need to edit the top portion of this file (the YAML header) to put your name, the title, etc and then you can start writing your assignment.
-
-### `presentation1/presentation1.qmd`
+### `presentation/presentation.qmd`
 
 Ready to use template to create a pdf presentation. You'll need to edit the top portion of this file (the YAML header) to put your name on the title slide and then you can start writing your presentation.
 

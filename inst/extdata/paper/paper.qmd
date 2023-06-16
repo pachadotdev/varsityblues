@@ -1,5 +1,5 @@
 ---
-title: 'My Assignment'
+title: 'My Paper'
 author: 'You R. Name'
 university: 'University of Toronto'
 department: 'Your Department'
