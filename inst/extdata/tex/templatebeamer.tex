@@ -18,10 +18,16 @@ $endif$
 \usepackage{longtable}
 \usepackage{multirow}
 
-$if(amsmath)$
+$if(amsthm)$
+  \usepackage{amsthm}
+$endif$
+
+$if(customfonts)$
+  \let\digamma\relax  
+  \usepackage{lucimatx}
+$else$
   \usepackage{amsmath}
   \usepackage{amssymb}
-  \usepackage{amsthm}
 $endif$
 
 % texlive 2020

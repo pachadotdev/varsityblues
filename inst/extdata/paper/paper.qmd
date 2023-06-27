@@ -5,6 +5,7 @@ university: 'University of Toronto'
 department: 'Your Department'
 format:
   pdf:
+    pdf-engine: pdflatex # xelatex and other also work
     highlight: tango # "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", "haddock"
     template: "../tex/template.tex"
     keep-tex: false
@@ -14,8 +15,9 @@ fontsize: 12pt
 linespacing: 2.0
 margin: 1
 paper: letterpaper # a4paper, executivepaper, legalpaper, etc also works
-amsmath: true
+customfonts: false
 sansserif: false
+amsthm: true
 creativecommons: by-nc-sa
 ---
 

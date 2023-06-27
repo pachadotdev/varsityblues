@@ -5,6 +5,7 @@ university: 'University of Toronto'
 department: 'Your Department'
 format:
   beamer:
+    pdf-engine: pdflatex # xelatex and other also work
     highlight: tango # "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", "haddock"
     slide-level: 3
     template: "../tex/templatebeamer.tex"
@@ -12,7 +13,8 @@ format:
 bibliography: ../bib/references.bib
 csl: ../csl/chicago_manual_of_style_17th_edition_author_date.csl # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
 fontsize: 12pt
-amsmath: true
+customfonts: true
+amsthm: true
 creativecommons: by-nc-sa
 ---
 

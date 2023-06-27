@@ -23,12 +23,6 @@ $endif$
 \usepackage{longtable}
 \usepackage{multirow}
 
-$if(amsmath)$
-  \usepackage{amsmath}
-  \usepackage{amssymb}
-  \usepackage{amsthm}
-$endif$
-
 $if(linespacing)$
   \usepackage{setspace}
   \setstretch{$linespacing$}
@@ -44,6 +38,18 @@ $if(csl-refs)$
   {\par}
 $endif$
 
+$if(customfonts)$
+  \usepackage[mathlf,textlf,minionint,openg]{MinionPro}
+  \usepackage[cal=boondoxo,bb=lucida,bbscaled=.9]{mathalfa}
+$else$
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+$endif$
+
+$if(amsthm)$
+  \usepackage{amsthm}
+$endif$
+
 $if(sansserif)$
 \usepackage{sansmath}
 \renewcommand{\familydefault}{\sfdefault}
@@ -51,8 +57,8 @@ $if(sansserif)$
 $endif$
 
 $if(creativecommons)$
-\usepackage{hyperxmp}
-\usepackage[type={CC}, modifier={$creativecommons$}, version={4.0}]{doclicense}
+  \usepackage{hyperxmp}
+  \usepackage[type={CC}, modifier={$creativecommons$}, version={4.0}]{doclicense}
 $endif$
 
 \makeindex
