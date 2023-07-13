@@ -12,7 +12,7 @@ format:
 bibliography: ../bib/references.bib
 csl: ../csl/chicago_manual_of_style_17th_edition_author_date.csl # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
 fontsize: 12pt
-linespacing: 2.0
+linespacing: 1.5
 margin: 1
 paper: letterpaper # a4paper, executivepaper, legalpaper, etc also works
 customfonts: false

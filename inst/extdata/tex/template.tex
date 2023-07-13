@@ -25,7 +25,15 @@ $endif$
 
 $if(linespacing)$
   \usepackage{setspace}
+  % custom spacing for paragraphs
   \setstretch{$linespacing$}
+
+  % set spacing 1.0 for tables and code
+  \AtBeginEnvironment{tabular}{\singlespacing}
+  \AtBeginEnvironment{table}{\singlespacing}
+  \AtBeginEnvironment{longtable}{\singlespacing}
+  \AtBeginEnvironment{verbatim}{\singlespacing}
+  \AtBeginEnvironment{Shaded}{\singlespacing}
 $endif$
 
 % texlive >= 2020
@@ -40,7 +48,8 @@ $endif$
 
 $if(customfonts)$
   \usepackage[mathlf,textlf,minionint,openg]{MinionPro}
-  \usepackage[cal=boondoxo,bb=lucida,bbscaled=.9]{mathalfa}
+  % the pkg was renamed
+  \usepackage[cal=boondoxo,bb=lucida,bbscaled=.9]{mathalpha}
 $else$
   \usepackage{amsmath}
   \usepackage{amssymb}
@@ -49,6 +58,11 @@ $endif$
 $if(amsthm)$
   \usepackage{amsthm}
 $endif$
+
+% set text colour to #2c2e35
+\usepackage{xcolor}
+\definecolor{dark}{HTML}{2c2e35}
+\color{dark}
 
 $if(sansserif)$
 \usepackage{sansmath}

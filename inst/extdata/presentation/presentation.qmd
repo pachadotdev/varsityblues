@@ -13,7 +13,7 @@ format:
 bibliography: ../bib/references.bib
 csl: ../csl/chicago_manual_of_style_17th_edition_author_date.csl # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
 fontsize: 12pt
-customfonts: true
+customfonts: false
 amsthm: true
 creativecommons: by-nc-sa
 ---
