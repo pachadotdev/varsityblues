@@ -15,6 +15,9 @@ produce plots and analyses as well.
 This R package will conduct all the steps required to create a pdf document,
 including installing LaTeX if needed.
 
+See https://github.com/pachadotdev/lucida-minion-tex to install a better font
+for your documents.
+
 ## Acknowledgements
 
 This is based on [thesisdown](https://github.com/ismayc/thesisdown), 
