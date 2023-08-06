@@ -10,6 +10,7 @@ abstract: "Defence Against the Dark Arts (in short, DADA) is about how to defend
  and jinxes (dark charms), and duelling."
 format:
   pdf:
+    pdf-engine: pdflatex # xelatex and other also work
     highlight: tango # "default", "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", "haddock"
     template: "../tex/templatethesis.tex"
     top-level-division: chapter
