@@ -1,6 +1,6 @@
 Package: varsityblues
 Title: Writing your UofT assignments, presentations and thesis using Quarto
-Version: 0.6.0
+Version: 0.7.0
 Authors@R: c(person("Mauricio", "Vargas", 
     role = c("aut","cre","cph"), 
     email = "m.sepulveda@mail.utoronto.ca", 

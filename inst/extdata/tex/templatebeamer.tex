@@ -92,34 +92,35 @@ $endif$
 % redefine ball to plain color
 % \useinnertheme{circles}
 
-% plain enumeration
-\setbeamertemplate{enumerate item}{\color{myblue}\insertenumlabel.}
-\setbeamertemplate{enumerate subitem}{\color{myblue}\insertsubenumlabel.}
-\setbeamertemplate{enumerate subsubitem}{\color{myblue}\insertsubsubenumlabel.}
-
 % set enumeration color to myblue
 \setbeamercolor{itemize item}{fg=myblue}
 \setbeamercolor{itemize subitem}{fg=myblue}
 \setbeamercolor{itemize subsubitem}{fg=myblue}
 
-% redefine TOC to use simple enumeration
-% \setbeamertemplate{section in toc}{\color{myblue}\inserttocsectionnumber.~\inserttocsection}
+% plain enumeration
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+
+% use plain enumeration in TOC
+\setbeamertemplate{section in toc}[default]
+\setbeamertemplate{subsection in toc}[default]
 
 % custom title page
 
 % Make a custom block
-\newenvironment<>{customBlock}[1]{%
-  \begin{actionenv}#2%
-      \def\insertblocktitle{#1}%
-      \par%
-      \mode<presentation>{%
-        \setbeamercolor{block title}{fg=white,bg=orange!20!black}
-       \setbeamercolor{block body}{fg=black,bg=olive!50}
-       \setbeamercolor{itemize item}{fg=orange!20!black}
-       \setbeamertemplate{itemize item}[triangle]
-     }%
-      \usebeamertemplate{block begin}}
-    {\par\usebeamertemplate{block end}\end{actionenv}}
+\newenvironment<>{customBlock}[1]{
+  \begin{actionenv}#2
+    \def\insertblocktitle{#1}
+    \par
+    \mode<presentation>{
+      \setbeamercolor{block title}{fg=white,bg=orange!20!black}
+      \setbeamercolor{block body}{fg=black,bg=olive!50}
+      \setbeamercolor{itemize item}{fg=orange!20!black}
+      \setbeamertemplate{itemize item}[triangle]
+    }
+  \usebeamertemplate{block begin}
+}
+{\par\usebeamertemplate{block end}\end{actionenv}}
 
 \begin{document}
 
@@ -158,13 +159,17 @@ $endif$
         % table with text on left and image on the right
         \begin{tabular}{lr}
           % two lines of text as multirow
-            \begin{minipage}{.5\textwidth}
-              \begin{flushleft}
-                {\Large \color{white}{\insertauthor}}\\
-                \vspace{1em}
-                {\Large \color{white}{\insertdate}} 
-              \end{flushleft}
-            \end{minipage}
+          \begin{minipage}{.5\textwidth}
+            \begin{flushleft}
+              {\Large \color{white}{\insertauthor}}\\
+              $if(department)$
+              \vspace{0.2em}
+              {\Large \color{white}{$department$}}\\
+              $endif$
+              \vspace{1em}
+              {\Large \color{white}{\insertdate}} 
+            \end{flushleft}
+          \end{minipage}
             &
           \begin{minipage}{.44\textwidth}
             \begin{flushright}
@@ -207,9 +212,11 @@ $if(creativecommons)$
 \end{frame}
 $endif$
 
+$if(outline)$
 \begin{frame}{Outline}
 \tableofcontents
 \end{frame}
+$endif$
 
 $body$
 

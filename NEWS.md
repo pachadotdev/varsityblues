@@ -1,3 +1,10 @@
+# varsityblues 0.7.0
+
+* All the chunks follow Quarto style
+* The presentation template now is a series of tables and tikz drawings for the
+  title slide that copies the official PPT template
+* I added the option to hide the outline in paper and presentation
+
 # varsityblues 0.5.0
 
 * uses Quarto and Chicago author-date style for references as default

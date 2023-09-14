@@ -19,7 +19,8 @@ csl: ../csl/chicago_manual_of_style_17th_edition_author_date.csl # Download your
 fontsize: 12pt
 customfonts: false
 amsthm: true
-creativecommons: by-nc-sa
+outline: false
+creativecommons: by-nc-sa # can be deleted
 ---
 
 <!--
@@ -136,19 +137,14 @@ You can embed an **R** code chunk like this (`mtcars` is a
 built-in **R** dataset):
 
 ```{r mtcars}
-summary(mtcars)
+str(mtcars)
 ```
 
 ## Inline code
 
-If you'd like to put the results of your analysis directly into your discussion,
-add inline code like this:
-
-> The `cos` of $2 \pi$ is `r cos(2*pi)`. 
-
-Another example would be the direct calculation of the standard deviation:
-
-> The standard deviation of `speed` in `cars` is `r sd(cars$speed)`.
+* If you'd like to put the results of your analysis directly into your discussion,
+add inline code like this: The `cos` of $2 \pi$ is `r cos(2*pi)`. 
+* Another example would be the direct calculation of the standard deviation: The standard deviation of `speed` in `cars` is `r sd(cars$speed)`.
 
 ---
 
@@ -174,7 +170,10 @@ away from your code.
 
 ---
 
-```{r plots, fig.height=2.5, fig.width=4}
+```{r plots}
+#| fig-height: 2
+#| fig-width: 4
+
 library(ggplot2)
 
 ggplot(mtcars) +
@@ -197,7 +196,10 @@ kable(xtabs(~ am, mtcars))
 
 ### Complex table (regression table)
 
-```{r tables2, results='asis', eval=FALSE}
+```{r tables2}
+#| results: 'asis'
+#| eval: false
+
 library(stargazer)
 
 model1 <- lm(mpg ~ cyl, mtcars)
@@ -211,15 +213,20 @@ stargazer(model1, model2, model3, header = F)
 
 Complex table:
 \begin{tiny}
-```{r results='asis', echo=FALSE}
+
+```{r tables3}
+#| results: 'asis'
+#| echo: false
+
 library(stargazer)
 
 model1 <- lm(mpg ~ cyl, mtcars)
 model2 <- lm(mpg ~ cyl + am, mtcars)
 model3 <- lm(mpg ~ cyl + am + wt, mtcars)
 
-stargazer(model1, model2, model3, header = F)
+stargazer(model1, model2, model3, header = F, title = "Regression table")
 ```
+
 \end{tiny}
 
 ## Mathematical equations

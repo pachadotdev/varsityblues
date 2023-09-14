@@ -93,7 +93,11 @@ mathematical text with dollar signs.  More examples of this are in
 Varsity blues already solves all the packages in order to insert plots right
 away from your code.
 
-```{r plots, fig.width=5, fig.height=3, fig.cap="An elementary plot"}
+```{r plots}
+#| fig-width: 5
+#| fig-height: 3
+#| fig-cap: "An elementary plot"
+
 library(ggplot2)
 
 ggplot(mtcars) +
@@ -113,14 +117,16 @@ kable(xtabs(~ am, mtcars))
 
 ### Complex table (regression table)
 
-```{r tables2, results='asis'}
+```{r tables2}
+#| results: 'asis'
+
 library(stargazer)
 
 model1 <- lm(mpg ~ cyl, mtcars)
 model2 <- lm(mpg ~ cyl + am, mtcars)
 model3 <- lm(mpg ~ cyl + am + wt, mtcars)
 
-stargazer(model1, model2, model3, header = F)
+stargazer(model1, model2, model3, header = F, title = "Regression table")
 ```
 
 \newpage
