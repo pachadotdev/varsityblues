@@ -4,7 +4,7 @@ author: 'You R. Name'
 degree: 'Master of Defence Against the Dark Arts'
 university: 'University of Toronto'
 department: 'Witchcraft and Wizardry'
-year: 2022
+year: 2023
 abstract: "Defence Against the Dark Arts (in short, DADA) is about how to defend   
  against all aspects of the Dark Arts, including dark creatures, curses, hexes 
  and jinxes (dark charms), and duelling."
@@ -18,7 +18,6 @@ format:
 bibliography: ../bib/references.bib
 csl: ../csl/chicago_manual_of_style_17th_edition_author_date.csl # Download your specific csl file and refer to it in the line below (see https://www.zotero.org/styles/)
 amsmath: true
-draft: true
 ---
 
 <!--

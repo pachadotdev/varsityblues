@@ -1,18 +1,9 @@
-\documentclass[$fontsize$, aspectratio=169]{beamer}
-\definecolor{myblue}{RGB}{0,42,92}
-\usetheme[progressbar=frametitle]{metropolis}
-\useoutertheme{metropolis}
-\useinnertheme{metropolis}
-\setbeamercolor{background canvas}{bg=white}
-
-%\usecolortheme[named=myblue]{structure}
-\setbeamercolor{frametitle}{bg=myblue}
+\documentclass[$fontsize$, width=$width$, height=$height$]{beamer}
+\usetheme{Boadilla}
 
 $if(pdflatex)$
   \usepackage[protrusion=true,expansion=true]{microtype}
 $endif$
-
-\usepackage[timestamp]{../tex/varsitybluesnotes}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -30,9 +21,8 @@ $else$
   \usepackage{amssymb}
 $endif$
 
-% set link colour to #1e3765
-\definecolor{myblue}{HTML}{1e3765}
-\hypersetup{colorlinks,linkcolor=myblue,urlcolor=myblue}
+\usepackage{tikz}
+\usepackage[framemethod=tikz]{mdframed}
 
 % texlive 2020
 $if(csl-refs)$
@@ -61,18 +51,155 @@ $endif$
 
 \author{$author$}
 \title{$title$}
+\subtitle{$subtitle$}
+\date{$date$}
 
 \makeindex
 
 \pretocmd{\tableofcontents}{\begin{minipage}{\textwidth}}{}{}
 \apptocmd{\tableofcontents}{\end{minipage}}{}{}
 
+% remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% put titles and links in UofT blue
+\definecolor{myblue}{RGB}{0,42,92}
+\setbeamercolor{frametitle}{fg=myblue}
+\hypersetup{colorlinks,linkcolor=myblue,urlcolor=myblue}
+
+% remove footer
+% \setbeamertemplate{footline}{}
+
+% add new footer in myblue with UofT logo
+\setbeamercolor{box}{bg=myblue}
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=7.5ex,left]{box}
+    \includegraphics[height=7.5ex]{../tex/uoftlogowhite.png}
+    % \hspace{0.05\paperwidth}
+    % \insertshortauthor
+    % \hspace{0.05\paperwidth}
+    % \insertshorttitle
+    % \hspace{0.05\paperwidth}
+    % \insertshortdate
+    % \hspace{0.05\paperwidth}
+    % \insertframenumber{} / \inserttotalframenumber
+  \end{beamercolorbox}
+}
+
+% titles in bold
+\setbeamerfont{frametitle}{series=\bfseries}
+
+% redefine ball to plain color
+% \useinnertheme{circles}
+
+% plain enumeration
+\setbeamertemplate{enumerate item}{\color{myblue}\insertenumlabel.}
+\setbeamertemplate{enumerate subitem}{\color{myblue}\insertsubenumlabel.}
+\setbeamertemplate{enumerate subsubitem}{\color{myblue}\insertsubsubenumlabel.}
+
+% set enumeration color to myblue
+\setbeamercolor{itemize item}{fg=myblue}
+\setbeamercolor{itemize subitem}{fg=myblue}
+\setbeamercolor{itemize subsubitem}{fg=myblue}
+
+% redefine TOC to use simple enumeration
+% \setbeamertemplate{section in toc}{\color{myblue}\inserttocsectionnumber.~\inserttocsection}
+
+% custom title page
+
+% Make a custom block
+\newenvironment<>{customBlock}[1]{%
+  \begin{actionenv}#2%
+      \def\insertblocktitle{#1}%
+      \par%
+      \mode<presentation>{%
+        \setbeamercolor{block title}{fg=white,bg=orange!20!black}
+       \setbeamercolor{block body}{fg=black,bg=olive!50}
+       \setbeamercolor{itemize item}{fg=orange!20!black}
+       \setbeamertemplate{itemize item}[triangle]
+     }%
+      \usebeamertemplate{block begin}}
+    {\par\usebeamertemplate{block end}\end{actionenv}}
+
 \begin{document}
 
+% My fancy title page, using transparent text box from mdframe, and icons from fontawesome
+{ 
+  \hoffset=-12pt
+  \begin{frame}[plain,t] 
+
+    \vspace{2em}
+
+    \begin{tikzpicture}
+      \node[text width=\paperwidth, fill=white] at (0,0) {
+        \begin{tabular}{l}
+          \begin{minipage}{\textwidth}
+            \vspace{3em}
+            {\huge \color{myblue}{\inserttitle}}
+            % if subtitle is not empty, add it
+            $if(subtitle)$
+              \vspace{1em}
+              {\newline\Large \color{myblue}{\insertsubtitle}}
+            $endif$
+          \end{minipage}
+        \end{tabular}
+      };
+    \end{tikzpicture}
+    
+    % ifelse subtitle is empty, add some space
+    $if(subtitle)$
+      \vspace{1em}
+    $else$
+      \vspace{3em}
+    $endif$
+
+    \begin{tikzpicture}
+      \node[text width=\paperwidth, fill=myblue] at (0,0) {
+        % table with text on left and image on the right
+        \begin{tabular}{lr}
+          % two lines of text as multirow
+            \begin{minipage}{.5\textwidth}
+              \begin{flushleft}
+                {\Large \color{white}{\insertauthor}}\\
+                \vspace{1em}
+                {\Large \color{white}{\insertdate}} 
+              \end{flushleft}
+            \end{minipage}
+            &
+          \begin{minipage}{.44\textwidth}
+            \begin{flushright}
+              \includegraphics[width=0.30\paperwidth]{../tex/uofthall.png}
+            \end{flushright}
+          \end{minipage}
+        \end{tabular}
+      };
+    \end{tikzpicture}
+
+    % ifelse subtitle is empty, add some space
+    $if(subtitle)$
+      \vspace{1em}
+    $else$
+      \vspace{2em}
+    $endif$
+
+    \begin{tikzpicture}
+      \node[text width=\paperwidth, fill=white] at (0,0) {
+        \begin{tabular}{l}
+          \includegraphics[width=0.2\paperwidth]{../tex/uoftlogoblue.png}
+        \end{tabular}
+      };
+    \end{tikzpicture}   
+
+  \end{frame}
+}
+
+% restore hoffset
+\hoffset=0pt
+
 % Title page frame
-\begin{frame}
-  \titlepage
-\end{frame}
+% \begin{frame}
+%   \titlepage
+% \end{frame}
 
 $if(creativecommons)$
 \begin{frame}

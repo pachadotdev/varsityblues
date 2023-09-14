@@ -61,21 +61,18 @@
 \LoadClass{book}
 \RequirePackage{geometry} % for margins etc.
 \RequirePackage{setspace} % for line spacing
-\RequirePackage{../tex/timestamp}
 \renewcommand*{\author}  [1]{\gdef\@author{#1}}
 \renewcommand*{\title}   [1]{\gdef\@title{#1}}
 \newcommand*{\degree}    [1]{\gdef\@degree{#1}}
 \newcommand*{\gradyear}  [1]{\gdef\@gradyear{#1}}
 \newcommand*{\department}[2][Department of]%
   {\gdef\@deptpre{#1}\gdef\@deptname{#2}}
-\newcommand*{\draft}    [1]{\gdef\@draft{#1}}
 \newcommand*{\copyrighttext}[1]{\gdef\@copyrighttext{#1}}
 \author    {(author)}
 \title     {(title)}
 \degree    {(degree)}
 \gradyear  {(gradyear)}
 \department{(department)}
-\draft{(draft)}
 \copyrighttext{{\copyright} Copyright {\@gradyear} by {\@author}}
 \g@addto@macro\frontmatter{\pagenumbering{roman}\pagestyle{plain}}
 \g@addto@macro\mainmatter {\pagenumbering{arabic}\pagestyle{headings}}
@@ -87,10 +84,6 @@
       \null
       \vfill
       \textsc{\@title}
-      % add timestamp if draft is true
-      \ifthenelse{\equal{\@draft}{true}}{
-        \vfill
-        \textsc{v.~\@timestamp}}{}
       \vfill
       by
       \vfill

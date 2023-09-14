@@ -1,6 +1,10 @@
 ---
-title: 'My Presentation'
+title: 'My Title'
+subtitle: 'My Subtitle'
 author: 'You R. Name'
+date: 2023-09-07
+width: 10in
+height: 7.5in
 university: 'University of Toronto'
 department: 'Your Department'
 format:
@@ -96,6 +100,13 @@ tab).  (Here's one case where indentation is key!)
 1. Item 3
     - Item 3a
     - Item 3b
+
+---
+
+* one
+  * two
+    - two point one
+    - two point two
 
 ## Line breaks
 

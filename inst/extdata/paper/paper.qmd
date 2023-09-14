@@ -1,6 +1,7 @@
 ---
 title: 'My Paper'
 author: 'You R. Name'
+date: 2023-09-07
 university: 'University of Toronto'
 department: 'Your Department'
 format:
