@@ -191,7 +191,7 @@ order to use different types of tables in \LaTeX.
 
 Simple table:
 ```{r tables}
-kable(xtabs(~ am, mtcars))
+kable(xtabs(~am, mtcars))
 ```
 
 ### Complex table (regression table)

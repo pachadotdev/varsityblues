@@ -1,3 +1,7 @@
+# varsityblues 0.7.1
+
+* Print last update with yyyy-mm-dd hh:mm
+
 # varsityblues 0.7.0
 
 * All the chunks follow Quarto style

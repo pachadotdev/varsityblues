@@ -20,6 +20,10 @@ $endif$
 \usepackage{longtable}
 \usepackage{multirow}
 
+\usepackage{datetime}
+\renewcommand{\dateseparator}{-}
+\yyyymmdddate
+
 $if(linespacing)$
   \usepackage{setspace}
   % custom spacing for paragraphs
@@ -88,7 +92,7 @@ $endif$
 
 \author{$author$\\$department$, $university$}
 \title{$title$}
-\date{$date$}
+\date{Last updated: \today\ \currenttime}
 
 \setlength\parindent{0pt}
 \setlength\parskip{2pt}
