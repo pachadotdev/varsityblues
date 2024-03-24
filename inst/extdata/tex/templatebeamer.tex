@@ -22,7 +22,6 @@ $else$
 $endif$
 
 \usepackage{tikz}
-\usepackage[framemethod=tikz]{mdframed}
 
 % texlive 2020
 $if(csl-refs)$
@@ -105,106 +104,41 @@ $endif$
 \setbeamertemplate{section in toc}[default]
 \setbeamertemplate{subsection in toc}[default]
 
-% custom title page
-
-% Make a custom block
-\newenvironment<>{customBlock}[1]{
-  \begin{actionenv}#2
-    \def\insertblocktitle{#1}
-    \par
-    \mode<presentation>{
-      \setbeamercolor{block title}{fg=white,bg=orange!20!black}
-      \setbeamercolor{block body}{fg=black,bg=olive!50}
-      \setbeamercolor{itemize item}{fg=orange!20!black}
-      \setbeamertemplate{itemize item}[triangle]
-    }
-  \usebeamertemplate{block begin}
-}
-{\par\usebeamertemplate{block end}\end{actionenv}}
-
 \begin{document}
-
-% My fancy title page, using transparent text box from mdframe, and icons from fontawesome
-{ 
-  \hoffset=-12pt
-  \begin{frame}[plain,t] 
-
-    \vspace{2em}
-
-    \begin{tikzpicture}
-      \node[text width=\paperwidth, fill=white] at (0,0) {
-        \begin{tabular}{l}
-          \begin{minipage}{\textwidth}
-            \vspace{3em}
-            {\huge \color{myblue}{\inserttitle}}
-            % if subtitle is not empty, add it
-            $if(subtitle)$
-              \vspace{1em}
-              {\newline\Large \color{myblue}{\insertsubtitle}}
-            $endif$
-          \end{minipage}
-        \end{tabular}
-      };
-    \end{tikzpicture}
-    
-    % ifelse subtitle is empty, add some space
-    $if(subtitle)$
-      \vspace{1em}
-    $else$
-      \vspace{3em}
-    $endif$
-
-    \begin{tikzpicture}
-      \node[text width=\paperwidth, fill=myblue] at (0,0) {
-        % table with text on left and image on the right
-        \begin{tabular}{lr}
-          % two lines of text as multirow
-          \begin{minipage}{.7\textwidth}
-            \begin{flushleft}
-              {\Large \color{white}{\insertauthor}}\\
-              $if(department)$
-              \vspace{0.2em}
-              {\Large \color{white}{$department$}}\\
-              $endif$
-              \vspace{1em}
-              {\Large \color{white}{\insertdate}} 
-            \end{flushleft}
-          \end{minipage}
-            &
-          \begin{minipage}{.3\textwidth}
-            \begin{flushright}
-              \includegraphics[width=0.3\paperwidth]{../tex/uofthall.png}
-            \end{flushright}
-          \end{minipage}
-        \end{tabular}
-      };
-    \end{tikzpicture}
-
-    % ifelse subtitle is empty, add some space
-    $if(subtitle)$
-      \vspace{1em}
-    $else$
-      \vspace{2em}
-    $endif$
-
-    \begin{tikzpicture}
-      \node[text width=\paperwidth, fill=white] at (0,0) {
-        \begin{tabular}{l}
-          \includegraphics[width=0.2\paperwidth]{../tex/uoftlogoblue.png}
-        \end{tabular}
-      };
-    \end{tikzpicture}   
-
-  \end{frame}
-}
-
-% restore hoffset
-\hoffset=0pt
 
 % Title page frame
 % \begin{frame}
 %   \titlepage
 % \end{frame}
+
+\begin{frame}[plain,t]
+  \begin{tikzpicture}[remember picture,overlay]
+    % Title
+    \node[anchor=north west, text width=\textwidth] (title) at ([yshift=-2cm]current page.north west) {
+      {\huge \color{myblue}{\textbf\inserttitle}}
+    };
+    % Subtitle
+    $if(subtitle)$
+    \node[anchor=north west, text width=\textwidth] (subtitle) at ([yshift=-1cm]title.south west) {
+      {\Large \color{myblue}{\textbf\insertsubtitle}}
+    };
+    $endif$
+    % Author and date
+    \node[anchor=north west, text width=\paperwidth, text=white, fill=myblue] (author) at ([yshift=-3cm]title.south west) {
+      {\large \insertauthor}\\
+      $if(department)$
+      \vspace{0.5em}
+      {\large $department$}\\
+      $endif$
+      \vspace{0.5em}
+      {\large \insertdate}
+    };
+    % UofT logo
+    \node[anchor=south east] at (current page.south east) {
+      \includegraphics[width=0.2\paperwidth]{../tex/uoftlogoblue.png}
+    };
+  \end{tikzpicture}
+\end{frame}
 
 $if(creativecommons)$
 \begin{frame}

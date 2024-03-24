@@ -1,6 +1,7 @@
 # varsityblues 0.7.1
 
 * Print last update with yyyy-mm-dd hh:mm
+* Simplify the presentation template
 
 # varsityblues 0.7.0
 
